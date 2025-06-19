@@ -7,7 +7,7 @@
   "alwaysBranch" : false,
   "dropConfig" : {
     "drops" : [
-      [ { "item" : "alienstripedwood", "count" : 3 } ]
+      [ { "item" : "starforge-withersample", "count" : 1 } ]
     ],
     "sounds" : {
       "breakTree" : [
