@@ -2,7 +2,7 @@
   "materialId" : 2914,
   "materialName" : "starforge-witherstone",
   "particleColor" : [100, 106, 106, 255],
-  "itemDrop" : "Withered Stone",
+  "itemDrop" : "cobblestonematerial",
   "description" : "This rock is completely covered in small Wither particules.",
   "shortdescription" : "Withered Stone",
   "glitchDescription" : "Cautious. This rock might not be safe to touch.",

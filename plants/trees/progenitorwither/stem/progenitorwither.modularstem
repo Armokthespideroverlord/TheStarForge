@@ -1,13 +1,14 @@
 {
   "name" : "starforge-progenitorwither",
-  "shape" : "alien",
+  "shape" : "progenitor",
   "health" : 10,
-  "middleMinSize" : 3,
-  "middleMaxSize" : 7,
+  "middleMinSize" : 5,
+  "middleMaxSize" : 10,
   "alwaysBranch" : false,
   "dropConfig" : {
     "drops" : [
-      [ { "item" : "starforge-withersample", "count" : 1 } ]
+      [ { "item" : "starforge-withersample", "count" : 1 },
+        { "item" : "logblock", "count" : 1 }	  ]
     ],
     "sounds" : {
       "breakTree" : [
@@ -71,27 +72,27 @@
     "base1" : {
       "image" : "base1.png",
       "attachment" : {
-        "bx" : 0,
+        "bx" : -5,
         "by" : 0,
-        "x" : 6,
+        "x" : 8,
         "y" : 20
       }
     },
     "base2" : {
       "image" : "base2.png",
       "attachment" : {
-        "bx" : 0,
+        "bx" : -5,
         "by" : 0,
-        "x" : 5,
+        "x" : 8,
         "y" : 20
       }
     },
     "base3" : {
       "image" : "base3.png",
       "attachment" : {
-        "bx" : 0,
+        "bx" : -5,
         "by" : 0,
-        "x" : 4,
+        "x" : 8,
         "y" : 20
       }
     }
@@ -101,21 +102,21 @@
       "image" : "crown1.png",
       "attachment" : {
         "bx" : -84,
-        "by" : -16
+        "by" : -9
       }
     },
     "crown2" : {
       "image" : "crown2.png",
       "attachment" : {
         "bx" : -85,
-        "by" : -16
+        "by" : -9
       }
     },
     "crown3" : {
       "image" : "crown3.png",
       "attachment" : {
         "bx" : -85,
-        "by" : -16
+        "by" : -9
       }
     }
   },
@@ -123,9 +124,9 @@
     "middle1" : {
       "image" : "middle1.png",
       "attachment" : {
-        "bx" : -4,
+        "bx" : -5,
         "by" : 0,
-        "x" : 7,
+        "x" : 5,
         "y" : 20
       }
     },
@@ -161,7 +162,7 @@
     "branch1" : {
       "image" : "branch1.png",
       "attachment" : {
-        "bx" : -78,
+        "bx" : -70,
         "by" : -30,
         "h" : 40
       }

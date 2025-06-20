@@ -12,14 +12,6 @@
         ]
       },
       {
-        "select" : 1,
-        "pool" : [
-          [ 0.4, "blueback" ],
-          [ 0.3, "greentip" ],
-          [ 0.3, "redwing" ]
-        ]
-      },
-      {
         "select" : 4,
         "pool" : [
           [ 1, "starforge-blackrotbugcritter" ],
@@ -41,7 +33,7 @@
 
   "weather" : [
     [0, [
-      "/weather.config:forest"
+      "/weather.config:scorchedcity"
     ]]
   ],
 
@@ -204,8 +196,8 @@
         "type" : "tree",
         "treeFoliageHueShiftMax" : 180,
         "treeStemHueShiftMax" : 15,
-        "treeStemList" : [ "weeping" ],
-        "treeFoliageList" : [ "weepingleaves" ]
+        "treeStemList" : [ "starforge-progenitorwither" ],
+        "treeFoliageList" : [ "starforge-progenitorblank" ]
       },
 
       // CROPS

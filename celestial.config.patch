@@ -36,18 +36,6 @@
 			"op":"add",
 			"path":"/planetaryTypes/Tier4/baseParameters/terrestrialType/-",
 			"value":"starforge-withered"
-		},
-		
-		{
-			"op":"add",
-			"path":"/planetaryTypes/Tier5/baseParameters/terrestrialType/-",
-			"value":"starforge-withered"
-		},
-		
-		{
-			"op":"add",
-			"path":"/planetaryTypes/Tier6/baseParameters/terrestrialType/-",
-			"value":"starforge-withered"
 		}
 		
 	],

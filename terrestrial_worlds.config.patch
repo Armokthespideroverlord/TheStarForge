@@ -5,7 +5,7 @@
     "op": "add",
     "path": "/planetTypes/starforge-withered",
     "value": {
-      "threatRange" : [4, 6], // Planet tier
+      "threatRange" : [4, 4], // Planet tier
       "layers": {
         "surface": {
           "primaryRegion" : ["starforge-progenitorwither"], // Planet primary region

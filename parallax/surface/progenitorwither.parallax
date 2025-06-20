@@ -43,11 +43,25 @@
       "offset" : [0, 50],
       "parallax" : [1.8, 2]
     },
+	{
+      "kind" : "progenitormist3",
+      "offset" : [0, 75],
+	  "minSpeed" : 4000,
+      "maxSpeed" : 4000,
+      "parallax" : [1.6, 2]
+    },
     {
       "kind" : "progenitortrees1",
       "offset" : [0, 50],
       "parallax" : [1.81, 2],
       "fadePercent" : 0.01
+    },
+	{
+      "kind" : "progenitormist2",
+      "offset" : [0, 50],
+	  "minSpeed" : 4000,
+      "maxSpeed" : 4000,
+      "parallax" : [1.9, 2.1]
     },
     {
       "kind" : "progenitorwither2",
@@ -58,6 +72,13 @@
       "kind" : "progenitorwither3",
       "offset" : [0, 50],
       "parallax" : [3, 2.4]
+    },
+	{
+      "kind" : "progenitormist",
+      "offset" : [0, 50],
+	  "minSpeed" : 4000,
+      "maxSpeed" : 4000,
+      "parallax" : [3.5, 2.6]
     },
     {
       "kind" : "progenitorwither4",
