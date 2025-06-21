@@ -7,9 +7,9 @@
   "rarity" : "Essential",
   "description" : "A tainted avolite, taking on an azure hue, said to guide its followers to the truth. ^red;[PROTOTYPE]^reset;",
   "shortdescription" : "Tear of Perception",
-  "tooltipKind" : "base",
+  "tooltipKind": "starforge-uniquegun",
   "category": "uniqueWeapon",
-  "tooltipFields" : {"subtitle":"Artefact"},
+  "tooltipFieldsOverride" : {"subtitle":"Artefact"},
   "twoHanded" : true,
   "itemTags" : ["weapon","ranged","pistol"],
 
@@ -19,9 +19,9 @@
   "animationParts" : {
     "ring" : "starforge-tearoftheguidinglightring.png",
     "crystal" : "starforge-tearoftheguidinglightcrystal.png",
-	"firingPulse" : "starforge-tearoftheguidinglightbeamcharge.png",
+	  "firingPulse" : "starforge-tearoftheguidinglightbeamcharge.png",
 	
-	"shield" : "starforge-beamshield.png"
+	  "shield" : "starforge-beamshield.png"
   },
   "animationCustom" : {
     "sounds" : {
@@ -30,8 +30,8 @@
       "fireEnd" : [],
       "beamImpact" : [],
       "raiseShield" : [ "/sfx/melee/sword_guard.ogg" ],
-	  "shieldHit" : [ "/sfx/melee/shield_block_metal.ogg" ],
-	  "shieldBurst" : [ "/sfx/melee/sword_guard.ogg" ]
+	    "shieldHit" : [ "/sfx/melee/shield_block_metal.ogg" ],
+      "shieldBurst" : [ "/sfx/melee/sword_guard.ogg" ]
     }
   },
   "animationScripts" : ["/items/active/effects/starforge-enhancedchain.lua"],
@@ -57,37 +57,37 @@
       "knockback" : 2
     },
 	
-	//Projectiles along beam
+	  //Projectiles along beam
     "beamProjectileType" : "watersplash",
     "beamProjectileParameters" : {
-	  "speed" : 0,
-	  "timeToLive" : 1,
-	  "periodicActions" : [
-		{
-		  "time" : 0.01,
-		  "repeat" : false,
-		  "action" : "particle",
-		  "rotate" : true,
-		  "specification" : "starforge-tearbeamparticles"
-		}
-	  ]
+      "speed" : 0,
+      "timeToLive" : 1,
+      "periodicActions" : [
+        {
+          "time" : 0.01,
+          "repeat" : false,
+          "action" : "particle",
+          "rotate" : true,
+          "specification" : "starforge-tearbeamparticles"
+        }
+      ]
     },
 	
-	"chargeTime" : 2,
-	"projectileCount" : 5,
+    "chargeTime" : 2,
+    "projectileCount" : 5,
     "projectileType" : "starforge-tearofperceptionbolt",
     "projectileParameters" : {
     },
 
-	"crystalPosition" : [-4, 1],
+    "crystalPosition" : [-4, 1],
 
-	"firingDirectives" : "?replace;002776=0073D9;104EB8=60A8EA;4ABBFF=B6DAFA;68DFFF=DEEEFD;5898FF=FEFFFF",
-	"fireEmote" : "annoyed",
+    "firingDirectives" : "?replace;002776=0073D9;104EB8=60A8EA;4ABBFF=B6DAFA;68DFFF=DEEEFD;5898FF=FEFFFF",
+    "fireEmote" : "annoyed",
 
     "beamLength" : 75,
-	"laserPiercing" : false,
+	  "laserPiercing" : false,
 	
-	"animatedChain" : true,
+	  "animatedChain" : true,
     "chainAnimationTime" : 0.5,
     "chainAnimationFrames" : 8,
 	
@@ -116,8 +116,8 @@
       "idle" : {
         "armRotation" : 0,
         "weaponRotation" : 0,
-		"frontArmFrame" : "swim.2",
-		"backArmFrame" : "swim.2",
+	    	"frontArmFrame" : "swim.2",
+		    "backArmFrame" : "swim.2",
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -127,8 +127,8 @@
         "duration" : 0,
         "armRotation" : 0,
         "weaponRotation" : 0,
-		"frontArmFrame" : "swim.2",
-		"backArmFrame" : "swim.2",
+        "frontArmFrame" : "swim.2",
+        "backArmFrame" : "swim.2",
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -138,8 +138,8 @@
         "duration" : 0.1,
         "armRotation" : 0,
         "weaponRotation" : 0,
-		"frontArmFrame" : "swim.2",
-		"backArmFrame" : "swim.2",
+        "frontArmFrame" : "swim.2",
+        "backArmFrame" : "swim.2",
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -154,38 +154,37 @@
     "class" : "StarForgeFloatingShield",
 
     "cooldownTime" : 1.0,
-	"energyUsage" : 55,
-	"knockback" : 12,
-	
-	//Projectile config
-	"blastOnShieldHit" : true,
-	"baseDamage" : 8,
-	"projectileCount" : 3,
+    "energyUsage" : 55,
+    "knockback" : 12,
+    
+    //Projectile config
+    "blastOnShieldHit" : true,
+    "baseDamage" : 8,
+    "projectileCount" : 3,
     "blastCooldownTime" : 0.75,
-	"projectileType" : "starforge-tearofperceptionbolt",
-	"projectileParameters" : {
-    },
-	
-	"shieldOffset" : [1, 0],
+    "projectileType" : "starforge-tearofperceptionbolt",
+    "projectileParameters" : {},
+    
+    "shieldOffset" : [1, 0],
 
     "stances" : {
       "defendwindup" : {
         "duration" : 0.01,
         "armRotation" : 0,
         "weaponRotation" : 0,
-		"frontArmFrame" : "swim.2",
-		"backArmFrame" : "swim.2",
+	    	"frontArmFrame" : "swim.2",
+		    "backArmFrame" : "swim.2",
         "twoHanded" : true,
 
         "allowRotate" : false,
         "allowFlip" : true
       },
-	  "defend" : {
+	    "defend" : {
         "duration" : 0,
         "armRotation" : 0,
         "weaponRotation" : 0,
-		"frontArmFrame" : "swim.2",
-		"backArmFrame" : "swim.2",
+        "frontArmFrame" : "swim.2",
+        "backArmFrame" : "swim.2",
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -194,5 +193,5 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

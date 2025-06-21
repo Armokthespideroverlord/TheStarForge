@@ -7,9 +7,12 @@
   "description" : "A massive fang carved into a blade. Often used by the Yukai Witches during their rituals.",
   "shortdescription" : "Yukai Dagger",
   "tooltipKind" : "sword",
-  "category" : "dagger",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","shortsword", "dagger"],
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger", "yukai" ],
 
   "inventoryIcon" : "yukaiknife.png",
 
@@ -33,9 +36,9 @@
       "damageSourceKind" : "dagger",
       "knockbackMode" : "aim",
       "timeout" : 0.25,
-	  "statusEffects" : [ "starforge-lightbleeding" ]
+	    "statusEffects" : [ "starforge-lightbleeding" ]
     }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

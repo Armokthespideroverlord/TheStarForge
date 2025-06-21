@@ -8,9 +8,12 @@
   "description" : "A golden trident infused with the flame of a dragon.",
   "shortdescription" : "Existar",
   "tooltipKind" : "starforge-uniquesword",
-  "category" : "Spellglaive",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear" ],
   "learnBlueprintsOnPickup" : [ "starforge-existar" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
@@ -25,7 +28,17 @@
     "swoosh" : "fire",
 	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-firemuzzleflash.png"
   },
-  "animationCustom" : {},
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "properties" : {
+            "fullbright" : true
+          }
+        }
+      }
+    }
+  },
 
   "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
@@ -33,7 +46,12 @@
 
   "primaryAbilityType" : "starforge-spellglaivecombo",
   "primaryAbility" : {
-    "baseDps" : 8.5
+    "baseDps" : 8.5,
+    
+    "damageConfig" : {
+      "damageSourceKind" : "fire",
+      "statusEffects" : [ "starforge-bleeding" ]
+    }
   },
   
   "altAbilityType" : "starforge-spellglaiveblast",
@@ -41,23 +59,23 @@
 	"projectileType" : "dragonfirelarge",
 	"projectileParameters" : {
 	  "movementSettings" : {
-		"gravityMultiplier" : 1
+	  	"gravityMultiplier" : 1
 	  },
 	  
 	  "speed" : 45,
 	  
 	  "actionOnReap": [
-		{
-		  "action" : "config",
-		  "file" : "/projectiles/explosions/vsmallregularexplosion/vsmallregularexplosionnodamage.config"
-		},
-		{
-		  "inheritDamageFactor": 0.2,
-		  "angleAdjust": 0,
-		  "fuzzAngle": 30,
-		  "type": "largefirecloud",
-		  "action": "projectile"
-		}
+      {
+        "action" : "config",
+        "file" : "/projectiles/explosions/vsmallregularexplosion/vsmallregularexplosionnodamage.config"
+      },
+      {
+        "inheritDamageFactor": 0.2,
+        "angleAdjust": 0,
+        "fuzzAngle": 30,
+        "type": "largefirecloud",
+        "action": "projectile"
+      }
 	  ]
 	},
 

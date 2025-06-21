@@ -6,10 +6,13 @@
   "description": "A large rock blaster that grows attached to your arm.",
   "shortdescription": "Fracture",
   "tooltipKind": "starforge-uniquegun",
-  "category": "Rock Arm",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Arm Cannon"
+  },
   "twoHanded": true,
   "level" : 5,
-  "itemTags": [ "weapon", "ranged", "bossdrop" ],
+  "itemTags" : [ "starforge", "weapon", "ranged", "armcannon" ],
   "inventoryIcon": "starforge-fracture.png",
   
   "animation": "/items/active/weapons/ranged/starforge-gun.animation",
@@ -17,7 +20,7 @@
     "butt": "",
     "middle": "starforge-fracture.png",
     "barrel": "",
-	"muzzleFlash": ""
+	  "muzzleFlash": ""
   },
   "animationCustom": {
     "sounds": {
@@ -91,7 +94,68 @@
         "backArmFrame" : "swim.4"
       }
     }
+  },  
+
+  "altAbility": {
+    "name" : "Rock Burst",
+    "scripts": [ "/items/active/weapons/ranged/starforge-gunfire.lua" ],
+    "class": "StarforgeGunFire",
+	
+    "fireTime": 0.35,
+    "baseDps": 6.5,
+    "energyUsage": 30,
+    "inaccuracy": 0.007,
+	
+    "projectileCount": 1,
+    "fireType": "burst",
+    "burstCount" : 3,
+    "burstTime" : 0.1,
+	
+    "projectileType": "starforge-fracturerock",
+    "projectileParameters": {
+      "speed": 30,
+      "knockback": 10
+    },
+	
+    "stances": {
+      "idle": {
+        "armRotation": 0,
+        "weaponRotation": 0,
+        "weaponOffset" : [0, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		//"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      },
+      "fire": {
+        "duration": 0.05,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.25, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		"recoil" : true,
+		
+		//"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      },
+      "cooldown": {
+        "duration": 0.7,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.25, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		//"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      }
+    }
   },
   
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

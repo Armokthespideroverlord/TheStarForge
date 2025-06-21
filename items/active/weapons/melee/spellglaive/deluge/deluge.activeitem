@@ -8,10 +8,12 @@
   "description" : "A spellglaive made to hunt large predators from the Tide using powerful tidal spikes.",
   "shortdescription" : "Deluge",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "spear",
-  "tooltipFieldsOverride" : {"subtitle":"Spellglaive"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear", "tide" ],
   "learnBlueprintsOnPickup" : [ "starforge-deluge" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",

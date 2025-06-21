@@ -3,24 +3,27 @@
   "price" : 5000,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "category" : "fistWeapon",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Fist Weapon"
+  },
   "level" : 7,
   "twoHanded" : false,
-  "tooltipKind" : "fistWeapon",
+  "tooltipKind" : "starforge-uniquesword",
   "inventoryIcon" : [
     {"image" : "type44gauntlet.png:front"},
     {"image" : "type44gauntletfullbright.png:front"}
   ],
-  "description" : "An experimental Unbound gauntlet.",
+  "description" : "The product of a reckless merger of ancient technology and Unbound ambition.",
   "shortdescription" : "^orange;Type-44 Gauntlet^reset;",
-  "itemTags" : ["weapon", "melee", "fist", "apex", "unbound"],
+  "itemTags" : [ "starforge", "weapon", "melee", "fist", "unbound" ],
   "learnBlueprintsOnPickup" : [ "starforge-type44gauntlet" ],
 
   "animation" : "type44gauntlet.animation",
   "animationParts" : {
     "weapon" : "type44gauntlet.png",
     "weaponFullbright" : "type44gauntletfullbright.png",
-	"parryShield" : "shield/parryshield.png",
+  	"parryShield" : "shield/parryshield.png",
 	
     "swoosh" : "physical"
   },
@@ -168,5 +171,5 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildfist.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

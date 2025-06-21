@@ -7,9 +7,12 @@
   "description" : "A massive cleaver capable of cutting down trees easily",
   "shortdescription" : "Rubium Cleaver",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
 
   "inventoryIcon" : "rubiumcleaver.png",
 
@@ -29,7 +32,7 @@
     "fireTime" : 1.20,
     "baseDps" : 7.5
   },
-    "altAbilityType" : "giantsword",
+  "altAbilityType" : "giantsword",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

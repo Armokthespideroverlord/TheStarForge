@@ -7,10 +7,12 @@
   "description" : "A Yukai glaive, capable of firing strong blasts of energy from its blade.",
   "shortdescription" : "Spellslinger",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "spear",
-  "tooltipFieldsOverride" : {"subtitle":"Spellglaive"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear", "yukai" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
 
@@ -19,12 +21,35 @@
   "animation" : "/items/active/weapons/melee/spellglaive/spellglaive.animation",
   "animationParts" : {
     "blade" : "spellslinger.png",
-	"bladeFullbright" : "spellslingerfullbright.png",
+	  "bladeFullbright" : "spellslingerfullbright.png",
 	
     "swoosh" : "physical",
-	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-yukaienergymuzzle.png"
+	  "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-yukaienergymuzzle.png"
   },
-  "animationCustom" : {},
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "partStates" : {
+            "swoosh" : {
+              "idle" : {
+                "properties" : {
+                  "image" : ""
+                }
+              },
+              "fire3" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
+                  "offset" : [-2, 1.75],
+                  "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
 
   "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
@@ -32,24 +57,29 @@
 
   "primaryAbilityType" : "starforge-spellglaivecombo",
   "primaryAbility" : {
-    "baseDps" : 10.0
+    "baseDps" : 10.0,
+    
+    "damageConfig" : {
+      "damageSourceKind" : "bow",
+      "statusEffects" : [ "starforge-bleeding" ]
+    }
   },
   
   "altAbilityType" : "starforge-spellglaiveblast",
   "altAbility" : {
-	"projectileType" : "starforge-electricfluxbolt",
-	"projectileParameters" : {
-	  "damageKind" : "plasmabullet",
-	  "knockback": 15
-	},
+    "projectileType" : "starforge-electricfluxbolt",
+    "projectileParameters" : {
+      "damageKind" : "plasmabullet",
+      "knockback": 15
+    },
 
-	"projectileCount" : 1,
-	"inaccuracy": 0.005,
-	"baseDamage" : 9,
-	"energyUsage" : 35,
-	
-	"fireTime" : 0.9,
-	"fireType" : "auto"
+    "projectileCount" : 1,
+    "inaccuracy": 0.005,
+    "baseDamage" : 9,
+    "energyUsage" : 35,
+    
+    "fireTime" : 0.9,
+    "fireType" : "auto"
   },
 
   "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"

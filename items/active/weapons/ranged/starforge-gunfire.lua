@@ -5,14 +5,15 @@ require "/scripts/c5easing.lua"
 StarforgeGunFire = WeaponAbility:new()
 
 function StarforgeGunFire:init()
-  self.weapon:setStance(self.stances.idle)
+  self.weapon:setStance(self.weapon.abilities[1].stances.idle)
 
   self.cooldownTimer = self.fireTime
   
   self.unholster = self.stances.unholsterTwirl
 
   self.weapon.onLeaveAbility = function()
-    self.weapon:setStance(self.stances.idle)
+    self.weapon:setStance(self.weapon.abilities[1].stances.idle)
+    self:reset()
   end
 end
 
@@ -31,12 +32,12 @@ function StarforgeGunFire:update(dt, fireMode, shiftHeld)
     and not status.resourceLocked("energy")
     and not world.lineTileCollision(mcontroller.position(), self:firePosition()) then
 
-    if self.fireType == "auto" and status.overConsumeResource("energy", self:energyPerShot()) then
+    if self.chargeTime then
+      self:setState(self.charge)    
+    elseif self.fireType == "auto" and status.overConsumeResource("energy", self:energyPerShot()) then
       self:setState(self.auto)
     elseif self.fireType == "burst" then
       self:setState(self.burst)
-    elseif self.fireType == "charge" and status.overConsumeResource("energy", self:energyPerShot()) then
-      self:setState(self.charge)
     end
   end
   
@@ -60,6 +61,9 @@ function StarforgeGunFire:auto()
 
   self.projectileId = self:fireProjectile()
   self:muzzleFlash()
+  if self.knockbackForce then
+    self:knockbackFire()
+  end
 
   if self.stances.fire.duration then
     util.wait(self.stances.fire.duration)
@@ -78,11 +82,11 @@ function StarforgeGunFire:unholsterTwirl()
   local progress = 0
   util.wait(self.stances.unholsterTwirl.duration, function()
     local from = self.stances.unholsterTwirl.weaponOffset or {0,0}
-    local to = self.stances.idle.weaponOffset or {0,0}
+    local to = self.weapon.abilities[1].stances.idle.weaponOffset or {0,0}
     self.weapon.weaponOffset = {c5Easing.easeOut(progress, from[1], to[1]), c5Easing.easeOut(progress, from[2], to[2])}
 	
-    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.unholsterTwirl.weaponRotation, self.stances.idle.weaponRotation))
-    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.unholsterTwirl.armRotation, self.stances.idle.armRotation))
+    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.unholsterTwirl.weaponRotation, self.weapon.abilities[1].stances.idle.weaponRotation))
+    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.unholsterTwirl.armRotation, self.weapon.abilities[1].stances.idle.armRotation))
 
     progress = math.min(1.0, progress + (self.dt / self.stances.unholsterTwirl.duration))
   end)
@@ -94,52 +98,101 @@ function StarforgeGunFire:charge()
   if animator.hasSound("chargeLoop") then
     animator.playSound("chargeLoop", -1)
   end
+
+  if self.chargeAnimations then
+    animator.setAnimationState("gun", "charge")
+  end
   
   --Timer used for optional shaking
   local timer = 0
-  util.wait(self.chargeTime, function()
-  --Optional particle emitter
-    if self.chargeParticleEmitter then
-      animator.setParticleEmitterActive(self.stances.fire.particleEmitter, true)
-      self.currentParticleEmitter = self.stances.fire.particleEmitter
-    end
-    if self.chargeShake then
-      local wavePeriod = (self.chargeShakeWavePeriod or 0.125) / (2 * math.pi) / (1 + (timer * (self.chargeShakeFactor or 1)))
-      local waveAmplitude = (self.chargeShakeWaveAmplitude or 0.075) * (1 + (timer * (self.chargeShakeFactor or 1)))
-	
+
+  if self.holdToCharge then
+    --While charging, but not yet ready, count down the charge timer
+    while (not self.autoFire or (timer < self.chargeTime)) and self.fireMode == (self.activatingFireMode or self.abilitySlot) do
       timer = timer + self.dt
-      local rotation = waveAmplitude * math.sin(timer / wavePeriod)
-	
-      self.weapon.relativeArmRotation = rotation + util.toRadians(self.stances.idle.armRotation) --Add weaponRotation again, as relativeWeaponRotation overwrites it
+
+      self:chargeFunctions(timer)
+
+      coroutine.yield()
     end
-  end)
-  animator.stopAllSounds("chargeLoop")
+  else
+    util.wait(self.chargeTime, function()
+      timer = timer + self.dt
+
+      self:chargeFunctions(timer)
+    end)
+  end
+  if animator.hasSound("chargeLoop") then
+    animator.stopAllSounds("chargeLoop")
+  end
   
-  self.weapon:setStance(self.stances.fire)
-
-  self.projectileId = self:fireProjectile()
-  self:muzzleFlash()
-
-  self.cooldownTimer = self.fireTime
-  self:setState(self.cooldown)
+  if timer >= self.chargeTime and not world.lineTileCollision(mcontroller.position(), self:firePosition()) then
+    if self.fireType == "burst" then
+      self:setState(self.burst)
+    else
+      self:setState(self.auto)
+    end
+  else
+    self:reset()
+  end
 end
 
-function StarforgeGunFire:burst()
+function StarforgeGunFire:chargeFunctions(timer)
+  --Optional particle emitter
+  if self.chargeParticleEmitter then
+    animator.setParticleEmitterActive(self.stances.fire.particleEmitter, true)
+  end
+
+  --Prevent energy regen while charging
+  status.setResourcePercentage("energyRegenBlock", 0.6)
+
+  --Optionally update the charge intake particles
+  if self.useChargeParticles then
+    self:updateChargeIntake(timer)
+  end
+  
+  --Enable walk while charging
+  if self.walkWhileCharging == true then
+    mcontroller.controlModifiers({runningSuppressed=true})
+  end
+
+  if self.chargeShake then
+    local wavePeriod = (self.chargeShakeWavePeriod or 0.125) / (2 * math.pi) / (1 + (math.min(timer, self.chargeTime) * (self.chargeShakeFactor or 1)))
+    local waveAmplitude = (self.chargeShakeWaveAmplitude or 0.075) * (1 + (math.min(timer, self.chargeTime) * (self.chargeShakeFactor or 1)))
+
+    timer = timer + self.dt
+    local rotation = waveAmplitude * math.sin(timer / wavePeriod)
+
+    self.weapon.relativeArmRotation = rotation + util.toRadians(self.weapon.abilities[1].stances.idle.armRotation) --Add weaponRotation again, as relativeWeaponRotation overwrites it
+  end
+
+  status.overConsumeResource("energy", self:energyPerShot() * self.dt * (self.burstCount or 1))
+end
+
+function StarforgeGunFire:burst(charged)
   self.weapon:setStance(self.stances.fire)
 
   local shots = self.burstCount
-  while shots > 0 and status.overConsumeResource("energy", self:energyPerShot()) do
-    self.projectileId = self:fireProjectile(self.burstCount - shots)
+  while shots > 0 and (charged or status.overConsumeResource("energy", self:energyPerShot())) do
+    self.projectileId = self:fireProjectile(self.noBurstRecoil and 0 or (self.burstCount - shots))
     self:muzzleFlash()
+    if self.knockbackForce then
+      self:knockbackFire()
+    end
+
+    --Enable walk while firing
+    if self.walkWhileFiring == true then
+      mcontroller.controlModifiers({runningSuppressed=true})
+    end
 	
-    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.easeOut(1 - (shots / self.burstCount), 0, self.burstCount))
-    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(1 - shots / self.burstCount, self.stances.idle.armRotation, self.stances.fire.armRotation))
+    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.easeOut(1 - (shots / self.burstCount), self.weapon.abilities[1].stances.idle.weaponRotation, self.stances.cooldown.weaponRotation))
+    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(1 - shots / self.burstCount, self.weapon.abilities[1].stances.idle.armRotation, self.stances.fire.armRotation))
 
     shots = shots - 1
     util.wait(self.burstTime)
   end
 
-  self.cooldownTimer = (self.fireTime - self.burstTime) * self.burstCount
+  self.cooldownTimer = self.fireTime + (self.burstTime * self.burstCount)
   self:setState(self.cooldown)
 end
 
@@ -152,14 +205,15 @@ function StarforgeGunFire:cooldown()
   --local maxRecoil = self.burstTime and 5 or 1;
   util.wait(duration, function()
     local from = self.stances.cooldown.weaponOffset or {0,0}
-    local to = self.stances.idle.weaponOffset or {0,0}
+    local to = self.weapon.abilities[1].stances.idle.weaponOffset or {0,0}
     self.weapon.weaponOffset = {c5Easing.easeOut(progress, from[1], to[1]), c5Easing.easeOut(progress, from[2], to[2])}
 
-    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.customEase(progress, self.burstCount or self.stances.cooldown.weaponRotation, self.stances.idle.weaponRotation, 5.9, 1.15, 0.65, -0.024))
-    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.cooldown.armRotation, self.stances.idle.armRotation))
+    self.weapon.relativeWeaponRotation = util.toRadians(c5Easing.customEase(progress, self.stances.cooldown.weaponRotation, self.weapon.abilities[1].stances.idle.weaponRotation, 5.9, 1.15, 0.65, -0.024))
+    self.weapon.relativeArmRotation = util.toRadians(c5Easing.easeOut(progress, self.stances.cooldown.armRotation, self.weapon.abilities[1].stances.idle.armRotation))
 
     progress = math.min(1.0, progress + (self.dt / duration))
   end)
+  self:reset()
 end
 
 function StarforgeGunFire:muzzleFlash(pitchIncrease)
@@ -190,6 +244,12 @@ function StarforgeGunFire:muzzleFlash(pitchIncrease)
   end
 
   animator.setLightActive("muzzleFlash", true)
+end
+
+function StarforgeGunFire:knockbackFire()
+  local momentum = vec2.mul(self:aimVector(), -self.knockbackForce)
+  
+  mcontroller.addMomentum(momentum)
 end
 
 function StarforgeGunFire:fireProjectile(burstNumber)
@@ -250,7 +310,15 @@ function StarforgeGunFire:damagePerShot()
 end
 
 function StarforgeGunFire:uninit()
+  self:reset()
+end
+
+function StarforgeGunFire:reset()
   if animator.hasSound("chargeLoop") then
     animator.stopAllSounds("chargeLoop")
+  end
+
+  if self.chargeAnimations then
+    animator.setAnimationState("gun", "idle")
   end
 end

@@ -7,10 +7,10 @@
   "shortdescription" : "^orange;Light of Sorrow^white;",
   "level" : 6,
   "fixedLevel" : false,
-  "tooltipKind" : "base",
+  "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
-  "tooltipFields" : {"subtitle":"Artefact"},
-  "itemTags" : ["weapon","ranged","artefact","remnant","theaUnique"],
+  "tooltipFieldsOverride" : {"subtitle":"Artefact"},
+  "itemTags" : ["weapon","ranged","artefact"],
   "twoHanded" : true,
   
   "inventoryIcon" : "starforge-lightofsorrow.png",
@@ -28,32 +28,32 @@
     "animatedParts" : {
       "parts" : {
         "weaponFullbright" : {
-		  "properties" : {
-		    "offset" : [0, -1.5]
-		  }
-		},
-		"charge" : {
-		  "properties" : {
-			"offset" : [0, -1.5]
-		  }
-		}
+          "properties" : {
+            "offset" : [0, -1.5]
+          }
+        },
+        "charge" : {
+          "properties" : {
+          "offset" : [0, -1.5]
+          }
+        }
       }
     },
-	"particleEmitters" : {
-	  "muzzleFlash" : {
+    "particleEmitters" : {
+      "muzzleFlash" : {
         "particles" : [
           { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" },
-		  { "particle" : "blood" }
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" },
+          { "particle" : "blood" }
         ]
       }
     },
@@ -79,22 +79,22 @@
     "baseEnergyUsage" : 28,
     "inaccuracy" : 0.075,
 	
-	"allowIndependantAim" : true,
+	  "allowIndependantAim" : true,
 	
-	"projectileFirePosition" : [0, -1.5],
+	  "projectileFirePosition" : [0, -1.5],
 	
-	"anchorPoint" : [-0.125, -0.5],
-	"shakeVelocity" : 6,
+	  "anchorPoint" : [-0.125, -0.5],
+	  "shakeVelocity" : 6,
 	
-	"cooldownTime" : 0.4,
+	  "cooldownTime" : 0.4,
 	
-	"selfDamage" : 0.125,
-	"selfDamageSource" : "slash",
+	  "selfDamage" : 0.125,
+	  "selfDamageSource" : "slash",
 	
-	"projectileCount" : 4,
-    "projectileType" : "starforge-sorrowtendril",
-    "projectileParameters" : {
-	},
+	  "projectileCount" : 4,
+      "projectileType" : "starforge-sorrowtendril",
+      "projectileParameters" : {
+	  },
 
     "stances" : {
       "idle" : {
@@ -122,8 +122,8 @@
         "allowRotate" : false,
         "allowFlip" : true
       }
-	}
+	  }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

@@ -3,13 +3,17 @@
   "price": 69420,
   "maxStack": 69,
   "rarity": "Essential",
-  "description": "Maurice's trusty sidearm.",
-  "shortdescription": "^#686F5D;Maruice's Sidearm (True)^reset;",
-  "tooltipKind": "base",
-  "category": "Pistol",
+  "description": "Maurice's trusty sidearm. A reflection of Maurice in his prime. There is no better man.",
+  "shortdescription": "^#E1A361;Maruice's Sidearm (True)^reset;",
+  "tooltipKind" : "starforge-uniquegun",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "God"
+  },
   "twoHanded": true,
   "level": 69,
   "itemTags": [
+    "starforge",
     "weapon",
     "ranged",
     "pistol",
@@ -27,14 +31,14 @@
     "butt": "",
     "middle": "truemauricessidearm.png",
     "barrel": "",
-	"middleFullbright": "truemauricessidearmfullbright.png",
+	  "middleFullbright": "truemauricessidearmfullbright.png",
     "muzzleFlash": "muzzleflash.png"
   },
   "animationCustom": {
       "particleEmitters" : {
       "muzzleFlash" : {
         "transformationGroups" : ["muzzle"],
-		"offsetRegion" : [-1.875, 0.1, -1.875, 0.1],
+		    "offsetRegion" : [-1.875, 0.1, -1.875, 0.1],
         "particles" : [
           { "particle" : "starforge-unboundrifle" }
         ]
@@ -47,11 +51,9 @@
     }
   },
   
-  "baseOffset": 
-  [0.500,0.125],
+  "baseOffset" : [0.500,0.125],
   
-  "muzzleOffset": 
-  [1.125,0.25],
+  "muzzleOffset" : [1.125,0.25],
   
   "scripts": [
     "/items/active/weapons/ranged/gun.lua"
@@ -68,7 +70,7 @@
     "inaccuracy": 0,
     "projectileCount": 1,
     "fireType": "auto",
-    "projectileType": "starforge-ancientbullet",
+    "projectileType": "starforge-godbullet",
     "projectileParameters": {},
     "stances" : {
       "idle" : {
@@ -99,6 +101,8 @@
       }
     }
   },
+
+  "altAbilityType" : "flashlight",
    
   "builder": "/items/buildscripts/buildunrandweapon.lua"
 }

@@ -1,7 +1,7 @@
 {
   "globalTagDefaults" : {
     "paletteSwaps" : "",
-    "stanceDirectives" : ""
+    "comboDirectives" : ""
   },
 
   "animatedParts" : {
@@ -53,7 +53,7 @@
         "properties" : {
           "zLevel" : 0,
           "centered" : true,
-          "image" : "<partImage><paletteSwaps>?<directives>?<bladeDirectives>?<stanceDirectives>",
+          "image" : "<partImage><paletteSwaps>?<directives>?<bladeDirectives>?<comboDirectives>",
           "offset" : [0, 1.875],
           "transformationGroups" : ["weapon"],
           "rotationCenter" : [0, 0],
@@ -64,7 +64,7 @@
         "properties" : {
           "zLevel" : 1,
           "centered" : true,
-          "image" : "<partImage><paletteSwaps>?<directives>?<bladeDirectives>?<stanceDirectives>",
+          "image" : "<partImage><paletteSwaps>?<directives>?<bladeDirectives>?<comboDirectives>",
           "fullbright" : true,
           "offset" : [0, 1.875],
           "transformationGroups" : ["weapon"],

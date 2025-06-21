@@ -1,0 +1,158 @@
+{
+  "itemName": "starforge-raygun",
+  "price": 1000,
+  "maxStack": 1,
+  "rarity": "Essential",
+  "description": "Pew pew.",
+  "shortdescription": "Raygun",
+  "tooltipKind" : "starforge-uniquegun",
+  "category": "uniqueWeapon",
+  "manufacturer" : "protoPlanar",
+  "tooltipFieldsOverride" : {"subtitle":"Raygun"},
+  "twoHanded": true,
+  "level": 6,
+  "itemTags": [ "weapon", "ranged", "pistol" ],
+
+  "inventoryIcon": "starforge-raygun.png:idle",
+  "animation": "/items/active/weapons/ranged/starforge-gun.animation",
+  "animationParts": {
+    "butt": "",
+    "middle": "starforge-raygun.png",
+    "barrel": "",
+	  "middleFullbright": "starforge-raygunfullbright.png",
+    "heatIndicator" : "/items/active/weapons/ranged/generated/combatrifle/parts/other/proto-indicator.png",
+    "muzzleFlash": "/items/active/weapons/ranged/muzzleflash/starforge-poisonmuzzleflash.png"
+  },
+  "animationCustom": {
+    "animatedParts" : {
+      "stateTypes" : {
+        "gun" : {
+          "default" : "idle",
+          "states" : {
+            "idle" : {},
+            "overheat" : {
+              "frames" : 3,
+              "cycle" : 0.3,
+              "mode" : "loop"
+            }
+          }
+        }
+      },
+
+      "parts" : {
+        "middle" : {
+          "partStates" : {
+            "gun" : {
+              "idle" : {
+                "properties" : {
+                  "image" : "<partImage>:idle<paletteSwaps>"
+                }
+              },
+              "overheat" : {
+                "properties" : {
+                  "image" : "<partImage>:reload.<frame><paletteSwaps>"
+                }
+              }
+            }
+          }
+        },
+        "middleFullbright" : {
+          "properties" : {
+           //Same as BaseOffset
+            "offset" : [0.75, 0.25]
+          },
+          "partStates" : {
+            "gun" : {
+              "idle" : {
+                "properties" : {
+                  "image" : "<partImage>:idle<paletteSwaps>"
+                }
+              },
+              "overheat" : {
+                "properties" : {
+                  "image" : "<partImage>:reload.<frame><paletteSwaps>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sounds": {
+      "fire": [ "/sfx/gun/pistol3.ogg" ],
+      "overheat": [ "/sfx/gun/mech_beamdrill_winddown.ogg" ],
+      "overheatedLoop": [ "/sfx/gun/mech_beamdrill_loop.ogg" ]
+    }
+  },
+  
+  "baseOffset" : [0.75, 0.25],
+  "muzzleOffset" : [1.75, 0.375],
+  
+  "scripts": [ "/items/active/weapons/ranged/starforge-gun.lua" ],
+
+  "elementalType": "starforge-surge",
+  
+  "primaryAbility": {
+    "scripts": [ "/items/active/weapons/ranged/starforge-gunfire.lua", "/items/active/weapons/ranged/abilities/starforge-overheatgunfire.lua"], 
+    "class": "StarforgeGunFire",
+            
+    "overheatPosition" : [[0.25, 0.625], [0.25, 0.625]],
+    "overheatRotation" : [1.55, -1.55],
+
+    "fireTime": 0.4,
+    "baseDps": 11,
+    "energyUsage": 25,
+    "inaccuracy": 0.001,
+    "projectileCount": 1,
+
+    "fireType": "auto",
+
+    "overheatAnimations" : true,
+
+    "projectileType": "starforge-poisonplasma",
+    "projectileParameters": {
+      "damageKind" : "starforge-surge",
+      "bounces": 10,
+      "knockback": 4
+    },
+
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0.05,
+        "armRotation" : 5,
+        "weaponRotation" : 5,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "overheated" : {
+        "armRotation" : -25,
+        "weaponRotation" : 10,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "cooldown" : {
+        "duration" : 0.15,
+        "armRotation" : 5,
+        "weaponRotation" : 5,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

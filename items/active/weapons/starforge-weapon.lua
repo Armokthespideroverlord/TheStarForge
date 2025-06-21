@@ -1,4 +1,5 @@
 require "/scripts/util.lua"
+require "/scripts/c5easing.lua"
 
 -- handles weapon stances, animations, and abilities
 Weapon = {}

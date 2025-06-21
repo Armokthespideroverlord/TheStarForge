@@ -11,14 +11,14 @@
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
   "tooltipFieldsOverride" : {"subtitle":"Shotgun"},
-  "itemTags" : ["weapon", "ranged", "shotgun"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "shotgun" ],
   "twoHanded" : true,
   
   "animation" : "/items/active/weapons/ranged/starforge-gun.animation",
   "animationParts" : {
     "butt" : "",
     "middle" : "starforge-fury.png",
-	"middleFullbright" : "starforge-furyfullbright.png",
+	  "middleFullbright" : "starforge-furyfullbright.png",
     "barrel" : "",
     "muzzleflash" : ""
   },
@@ -66,7 +66,7 @@
       }
     },
 	
-	"sounds" : {
+	  "sounds" : {
       "fire" : [ "/sfx/gun/starforge-furygun.ogg" ]
     }
   },
@@ -91,21 +91,21 @@
 	
     "fireType" : "burst",
     "burstCount" : 2,
-    "burstTime" : 0,
+    "burstTime" : 0.125,
 
-	"muzzleOffsets" : [[2.25, 0.5], [2.25, 0.25]],
-	"fireAllProjectileCount" : false,
-	"projectileType" : "starforge-firefluxbolt",
+  	"muzzleOffsets" : [[2.25, 0.5], [2.25, 0.25]],
+	  "fireAllProjectileCount" : false,
+	  "projectileType" : "starforge-firefluxbolt",
     "projectileParameters" : {
-	  "statusEffects" : [ "starforge-firecombust" ],
+      "statusEffects" : [ "starforge-firecombust" ],
       "knockback": 10,
-	  "bounces" : 2,
-	  "canBounce" : true,
-	  "movementSettings" : {
-		"bounceFactor" : 0.25,
-		"stickyCollision" : false,
-		"stickyForce" : 0
-	  }
+      "bounces" : 2,
+      "canBounce" : true,
+      "movementSettings" : {
+        "bounceFactor" : 0.25,
+        "stickyCollision" : false,
+        "stickyForce" : 0
+      }
     },
 	
     "stances" : {
@@ -118,20 +118,76 @@
         "allowFlip" : true
       },
       "fire" : {
-        "duration" : 0.05,
+        "duration" : 0.01,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+	    	"weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
-        "allowRotate" : false,
+        "allowRotate" : true,
         "allowFlip" : true
       },
       "cooldown" : {
         "duration" : 0.45,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+	    	"weaponOffset" : [-0.05, 0.0],
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      }
+    }
+  },
+
+  "altAbility" : {
+    "name" : "Relentless Fury",
+    "scripts" : ["/items/active/weapons/ranged/abilities/starforge-multibarrelfire.lua"],
+    "class" : "StarForgeMultiBarrelFire",
+
+    "fireTime" : 0.3625,
+    "baseDps" : 14,
+    "energyUsage" : 40,
+    "inaccuracy" : 0.2,
+	
+    "projectileCount" : 4,
+	
+    "fireType" : "burst",
+    "burstCount" : 10,
+    "burstTime" : 0.085,
+
+  	"muzzleOffsets" : [[2.25, 0.5], [2.25, 0.25]],
+	  "fireAllProjectileCount" : false,
+	  "projectileType" : "starforge-firefluxbolt",
+    "projectileParameters" : {
+      "statusEffects" : [ "starforge-firecombust" ],
+      "knockback": 10,
+      "bounces" : 2,
+      "canBounce" : true,
+      "movementSettings" : {
+        "bounceFactor" : 0.25,
+        "stickyCollision" : false,
+        "stickyForce" : 0
+      }
+    },
+	
+    "useStanceDuration" : true,
+    "stances" : {
+      "fire" : {
+        "duration" : 0.01,
+        "armRotation" : 4,
+        "weaponRotation" : 8,
+	    	"weaponOffset" : [-0.05, 0.0],
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "cooldown" : {
+        "duration" : 0.75,
+        "armRotation" : 4,
+        "weaponRotation" : 8,
+	    	"weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
         "allowRotate" : true,

@@ -127,22 +127,22 @@
           "sword" : {
             "inactive" : {
               "properties" : {
-                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "extend" : {
               "properties" : {
-                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "active" : {
               "properties" : {
-                "image" : "<partImage>:active?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:active?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "retract" : {
               "properties" : {
-                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             }
           }
@@ -164,22 +164,22 @@
           "sword" : {
             "inactive" : {
               "properties" : {
-                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "extend" : {
               "properties" : {
-                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "active" : {
               "properties" : {
-                "image" : "<partImage>:active?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:active?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             },
             "retract" : {
               "properties" : {
-                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>"
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
               }
             }
           }
@@ -205,74 +205,73 @@
             "inactivefire" : {
              "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [-0.2, -2.69],
+                "offset" : [-0.875, -2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
             "inactivefire2" : {
              "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>",
-                "offset" : [4.0, 0.8],
+                "offset" : [4.0, 0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
             "inactivefire3" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.2, 2.69],
+                "offset" : [-0.875, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
-			 "inactivefire4" : {
+			      "inactivefire4" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>?flipy",
-                "offset" : [4.0, -0.8],
+                "offset" : [4.0, -0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
-			
-			 "inactivefire5" : {
+			      "inactivefire5" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.2, 2.69],
+                "offset" : [-0.875, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
 			
             "activefire" : {
-             "properties" : {
+              "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [-0.2, -2.69],
+                "offset" : [-0.875, -2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
             "activefire2" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>",
-                "offset" : [4.0, 0.8],
+                "offset" : [4.0, 0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
             "activefire3" : {
-               "properties" : {
+              "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.2, 2.69],
+                "offset" : [-0.875, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
 			
-			 "activefire4" : {
+		        "activefire4" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>?flipy",
-                "offset" : [4.0, -0.8],
+                "offset" : [4.0, -0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
 			
-			 "activefire5" : {
+			      "activefire5" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.2, 2.69],
+                "offset" : [-0.875, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             }

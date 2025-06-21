@@ -5,13 +5,15 @@
   "fixedLevel" : false,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "A floran artifact, wrought from its origins and consumed by the Wither.",
+  "description" : "A remnant of Floran craft, with its roots now severed, its is now part of the Wither.",
   "shortdescription" : "^#758468;Cursebringer^reset;",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "broadsword",
-  "tooltipFieldsOverride" : {"subtitle":"Spear"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spear","floran","wither"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear", "wither", "floran" ],
 
   "inventoryIcon" : "starforge-witheredthorn.png",
   
@@ -30,8 +32,7 @@
       "fire5" : [ "/sfx/melee/swing_spear.ogg" ],
       "fire6" : [ "/sfx/melee/swing_spear.ogg" ],
       "fire7" : [ "/sfx/melee/swing_hammer.ogg" ],
-	  "chargeShockwave" : [],
-      "shockwaveImpact" : [ "/sfx/melee/shockwave_physical_slam.ogg" ]
+      "fireBolt" : [ "/sfx/melee/shockwave_physical_slam.ogg" ]
     }
   },
 
@@ -96,30 +97,45 @@
 	
     "comboSpeedFactor" : 0.79,
 	
-	"stances" : {
-	  //COMBO STEP 1
+	  "stances" : {
+      //IDLE - DEFAULT
+      "idle" : {
+        "armRotation" : -10,
+        "weaponRotation" : -78,
+        "weaponOffset" : [0.125, 0],
+        "allowRotate" : true,
+        "twoHanded" : true,
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
+      },
+	    //COMBO STEP 1
       "windup1" : {
         "duration" : 0.075,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash1" : {
         "duration" : 0.025,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire1" : {
-        "duration" : 0.15,
+        "duration" : 0.1,
         "armRotation" : -30,
         "weaponRotation" : -70,
         "twoHanded" : true,
@@ -142,26 +158,30 @@
 	  //COMBO STEP 2
       "windup2" : {
         "duration" : 0.075,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash2" : {
         "duration" : 0.025,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire2" : {
-        "duration" : 0.15,
+        "duration" : 0.1,
         "armRotation" : -10,
         "weaponRotation" : -70,
         "twoHanded" : true,
@@ -184,33 +204,38 @@
 	  //COMBO STEP 3
       "windup3" : {
         "duration" : 0.075,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash3" : {
         "duration" : 0.025,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire3" : {
-        "duration" : 0.15,
+        "duration" : 0.1,
         "armRotation" : -20,
         "weaponRotation" : -70,
         "twoHanded" : true,
         "weaponOffset" : [0, 2.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+        "frontArmFrame" : "rotation"
       },
       "wait3" : {
         "duration" : 0.1,
@@ -225,78 +250,91 @@
 	  //COMBO STEP 4
       "windup4" : {
         "duration" : 0.1,
-        "armRotation" : 90,
-        "weaponRotation" : -10,
-        "weaponOffset" : [0, 0.625],
+        "armRotation" : 175,
+        "weaponRotation" : -105,
+        "weaponOffset" : [1, 0.625],
         "twoHanded" : true,
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash4" : {
         "duration" : 0.025,
-        "armRotation" : 55,
-        "weaponRotation" : -45,
-        "weaponOffset" : [0, 1],
+        "armRotation" : 140,
+        "weaponRotation" : -140,
+        "weaponOffset" : [1, 1],
         "twoHanded" : true,
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire4" : {
         "duration" : 0.2,
         "armRotation" : -45,
-        "weaponRotation" : -55,
+        "weaponRotation" : -65,
         "weaponOffset" : [0, 1],
         "twoHanded" : true,
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "wait4" : {
         "duration" : 0.15,
         "armRotation" : -45,
-        "weaponRotation" : -55,
-        "weaponOffset" : [0, 1],
+        "weaponRotation" : -65,
+        "weaponOffset" : [0, 0.75],
         "twoHanded" : true,
-		
+
         "allowRotate" : false,
-        "allowFlip" : true
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
 	  //COMBO STEP 5
       "windup5" : {
         "duration" : 0.075,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash5" : {
         "duration" : 0.025,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire5" : {
         "duration" : 0.15,
-        "armRotation" : -15,
+        "armRotation" : -30,
         "weaponRotation" : -70,
         "twoHanded" : true,
         "weaponOffset" : [0, 2.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+        "continueStep" : true
       },
       "wait5" : {
         "duration" : 0.1,
-        "armRotation" : -15,
+        "armRotation" : -30,
         "weaponRotation" : -70,
         "twoHanded" : true,
         "weaponOffset" : [0, 2.25],
@@ -307,27 +345,31 @@
 	  //COMBO STEP 6
       "windup6" : {
         "duration" : 0.075,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+        "frontArmFrame" : "jump.3"
       },
       "preslash6" : {
         "duration" : 0.025,
-        "armRotation" : -110,
-        "weaponRotation" : 20,
+        "armRotation" : -25,
+        "weaponRotation" : -75,
         "twoHanded" : true,
         "weaponOffset" : [0, 0.5],
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+        "frontArmFrame" : "jump.3"
       },
       "fire6" : {
         "duration" : 0.15,
-        "armRotation" : -25,
+        "armRotation" : -20,
         "weaponRotation" : -70,
         "twoHanded" : true,
         "weaponOffset" : [0, 2.5],
@@ -337,7 +379,7 @@
       },
       "wait6" : {
         "duration" : 0.1,
-        "armRotation" : -25,
+        "armRotation" : -20,
         "weaponRotation" : -70,
         "twoHanded" : true,
         "weaponOffset" : [0, 2.25],
@@ -381,7 +423,8 @@
   
   "altAbilityType" : "starforge-spellglaiveblast",
   "altAbility" : {
-    "projectileType" : "starforge-sporkprojectile",
+    "name" : "Curse Blast",
+    "projectileType" : "starforge-witheredground",
     "projectileParameters" : {
       "damageKind" : "starforge-wither",
       "movementSettings" : {

@@ -148,7 +148,7 @@ function StarforgeMeleeCombo:fire()
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
-  local animStateKey = self.animKeyPrefix .. (self.comboStep > 1 and "fire"..self.comboStep or "fire")
+  local animStateKey = self.animKeyPrefix .. (self.comboStep > 1 and "fire" .. self.comboStep or "fire")
   animator.setAnimationState("swoosh", animStateKey)
   animator.playSound(animStateKey)
 
@@ -181,13 +181,32 @@ function StarforgeMeleeCombo:fire()
     animator.setAnimationState("swoosh", "idle")
   -- If this step is a regular attack, simply set the damage area for the duration of the step
   else
+    local overSwing = {}
+    if stance.overSwing ~= false then
+      local overSwingValue = 0.05
+      local windupStance = self.stances["windup"..self.comboStep]
+      overSwing.armRotation = (stance.armRotation - windupStance.armRotation) * overSwingValue
+      overSwing.weaponRotation = (stance.weaponRotation - windupStance.weaponRotation) * overSwingValue
+    end
+    
+    local progress = 0
     util.wait(stance.duration, function()
       local damageArea = partDamageArea("swoosh")
       self.weapon:setDamage(self.stepDamageConfig[self.comboStep], damageArea)
       
       --Optionally freeze the player in place if so configured
       if stance.freezePlayer then
-      mcontroller.setVelocity({0,0})
+        mcontroller.setVelocity({0,0})
+      end
+    
+      if stance.overSwing ~= false then
+        for part, rotation in pairs(overSwing) do
+          local from = stance[part]
+          local to = stance[part] + rotation
+        
+          self.weapon["relative" .. part:gsub("^%l", string.upper)] = util.toRadians(util.interpolateHalfSigmoid(progress, from, to))
+        end
+        progress = math.min(1.0, progress + (self.dt / stance.duration))
       end
     end)
   end
@@ -245,8 +264,11 @@ function StarforgeMeleeCombo:computeDamageAndCooldowns()
   local totalAttackTime = 0
   local totalDamageFactor = 0
   for i, attackTime in ipairs(attackTimes) do
-    self.stepDamageConfig[i] = util.mergeTable(copy(self.damageConfig), self.stepDamageConfig[i])
-    self.stepDamageConfig[i].timeoutGroup = "primary"..i
+    self.stepDamageConfig[i] = util.mergeTable(self.stepDamageConfig[i], copy(self.damageConfig)) --swapped for testing?
+    self.stepDamageConfig[i].timeoutGroup = "primary" .. i
+    if self.stepDamageConfig[i].statusEffects ~= self.damageConfig.statusEffects then --can't copy empty tables ig?
+      self.stepDamageConfig[i].statusEffects = self.damageConfig.statusEffects
+    end
 
     local damageFactor = self.stepDamageConfig[i].baseDamageFactor
     self.stepDamageConfig[i].baseDamage = damageFactor * self.baseDps * self.fireTime

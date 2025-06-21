@@ -6,9 +6,12 @@
   "description" : "An energy rifle that has clearly been used by the crew of the Thalasso.",
   "shortdescription" : "Thalasso Service Rifle",
   "tooltipKind" : "gun",
-  "category" : "assaultRifle",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Assault Rifle"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","assaultrifle"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "assaultrifle" ],
   "level" : 6,
 
 "inventoryIcon" : "marikogun.png",

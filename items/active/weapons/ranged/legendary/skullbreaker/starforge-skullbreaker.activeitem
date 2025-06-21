@@ -7,11 +7,13 @@
   "shortdescription" : "Skullbreaker",
   "tooltipKind" : "starforge-uniquegun",
   "category" : "uniqueWeapon",
-  "tooltipFieldsOverride" : {"subtitle" : "Burst Rifle"},
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Burst Rifle"
+  },
   "twoHanded" : true,
   "level" : 6,
   "fixedLevel" : false,
-  "itemTags" : ["weapon","ranged","pistol"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "assaultrifle" ],
   
   "inventoryIcon" : "starforge-skullbreaker.png:slide.1",
   "animation": "/items/active/weapons/ranged/unique/mauricessidearm/mauricessidearm.animation",
@@ -31,7 +33,7 @@
   "baseOffset" : [1.0, 0.375],
   "muzzleOffset" : [1.25, 0],
   
-  "scripts" : [ "/items/active/weapons/ranged/gun.lua" ],
+  "scripts" : [ "/items/active/weapons/ranged/starforge-gun.lua" ],
   
   "elementalType" : "physical",
   
@@ -52,8 +54,8 @@
     "projectileType": "starforge-physicalbullet",
     "projectileParameters": {
       "knockback" : 3,
-	  "statusEffects" : [ { "effect" : "starforge-skullbreakerreturn", "duration" : 0.5 } ]
-	},
+	    "statusEffects" : [ { "effect" : "starforge-skullbreakerreturn", "duration" : 0.5 } ]
+	  },
 	
     "stances" : {
       "idle" : {

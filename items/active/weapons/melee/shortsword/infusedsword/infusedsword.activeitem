@@ -7,9 +7,12 @@
   "description" : "A short Titanium blade, infused with Essence.",
   "shortdescription" : "Infused Titanium Blade",
   "tooltipKind" : "sword",
-  "category" : "shortsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Shortsword"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","shortsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "shortsword" ],
 
   "inventoryIcon" : "infusedsword.png",
 
@@ -30,5 +33,5 @@
     "baseDps" : 4.5
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

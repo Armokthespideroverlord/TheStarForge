@@ -7,7 +7,7 @@
   "scripts" : ["/npcs/bmain.lua", "/npcs/scripts/npchealthbar.lua"],
   "initialScriptDelta" : 5,
  
-  "dropPools": [],
+  "dropPools": [ "unboundTankCaptainTreasure" ],
  
   "identity" : {
     "name" : "Maurice",
@@ -16,24 +16,24 @@
   },
  
   "scriptConfig" : {
-	"bossName" : "Unbound Centurion Tank Commander of the Highest Order, Maurice, Age 26, Height 163 cm",
-	"nameTag" : "Maurice",
-	
-	"behavior" : "mik-hostilenpc",
-	
-	"bandageTime" : 60,
+    "bossName" : "Unbound Centurion Tank Commander of the Highest Order, Maurice, Age 26, Height 163cm",
+    "nameTag" : "Maurice",
+    
+    "behavior" : "mik-hostilenpc",
+    
+    "bandageTime" : 60,
 
-	"aggressive" : true,
+    "aggressive" : true,
 
-	"behaviorConfig" : {
-	  "leapWindup" : 0.15,
-	  "leapCooldown": 2,
-	  "rangedAimTime" : 0.1,
-	  "rangedWindupTime" : 0.1,
-	  "leapChance" : 0.95,
-	  "rangedSwapTime" : 1,
-	  "meleeSwapTime" : 1.5
-	},
+    "behaviorConfig" : {
+      "leapWindup" : 0.15,
+      "leapCooldown": 2,
+      "rangedAimTime" : 0.1,
+      "rangedWindupTime" : 0.1,
+      "leapChance" : 0.95,
+      "rangedSwapTime" : 1,
+      "meleeSwapTime" : 1.5
+    },
 
     "chatSounds" : {
       "default" : {
@@ -160,8 +160,8 @@
           "starforge-mauricessidearm"
         ],
         "sheathedprimary" : [
-		  "starforge-infusedbroadsword" 
-		]
+          "starforge-infusedbroadsword" 
+        ]
       }]]
     ]
   },

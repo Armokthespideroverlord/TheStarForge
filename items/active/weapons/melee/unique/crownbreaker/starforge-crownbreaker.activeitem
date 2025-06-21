@@ -7,10 +7,12 @@
   "description" : "The sixth weapon, wip desc ",
   "shortdescription" : "^orange;-VI- Crown Breaker^reset;",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "broadsword",
-  "tooltipFieldsOverride" : {"subtitle":"Claymore"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Claymore"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","greatsword","claymore"],
+  "itemTags" : [ "starforge", "weapon", "melee", "greatsword", "claymore", "highbrand", "exalted", "glitch", "katahel" ],
 
   "inventoryIcon" : "starforge-beheadericon.png",
 

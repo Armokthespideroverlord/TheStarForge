@@ -6,11 +6,13 @@
   "description": "The frenzy brought a new piece, a boost.",
   "shortdescription" : "Frenzy",
   "tooltipKind": "starforge-uniquegun",
-  "category": "pistol",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Shotgun"
+  },
   "twoHanded": false,
   "level" : 5,
-  "itemTags": [ "weapon", "ranged", "shotgun" ],
-  "tooltipFields" : {"subtitle":"Shotgun"},
+  "itemTags" : [ "starforge", "weapon", "ranged", "shotgun" ],
   "inventoryIcon": "starforge-frenzyicon.png",
   
   "animation": "/items/active/weapons/ranged/unique/mauricessidearm/mauricessidearm.animation",
@@ -40,7 +42,7 @@
   "baseOffset" : [0.625, 0.25],
   "muzzleOffset": [1.125, 0.25],
   
-  "scripts": [ "/items/active/weapons/ranged/gun.lua" ],
+  "scripts": [ "/items/active/weapons/ranged/starforge-gun.lua" ],
   "elementalType": "fire",
   
   "primaryAbility": {
@@ -56,7 +58,8 @@
     "fireType": "auto",
     "projectileType": "starforge-firefluxbolt",
     "projectileParameters": {
-	  "statusEffects" : [ "starforge-firecombust" ],
+	    "statusEffects" : [ "starforge-firecombust" ],
+      "speed" : [100, 125],
       "knockback": 10
     },
 	

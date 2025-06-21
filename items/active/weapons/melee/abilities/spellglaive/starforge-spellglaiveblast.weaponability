@@ -2,8 +2,8 @@
   "ability" : {
     "name" : "Spell Blast",
     "type" : "starforge-spellglaiveblast",
-    "scripts" : ["/items/active/weapons/ranged/abilities/starforge-altfire.lua"],
-    "class" : "StarforgeAltFire",
+    "scripts" : ["/items/active/weapons/ranged/starforge-gunfire.lua"],
+    "class" : "StarforgeGunFire",
 
     "projectileType" : "starforge-electricfluxbolt",
     "projectileParameters" : {

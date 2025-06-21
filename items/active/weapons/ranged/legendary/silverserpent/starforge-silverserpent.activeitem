@@ -6,11 +6,13 @@
   "description": "A serpent bound cannon, sporting armour penetrating rounds.",
   "shortdescription" : "Silver Serpent",
   "tooltipKind": "starforge-uniquegun",
-  "category": "pistol",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Deagle"
+  },
   "twoHanded": true,
   "level" : 6,
-  "itemTags": [ "weapon", "ranged", "pistol" ],
-  "tooltipFields" : {"subtitle" : "Deagle"},
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol" ],
   "inventoryIcon": "starforge-silverserpenticon.png",
   
   "animation": "/items/active/weapons/ranged/unique/mauricessidearm/mauricessidearm.animation",
@@ -18,21 +20,74 @@
     "butt": "",
     "middle": "starforge-silverserpent.png",
     "barrel": "",
-	"middleFullbright": "starforge-silverserpentfullbright.png",
+	  "middleFullbright": "starforge-silverserpentfullbright.png",
     "muzzleFlash": "/items/active/weapons/ranged/muzzleflash/starforge-firemuzzleflash.png"
   },
   "animationCustom": {
+    "animatedParts" : {
+      "stateTypes" : {
+        "altSwoosh" : {
+          "default" : "idle",
+          "states" : {
+            "idle" : {
+            },
+            "fire" : {
+              "frames" : 3,
+              "cycle" : 0.09,
+              "mode" : "transition",
+              "transition" : "idle"
+            }
+          }
+        }
+      },
+      "parts" : {
+        "altSwoosh" : {
+          "properties" : {
+          "zLevel" : -3,
+          "centered" : true,
+          "offset" : [1.125, -0.125],
+          "transformationGroups" : ["swoosh"]
+          },
+          "partStates" : {
+            "altSwoosh" : {
+              "idle" : {
+                "properties" : {
+                  "image" : ""
+                }
+              },
+              "fire" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/jab/jab-physical.png:<frame>",
+                  "damageArea" : [[-3.75, 1.5], [-1.875, 2.25], [0.75, 2.25], [3, 1.25], [3.75, -0.15], [3.75, -1.675], [3, -2.375], [0, -1.875]]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "transformationGroups" : {
+      "swoosh" : {}
+    },
     "particleEmitters" : {
       "muzzleFlash" : {
         "burstCount" : 1,
         "transformationGroups" : ["muzzle"],
-		"offsetRegion" : [0, 0, 0, 0],
+		    "offsetRegion" : [0, 0, 0, 0],
         "particles" : [
           { "particle" : "rocketbarrelpuff" }
         ]
+      },
+      "altSwoosh" : {
+        "active" : false,
+        "emissionRate" : 5,
+        "transformationGroups" : ["swoosh"],
+        "offsetRegion" : [0.0, 0.0, 0.0, 0.0],
+        "particles" : []
       }
     },
     "sounds": {
+  	  "altFire" : [ "/sfx/melee/swing_hammer.ogg" ],
       "fire": [ "/sfx/gun/starforge-silverserpentfire.ogg" ]
     }
   },
@@ -40,7 +95,7 @@
   "baseOffset" : [0.50, 0.125],
   "muzzleOffset": [1.125, 0.25],
   
-  "scripts": [ "/items/active/weapons/ranged/gun.lua" ],
+  "scripts": [ "/items/active/weapons/ranged/starforge-gun.lua" ],
   "elementalType": "physical",
   
   "primaryAbility": {
@@ -82,6 +137,56 @@
         "duration" : 0.1,
         "armRotation" : 6,
         "weaponRotation" : 6,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      }
+    }
+  },
+
+  "altAbility" : {
+    "name" : "Pistol Whip",
+    "scripts" : ["/items/active/weapons/melee/abilities/starforge-meleeslash.lua"],
+    "class" : "StarforgeMeleeSlash",
+    
+    "fireTime" : 0.87,
+    "baseDps" : 5.5,
+    "damageConfig" : {
+      "damageSourceKind" : "fist",
+      "statusEffects" : [ ],
+      "knockbackMode" : "aim",
+      "knockback" : 45,
+      "timeoutGroup" : "primary"
+    },
+
+    "stances" : {
+      "windup" : {
+        "duration" : 0.2,
+        "armRotation" : 85,
+        "weaponRotation" : 3,
+        "weaponOffset" : [-0.1, 0],
+        "twoHanded" : false,
+
+        "allowRotate" : true,
+        "allowFlip" : false
+      },
+      "fire" : {
+        "duration" : 0.25,
+        "armRotation" : 15,
+        "weaponRotation" : 55,
+        "twoHanded" : false,
+
+		    "swooshRotation" : -20,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "transitionState" : {
+        "duration" : 0.4,
+        "armRotation" : 15,
+        "weaponRotation" : -325,
+		    "weaponOffset" : [-0.25, -0.125],
         "twoHanded" : true,
 
         "allowRotate" : true,

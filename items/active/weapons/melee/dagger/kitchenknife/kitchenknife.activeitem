@@ -8,17 +8,20 @@
   "description" : "A sharp chef's knife.",
   "shortdescription" : "Chef's Knife",
   "tooltipKind" : "starforge-uniquesword",
-  "category" : "dagger",
-  "twoHanded" : true,
-  "itemTags" : ["weapon","melee","dagger"],
+  "category" : "uniqueWeapon",
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger" ],
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
+  },
 
   "inventoryIcon" : "kitchenknife.png?flipx",
 
-  "animation" : "/items/active/weapons/melee/dagger/starforge-dagger.animation",
+  "animation" : "/items/active/weapons/melee/dagger/starforge-quickblade.animation",
   "animationParts" : {
     "blade" : "kitchenknife.png",
 	
-    "swoosh" : ""
+    "swoosh" : "physical"
   },
   "animationCustom" : {},
 
@@ -29,14 +32,16 @@
   "primaryAbilityType" : "starforge-daggercombo",
   "primaryAbility" : {
     "baseDps" : 6.5,
-	
+    
+    "finisherHoldTime" : 2,
     "damageConfig" : {
       "damageSourceKind" : "dagger",
       "knockbackMode" : "aim",
       "timeout" : 0.25,
-	  "statusEffects" : [ "starforge-lightbleeding" ]
+	    "statusEffects" : [ "starforge-lightbleeding" ]
     }
   },
+  "altAbilityType" : "spearcharge",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

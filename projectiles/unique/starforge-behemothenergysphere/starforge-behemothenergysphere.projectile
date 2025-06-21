@@ -11,7 +11,7 @@
   "actionOnReap" : [
     {
       "action" : "config",
-	  "file" : "/projectiles/explosions/starforge-behemothexplosion/starforge-behemothexplosion.config"
+	    "file" : "/projectiles/explosions/starforge-behemothexplosion/starforge-behemothexplosion.config"
     },
     {
       "action" : "projectile",
@@ -32,11 +32,11 @@
   "scripts" : ["/projectiles/scripts/starforge-electricalprojectile.lua"],
   
   "lightningParameters" : {
-	"chainLightningRadius" : 15,
-	
-	"tickRate" : 0.05,
+    "chainLightningRadius" : 15,
+    
+    "tickRate" : 0.05,
     "damageKind" : "fireplasma",
-	"statusEffects" : ["burning"],
+    "statusEffects" : ["burning"],
 	
     "lightningConfig" : {
       "displacement" : 1.25,
@@ -44,7 +44,7 @@
       "forks" : 2,
       "forkAngleRange" : 0.3,
       "width" : 0.9,
-	  "color" : [253, 209, 77, 200]
+	    "color" : [253, 209, 77, 200]
     }
   }
 }

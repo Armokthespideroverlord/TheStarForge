@@ -8,9 +8,11 @@
   "shortdescription" : "Saltshaker",
   "level" : 6,
   "tooltipKind" : "starforge-uniquegun",
-  "category" : "pistol",
-  "tooltipFieldsOverride" : {"subtitle":"Revolver"},
-  "itemTags" : ["weapon","ranged","revolver"],
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Revolver"
+  },
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol", "revolver" ],
   "twoHanded" : true,
   "learnBlueprintsOnPickup" : [ "starforge-saltshaker" ],
 
@@ -61,7 +63,7 @@
         "duration" : 0.5,
         "armRotation" : -25,
         "weaponRotation" : -540,
-		"weaponOffset" : [-0.25, -0.125],
+		    "weaponOffset" : [-0.25, -0.125],
         "twoHanded" : true,
 
         "allowRotate" : true,
@@ -71,7 +73,7 @@
         "duration" : 0.05,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+	    	"weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -81,7 +83,7 @@
         "duration" : 0.45,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+		    "weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
         "allowRotate" : true,
@@ -107,17 +109,17 @@
 
     "projectileType" : "unboundicebullet",
     "projectileParameters" : {
-	  "piercing" : true,
-	  "fullbright" : true,
-	  "damageKind" : "plasma",
-	  "speed" : 200,
+      "piercing" : true,
+      "fullbright" : true,
+      "damageKind" : "plasma",
+      "speed" : 200,
       "actionOnReap" : [
         {
           "action" : "config",
           "file" : "/projectiles/explosions/pulsecannonexplosion/pulsecannonexplosion.config"
-	    }
-	  ]
-	},
+        }
+      ]
+    },
 
     "stances" : {
       "idle" : {

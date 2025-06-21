@@ -1,0 +1,134 @@
+{
+  "itemName": "starforge-crackshot",
+  "price": 1500,
+  "maxStack": 1,
+  "rarity": "Legendary",
+  "description": "CRACK!!!",
+  "shortdescription" : "Crackshot",
+  "tooltipKind": "starforge-uniquegun",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Shotgun"
+  },
+  "twoHanded": true,
+  "level" :  6,
+  "itemTags" : [ "starforge", "weapon", "ranged", "shotgun" ],
+  "inventoryIcon": "starforge-crackshot.png:reload.1",
+  
+  "animation": "/items/active/weapons/ranged/starforge-gun.animation",
+  "animationParts": {
+    "butt": "",
+    "middle": "starforge-crackshot.png",
+    "barrel": "",
+	  "middleFullbright": "starforge-crackshotfullbright.png",
+    "muzzleFlash": "/items/active/weapons/ranged/muzzleflash/starforge-firemuzzleflash.png"
+  },
+  "animationCustom": {
+    "animatedParts" : {
+      "stateTypes" : {
+        "gun" : {
+          "default" : "idle",
+          "states" : {
+            "idle" : {},
+            "reload" : {
+              "frames" : 2,
+              "cycle" : 0.2,
+              "mode" : "transition",
+              "transition" : "idle"
+            }
+          }
+        }
+      },
+
+      "parts" : {
+        "middleFullbright" : {
+          "properties" : {
+            "offset" : [1.25, 0.25]
+          }
+        },
+        "middle" : {
+          "properties" : {
+            "centered" : true,
+            "offset" : [0, 0], // x offset is set dynamically
+            "transformationGroups" : ["weapon"]
+          },
+
+          "partStates" : {
+            "gun" : {
+              "idle" : {
+                "properties" : {
+                  "image" : "<partImage>:reload.1"
+                }
+              },
+              "reload" : {
+                "properties" : {
+                  "image" : "<partImage>:reload.<frame>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sounds": {
+      "fire": [ "/sfx/gun/starforge-makeshiftshotgun.ogg" ]
+    }
+  },
+  
+  "baseOffset" : [1.25, 0.25],
+  "muzzleOffset": [1.875, 0.25],
+  
+  "scripts": [ "/items/active/weapons/ranged/starforge-gun.lua" ],
+  "elementalType": "physical",
+  
+  "primaryAbility": {
+    "scripts": [ "/items/active/weapons/ranged/starforge-gunfire.lua" ],
+    "class": "StarforgeGunFire",
+	
+    "fireTime": 0.45,
+    "baseDps": 12,
+    "energyUsage": 25,
+    "inaccuracy": 0.125,
+	
+    "projectileCount": 5,
+    "fireType": "auto",
+    "projectileType": "starforge-silverserpentbullet",
+    "projectileParameters": {
+      "speed" : [120, 180],
+      "knockback": 15
+    },
+    "animatedFire" : true,
+    "knockbackForce" : 15,
+	
+    "stances" : {
+      "idle" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0.05,
+        "armRotation" : 17,
+        "weaponRotation" : 17,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "cooldown" : {
+        "duration" : 0.4,
+        "armRotation" : 17,
+        "weaponRotation" : 17,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      }
+    }
+  },
+  
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

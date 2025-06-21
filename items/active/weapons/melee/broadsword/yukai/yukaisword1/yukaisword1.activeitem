@@ -7,9 +7,12 @@
   "description" : "A blade carved out of bones. A slight curse is usually applied to blades like these.",
   "shortdescription" : "Yukai Bone Sword",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "yukai" ],
 
   "inventoryIcon" : "yukaisword1.png",
 
@@ -29,7 +32,7 @@
     "fireTime" : 0.80,
     "baseDps" : 6.5
   },
-    "altAbilityType" : "downstab",
+  "altAbilityType" : "downstab",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

@@ -4,33 +4,37 @@
   "inventoryIcon" : "starforge-hawkmoon.png:ready1",
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "With each shot, a deafening shriek.",
-  "shortdescription" : "^orange;Hawkmoon^reset;",
+  "description" : "Silent, sleek, and lethal, like a shadow gliding over water before the strike.",
+  "shortdescription" : "^orange;Heronshade^reset;",
   "level" : 7,
   "fixedLevel" : false,
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
-  "tooltipFieldsOverride" : {"subtitle":"Revolver"},
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Revolver",
+    "altAbilityTitleLabel" : "Special:",
+    "altAbilityLabel" : "Reload"
+  },
   "itemTags" : ["weapon","ranged","revolver"],
   "twoHanded" : true,
 
   "animation" : "starforge-hawkmoon.animation",
   "animationParts" : {
     "gun" : "starforge-hawkmoon.png",
-	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash.png"
+	  "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash.png"
   },
   "animationCustom" : {
     "sounds" : {
       "fire" : ["/sfx/gun/starforge_hawkmoon.ogg"],
       "fireHeavy" : [ "/sfx/gun/starforge_hawkmoonheavy.ogg" ],
-	  "unholsterTwirl" : [ "/sfx/interface/item_equip.ogg" ],
+	    "unholsterTwirl" : [ "/sfx/interface/item_equip.ogg" ],
 	  
-	  "reloadLoop" : [ ],
-	  "reload" : [ "/sfx/gun/reload/pistol_reload_clip3.ogg" ]
+	    "reloadLoop" : [ ],
+	    "reload" : [ "/sfx/gun/reload/pistol_reload_clip3.ogg" ]
     }
   }, 
-  "baseOffset" : [0.750, 0.125],
-  "muzzleOffset" : [1.0, 0.875],
+  "baseOffset" : [0.75, 0.125],
+  "muzzleOffset" : [1.75, 0.875],
 
   "scripts" : ["/items/active/weapons/ranged/gun.lua"],
   
@@ -47,17 +51,17 @@
 
     "projectileCount" : 1,
 
-	"maxAmmo" : 7,
-	"shotIntervals" : [7],
+  	"maxAmmo" : 7,
+	  "shotIntervals" : [7],
 	
     "fireType" : "auto",
-	"readyTime" : 0.2, //Time between finishing the reload animation and being able to fire the first shot again
+	  "readyTime" : 0.2, //Time between finishing the reload animation and being able to fire the first shot again
 	
-	"cycleAfterShot" : true,
-	"fireAnimation" : false,
+  	"cycleAfterShot" : true,
+  	"fireAnimation" : false,
 
-	"heavyDamageMultiplier" : 1.25,
-	"heavyProjectileType" : "starforge-hawkmoonbullet",
+  	"heavyDamageMultiplier" : 1.25,
+  	"heavyProjectileType" : "starforge-hawkmoonbullet",
     "projectileType" : "starforge-physicalbullet",
     "projectileParameters" : {},
 
@@ -74,7 +78,7 @@
         "duration" : 0.5,
         "armRotation" : -25,
         "weaponRotation" : -540,
-		"weaponOffset" : [-0.25, -0.125],
+		    "weaponOffset" : [-0.25, -0.125],
         "twoHanded" : true,
 
         "allowRotate" : true,
@@ -84,7 +88,7 @@
         "duration" : 0.05,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+	    	"weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
         "allowRotate" : false,
@@ -94,7 +98,7 @@
         "duration" : 0.45,
         "armRotation" : 4,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.05, 0.0],
+	    	"weaponOffset" : [-0.05, 0.0],
         "twoHanded" : true,
 
         "allowRotate" : true,
@@ -104,20 +108,20 @@
         "duration" : 1.45,
         "armRotation" : -25,
         "weaponRotation" : 55,
-		"weaponOffset" : [-0.25, 0.0],
+	    	"weaponOffset" : [-0.25, 0.0],
         "twoHanded" : true,
 
         "aimAngle" : 0,
         "allowRotate" : false,
         "allowFlip" : true,
 
-		"frontArmFrameSequence" : [
-		  [0.0, "rotation"],
-		  [0.3, "walk.2"],
-		  [0.6, "run.3"],
-		  [0.9, "run.1"],
-		  [1.2, "run.1"]
-		],
+        "frontArmFrameSequence" : [
+          [0.0, "rotation"],
+          [0.3, "walk.2"],
+          [0.6, "run.3"],
+          [0.9, "run.1"],
+          [1.2, "run.1"]
+        ],
         "backArmFrame" : "rotation"
       }
     }

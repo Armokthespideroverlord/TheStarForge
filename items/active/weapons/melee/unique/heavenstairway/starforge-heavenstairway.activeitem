@@ -7,10 +7,12 @@
   "description" : "...",
   "shortdescription" : "^orange;Heaven's Stairway^reset;",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "broadsword",
-  "tooltipFieldsOverride" : {"subtitle":"Paragon Weapon"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Paragon Weapon"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword","nebulox","paragon"],
+  "itemTags" : [ "starforge", "nebulox", "weapon", "melee", "greatsword", "highbrand", "paragon" ],
 
   "inventoryIcon" : "starforge-heavenstairway.png:4",
 

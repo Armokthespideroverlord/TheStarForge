@@ -6,10 +6,13 @@
   "rarity" : "Legendary",
   "description" : "A sturdy sword, worn from its ventures into the earth.",
   "shortdescription" : "Earthbringer",
-  "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
   "learnBlueprintsOnPickup" : [ "starforge-earthbringer" ],
 
   "inventoryIcon" : "starforge-earthbringer.png",
@@ -29,7 +32,7 @@
             "swoosh" : {
               "fire" : {
                 "properties" : {
-                  "offset" : [1, 2.5]
+                  "offset" : [0, 2.125]
                 }
               },
               "fire2" : {
@@ -39,7 +42,7 @@
               },
               "fire3" : {
                 "properties" : {
-                  "offset" : [1, 2.5]
+                  "offset" : [0, 2.125]
                 }
               },
               "fire4" : {
@@ -47,14 +50,14 @@
                   "offset" : [4.5, 0]
                 }
               }
-		    }
-		  }
-	    }
-	  }
+            }
+          }
+        }
+      }
     }
   },
 
-  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
   "elementalType" : "physical",
 
@@ -64,17 +67,55 @@
     "baseDps" : 10,
     "damageConfig" : {
       "damageSourceKind" : "hammer"
+    },
+    "stances" : {
+      //IDLE - DEFAULT
+      "idle" : {
+        "aimAngle" : 0,
+        "armRotation" : -15,
+        "weaponRotation" : 50,
+        "weaponOffset" : [0, 0.35],
+        "twoHanded" : false,
+        "allowRotate" : false,
+        "allowFlip" : true
+      }
     }
   },
 
   "altAbilityType" : "physicalshockwave",
   "altAbility" : {
     "name" : "Quake",
-    "chargeTime" : 0.6,
+    "chargeTime" : 0.85,
     "minChargeTime" : 0.3,
-    "maxDistance" : 11,
-    "bothDirections" : false
+    "maxDistance" : 25,
+    "bothDirections" : false,
+    "projectileType" : "physicalshockwave",
+    "shockWaveBounds" : [-0.4, -1.375, 0.4, 1],
+    "impactWeaponOffset" : 0.55,
+
+    "stances" : {
+      "windup" : {
+        "armRotation" : -15,
+        "endArmRotation" : 110,
+        "weaponRotation" : 50,
+        "endWeaponRotation" : -170,
+        "weaponOffset" : [0, 0.5],
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0.35,
+        "armRotation" : 0,
+        "weaponRotation" : -180,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      }
+    }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

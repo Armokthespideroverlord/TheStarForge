@@ -7,10 +7,12 @@
   "description" : "Fling fragments of tidal ice at your foes.",
   "shortdescription" : "Fragmenter",
   "tooltipKind" : "starforge-uniquegun",
-  "category" : "throwableItem",
-  "tooltipFieldsOverride" : {"subtitle":"Throwable"},
-  "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","throwable"],
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Throwable"
+  },
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "ranged", "throwable" ],
   "learnBlueprintsOnPickup" : [ "starforge-fragmenter" ],
 
   "inventoryIcon" : "starforge-fragmenter.png",
@@ -31,22 +33,22 @@
 
   "primaryAbilityType" : "starforge-throwprojectile",
   "primaryAbility" : {
-    "baseDps" : 9,
+    "baseDps" : 5,
     "cooldownTime" : 0.2,
 	
-	"hideItemWhileIdle" : true,
-	
-	"inaccuracy": 0.08,
+    "hideItemWhileIdle" : true,
+    
+    "inaccuracy": 0.08,
     "projectileCount" : 5,
     "projectileType" : "starforge-tideshard",
     "projectileParameters" : {
-	  "speed" : [35, 80],
-	  "timeToLive" : [3, 5],
-	  "bounces" : -1,
-	  
-	  "movementSettings" : {
-		"bounceFactor" : 0.5
-	  }
+      "speed" : [35, 80],
+      "timeToLive" : [3, 5],
+      "bounces" : -1,
+      
+      "movementSettings" : {
+        "bounceFactor" : 0.5
+      }
     }
   },
 

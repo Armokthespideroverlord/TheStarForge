@@ -11,10 +11,10 @@ function StarforgePunch:init()
 
   self.flippedStances = sb.jsonMerge(self.stances, {})
   for _, stance in pairs(self.flippedStances) do
-	stance.armRotation = stance.armRotation * -1
-	if stance.backWeaponOffset then
-	  stance.weaponOffset = stance.backWeaponOffset
-	end
+    stance.armRotation = stance.armRotation * -1
+    if stance.backWeaponOffset then
+      stance.weaponOffset = stance.backWeaponOffset
+    end
   end
 
   self.cooldownTimer = self:cooldownTime()
@@ -47,7 +47,7 @@ end
 function StarforgePunch:startAttack()
   local stance = self.stances
   if self.flipRotationWhenBack and not self.weapon:isFrontHand() then
-	stance = self.flippedStances
+	  stance = self.flippedStances
     animator.setGlobalTag("flippedY", "?flipy")
   end
   self:setState(self.windup, stance)

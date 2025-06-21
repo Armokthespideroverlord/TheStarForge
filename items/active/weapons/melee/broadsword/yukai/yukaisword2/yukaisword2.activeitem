@@ -7,9 +7,12 @@
   "description" : "A titanium & bone blade. A powerful weapon.",
   "shortdescription" : "Yukai Steel Sword",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "yukai" ],
 
   "inventoryIcon" : "yukaisword2.png",
 
@@ -29,7 +32,7 @@
     "fireTime" : 0.80,
     "baseDps" : 7.5
   },
-    "altAbilityType" : "downstab",
+  "altAbilityType" : "downstab",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

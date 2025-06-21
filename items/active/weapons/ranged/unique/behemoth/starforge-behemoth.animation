@@ -21,8 +21,8 @@
         "default" : "idle",
         "states" : {
           "idle" : {
-			"frames" : 1
-		  },
+            "frames" : 1
+          },
           "charge" : {
             "frames" : 4,
             "cycle" : 0.25,
@@ -53,12 +53,12 @@
                 "image" : "<partImage>:idle"
               }
             },
-			"charge" : {
+			      "charge" : {
               "properties" : {
                 "image" : "<partImage>"
               }
             },
-			"fire" : {
+			      "fire" : {
               "properties" : {
                 "image" : "<partImage>:fire.<frame>"
               }
@@ -81,12 +81,12 @@
                 "image" : "<partImage>:idle"
               }
             },
-			"charge" : {
+			      "charge" : {
               "properties" : {
                 "image" : "<partImage>"
               }
             },
-			"fire" : {
+			      "fire" : {
               "properties" : {
                 "image" : "<partImage>:fire.<frame>"
               }

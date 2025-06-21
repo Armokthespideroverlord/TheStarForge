@@ -6,10 +6,13 @@
   "rarity" : "Essential",
   "description" : "\"Stillness. A state of being; numb. You feel nothing. You will do nothing.\" ",
   "shortdescription" : "^orange;Torpor^reset;",
-  "tooltipKind" : "base",
-  "category" : "Katana",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Katana"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword","katana"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "katana", "yukai" ],
 
   "inventoryIcon" : "starforge-torpor.png",
 
@@ -37,11 +40,11 @@
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
     "scripts" : ["/items/active/weapons/melee/abilities/starforge-warpcombo.lua"],
-	"class" : "StarforgeWarpCombo",
+	  "class" : "StarforgeWarpCombo",
     "fireTime" : 0.55,
     "baseDps" : 10.5,
 	
-	"stepDamageConfig" : [
+	  "stepDamageConfig" : [
       {
         "baseDamageFactor" : 0.5,
         "knockback" : 12.5,
@@ -75,10 +78,10 @@
       "knockbackMode" : "facing"
     },
 	
-	"comboSteps" : 5,
+	  "comboSteps" : 5,
     "comboSpeedFactor" : 0.8,
 	
-	"swooshOffsetRegions" : [
+  	"swooshOffsetRegions" : [
       [0.75, 0.0, 4.25, -5.0],
       [3.0, -0.5, 6.5, 2.0],
       [0.75, 0.0, 4.25, 5.0],
@@ -86,7 +89,7 @@
       [0.75, 0.0, 4.25, 5.0]
     ],
 
-	"stances" : {
+	  "stances" : {
       //IDLE - DEFAULT
       "idle" : {
         "armRotation" : -105,
@@ -95,7 +98,7 @@
 		
         "allowRotate" : false,
         "allowFlip" : true,
-		"aimAngle" : 0
+		    "aimAngle" : 0
       },
 	  //UPSLASH
       "windup1" : {
@@ -107,7 +110,7 @@
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
       "preslash1" : {
         "duration" : 0.025,
@@ -118,7 +121,7 @@
         "allowRotate" : false,
         "allowFlip" : false,
 		
-		"directives" : "flipx"
+	    	"comboDirectives" : "flipx"
       },
       "fire1" : {
         "duration" : 0.175,
@@ -129,7 +132,7 @@
         "allowRotate" : false,
         "allowFlip" : false,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
       "wait1" : {
         "duration" : 0.2,
@@ -139,7 +142,7 @@
         "allowFlip" : true,
         "twoHanded" : true,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
 	  //HORIZONTAL SLASH
       "windup2" : {
@@ -179,7 +182,7 @@
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
       "fire3" : {
         "duration" : 0.225,
@@ -190,7 +193,7 @@
         "allowRotate" : false,
         "allowFlip" : true,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
       "wait3" : {
         "duration" : 0.1,
@@ -201,7 +204,7 @@
         "allowRotate" : false,
         "allowFlip" : true,
 		
-		"directives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
 	  //DOWNSLASH
       "windup4" : {
@@ -250,9 +253,9 @@
         "allowFlip" : true,
 		
         "teleport" : true,
-		"hold" : true,
+		    "hold" : true,
 		
-		"directives" : "flipx?fade=FFFFFFFF=0.15"
+		    "comboDirectives" : "flipx?fade=FFFFFFFF=0.15"
       },
       "fire5" : {
         "duration" : 0.75,
@@ -264,22 +267,22 @@
         "allowRotate" : false,
         "allowFlip" : false,
 		
-		"teleportStatus" : "starforge-yukaiteleporteffect",
-		"teleportOffset" : [0, 1],
-		"teleportTarget" : [10, 0],
-		"teleportTolerance" : 3.0,
-		
-		//Slightly marks enemies within forgivenessRange which moves the slash a little
-		"forgivenessRange" : 20,
-		
-		"projectileType" : "starforge-bladestorm",
-		"projectileParameters" : {},
-		"projectileDamage" : 3,
-		
-		"directives" : "flipx"
+        "teleportStatus" : "starforge-yukaiteleporteffect",
+        "teleportOffset" : [0, 1],
+        "teleportTarget" : [10, 0],
+        "teleportTolerance" : 3.0,
+        
+        //Slightly marks enemies within forgivenessRange which moves the slash a little
+        "forgivenessRange" : 20,
+        
+        "projectileType" : "starforge-bladestorm",
+        "projectileParameters" : {},
+        "projectileDamage" : 3,
+        
+        "comboDirectives" : "flipx"
       }
-	}
+  	}
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

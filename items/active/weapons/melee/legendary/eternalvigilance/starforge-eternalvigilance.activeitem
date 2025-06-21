@@ -7,9 +7,12 @@
   "description" : "Lord Katahel may be gone, but his legend is as my watch : eternal.",
   "shortdescription" : "Eternal Vigilance",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
   "learnBlueprintsOnPickup" : [ "starforge-earthbringer" ],
 
   "inventoryIcon" : "starforge-eternalvigilance.png",
@@ -34,17 +37,16 @@
   },
   
   "stances" : {
-      //IDLE - DEFAULT
-      "idle" : {
-        "aimAngle" : 0,
-        "armRotation" : -15,
-        "weaponRotation" : 50,
-        "twoHanded" : false,
-        "allowRotate" : false,
-        "allowFlip" : true
-      }
+    //IDLE - DEFAULT
+    "idle" : {
+      "aimAngle" : 0,
+      "armRotation" : -15,
+      "weaponRotation" : 50,
+      "twoHanded" : false,
+      "allowRotate" : false,
+      "allowFlip" : true
+    }
 	 },
-	 
 
   "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

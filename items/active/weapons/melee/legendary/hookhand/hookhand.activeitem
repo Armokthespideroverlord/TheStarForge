@@ -3,14 +3,17 @@
   "price" : 5000,
   "maxStack" : 1,
   "rarity" : "Legendary",
-  "category" : "fistWeapon",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Fist Weapon"
+  },
   "level" : 6,
   "twoHanded" : false,
-  "tooltipKind" : "fistWeapon",
+  "tooltipKind" : "starforge-uniquesword",
   "inventoryIcon" : "hookhand.png:front",
-  "description" : "Slice & Dice!",
+  "description" : "A strange gauntlet engineered for grip, climb, and controlled takedowns.",
   "shortdescription" : "Hook Hand",
-  "itemTags" : ["weapon", "melee", "fist", "apex"],
+  "itemTags" : [ "starforge", "weapon", "melee", "fist" ],
   "learnBlueprintsOnPickup" : [ "starforge-hookhand" ],
 
   "animation" : "hookhand.animation",
@@ -42,7 +45,7 @@
     "scripts" : [ "/items/active/weapons/fist/starforge-punch.lua" ],
     "class" : "StarforgePunch",
 
-	"flipRotationWhenBack" : true,
+	  "flipRotationWhenBack" : true,
 
     "freezeTime" : 0.0,
     "fireTime" : 0.1,
@@ -114,5 +117,5 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildfist.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

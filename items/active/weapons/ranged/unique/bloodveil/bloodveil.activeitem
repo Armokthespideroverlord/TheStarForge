@@ -5,12 +5,14 @@
   "maxStack" : 1,
   "rarity" : "essential",
   "tooltipKind" : "bow",
-  "category" : "bow",
-  "tooltipFields" : {"subtitle":"Cursed Bow"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Bow"
+  },
   "description" : "Manifests your life essence into a powerful arrow.",
   "shortdescription" : "^orange;Bloodveil^reset;",
   "twoHanded" : true,
-  "itemTags" : ["weapon", "ranged", "bow"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "bow", "yukai" ],
 
   "radioMessagesOnPickup" : [ "pickupbow" ],
 

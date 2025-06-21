@@ -6,11 +6,13 @@
   "description": "The fever saw to the beginning, a story built.",
   "shortdescription" : "Fever",
   "tooltipKind": "starforge-uniquegun",
-  "category": "pistol",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Sidearm"
+  },
   "twoHanded": false,
   "level" : 5,
-  "itemTags": [ "weapon", "ranged", "pistol" ],
-  "tooltipFields" : {"subtitle":"Sidearm"},
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol" ],
   "inventoryIcon": "starforge-fevericon.png",
   
   "animation": "/items/active/weapons/ranged/unique/mauricessidearm/mauricessidearm.animation",
@@ -18,7 +20,7 @@
     "butt": "",
     "middle": "starforge-fever.png",
     "barrel": "",
-	"middleFullbright": "starforge-feverfullbright.png",
+	  "middleFullbright": "starforge-feverfullbright.png",
     "muzzleFlash": "/items/active/weapons/ranged/muzzleflash/starforge-firemuzzleflash.png"
   },
   "animationCustom": {
@@ -26,7 +28,7 @@
       "muzzleFlash" : {
         "burstCount" : 1,
         "transformationGroups" : ["muzzle"],
-		"offsetRegion" : [0, 0, 0, 0],
+		    "offsetRegion" : [0, 0, 0, 0],
         "particles" : [
           { "particle" : "rocketbarrelpuff" }
         ]

@@ -7,9 +7,12 @@
   "description" : "An old Cerulium Katana. The blade looks swift. It seems to belong to someone named Mariko.",
   "shortdescription" : "Isamu",
   "tooltipKind" : "sword",
-  "category" : "Katana",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Katana"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","shortsword","katana"],
+  "itemTags" : [ "starforge", "weapon", "melee", "shortsword", "katana" ],
 
   "inventoryIcon" : "marikokatana2.png",
 
@@ -30,5 +33,5 @@
     "baseDps" : 5.5
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

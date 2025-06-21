@@ -257,11 +257,11 @@ function interact(args)
   self.board:setEntity("interactionSource", args.sourceId)
   
   if self.pickupLoot then
-	for item, count in pairs(self.pickupLoot) do
-	  world.spawnItem(item, mcontroller.position(), count)
-	  despawn()
-	  mcontroller.setPosition({0, 0})
-	end
+		for item, count in pairs(self.pickupLoot) do
+			world.spawnItem(item, mcontroller.position(), count)
+			despawn()
+			mcontroller.setPosition({0, 0})
+		end
   end
 end
 

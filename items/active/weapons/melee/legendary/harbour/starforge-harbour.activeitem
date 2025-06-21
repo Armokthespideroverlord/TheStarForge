@@ -4,12 +4,15 @@
   "level" : 6,
   "maxStack" : 1,
   "rarity" : "Legendary",
-  "description" : "An intensely powerful armament, harnessing the forces of the Tide within its blade.",
+  "description" : "An intensely powerful armament, harnessing the the Tide within its blade.",
   "shortdescription" : "Harbour",
-  "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
   "learnBlueprintsOnPickup" : [ "starforge-harbour" ],
 
   "inventoryIcon" : "starforge-harbour.png",
@@ -47,14 +50,26 @@
                   "offset" : [2.5, 0]
                 }
               }
-		    }
-		  }
-	    }
-	  }
+		        }
+          }
+        }
+      }
+    },
+    "particleEmitters" : {
+      "starforge-tidalfrostCharge" : {
+        "active" : false,
+        "particles" : []
+      }
+    },
+
+    "sounds" : {
+      "starforge-tidalfrostcharge" : [],
+      "starforge-tidalfrostfull" : [],
+      "starforge-tidalfrostimpact" : [ "/sfx/gun/starforge_tidalfrostblast.ogg" ]
     }
   },
 
-  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
   "elementalType" : "starforge-tidalfrost",
 
@@ -67,5 +82,40 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "altAbilityType" : "physicalshockwave",
+  "altAbility" : {
+    "name" : "Tidal Pulse",
+    "chargeTime" : 1.0,
+    "minChargeTime" : 0.5,
+    "maxDistance" : 2,
+    "bothDirections" : true,
+    "projectileType" : "starforge-tidalblast",
+
+    "impactWeaponOffset" : 0.0,
+
+    "stances" : {
+      "windup" : {
+        "armRotation" : -90,
+        "endArmRotation" : 90,
+        "weaponRotation" : -10,
+        "endWeaponRotation" : -10,
+        "weaponOffset" : [0, 0],
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0.55,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

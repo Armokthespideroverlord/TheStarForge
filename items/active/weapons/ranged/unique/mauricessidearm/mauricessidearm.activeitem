@@ -5,16 +5,12 @@
   "rarity": "Essential",
   "description": "Maurice's trusty sidearm. He appears to have \"improved\" it's homing efficiency.",
   "shortdescription": "^#686F5D;Maruice's Sidearm^reset;",
-  "tooltipKind": "base",
-  "category": "Pistol",
+  "tooltipKind" : "starforge-uniquegun",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {"subtitle":"Pistol"},
   "twoHanded": true,
   "level": 8,
-  "itemTags": [
-    "weapon",
-    "ranged",
-    "pistol",
-    "chad"
-  ],
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol", "chad" ],
   "inventoryIcon": "mauricessidearmicon.png",
   "animation": "mauricessidearm.animation",
 
@@ -22,7 +18,7 @@
     "butt": "",
     "middle": "mauricessidearm.png",
     "barrel": "",
-	"middleFullbright": "mauricessidearmfullbright.png",
+	  "middleFullbright": "mauricessidearmfullbright.png",
     "muzzleFlash": "muzzleflash.png"
   },
   "animationCustom": {
@@ -42,14 +38,12 @@
     }
   },
   
-  "baseOffset": 
-  [0.500,0.125],
+  "baseOffset" : [0.500,0.125],
   
-  "muzzleOffset": 
-  [1.125,0.25],
+  "muzzleOffset" : [1.125,0.25],
   
   "scripts": [
-    "/items/active/weapons/ranged/gun.lua"
+    "/items/active/weapons/ranged/starforge-gun.lua"
   ],
   "elementalType": "ice",
   "primaryAbility": {
@@ -97,6 +91,8 @@
       }
     }
   },
-   
-  "builder": "/items/buildscripts/buildunrandweapon.lua"
+
+  "altAbilityType" : "flashlight",
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

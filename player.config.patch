@@ -3,17 +3,23 @@
   // PLAYER UTIL SCRIPT -- General utility script that runs on the player, which has access to player LUA tables
   //====================================================================================================================================
   { "op" : "add",
-	"path" : "/deploymentConfig/scripts/-",
-	"value" : "/scripts/starforge-playerutility.lua"
+    "path" : "/deploymentConfig/scripts/-",
+    "value" : "/scripts/starforge-playerutility.lua"
+  },
+  {
+    "op": "add",
+    "path": "/statusControllerSettings/primaryScriptSources/-",
+    "value": "/stats/starforge-player_primary.lua"
   },
   
   //Status effects or configs applied to nearby entities
   { "op" : "add",
-	"path" : "/deploymentConfig/starforge-areaStatusEffects",
-	"value" : [
-	  "starforge-tidalfrostresistance",
-	  "starforge-witherresistance"
-	]
+    "path" : "/deploymentConfig/starforge-areaStatusEffects",
+    "value" : [
+      "starforge-tidalfrostresistance",
+      "starforge-witherresistance",
+      "starforge-surgeresistance"
+    ]
   },
   
 

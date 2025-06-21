@@ -7,9 +7,12 @@
   "description" : "A titanium & bone spear. A powerful weapon.",
   "shortdescription" : "Yukai Steel Spear",
   "tooltipKind" : "sword",
-  "category" : "spear",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spear"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spear", "yukai" ],
 
   "inventoryIcon" : "yukaispear2.png",
 
@@ -38,5 +41,5 @@
 
   "altAbilityType" : "flurry",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

@@ -7,10 +7,11 @@
   "description" : "Sling the teeth of a fallen leviathan to destroy your foes.",
   "shortdescription" : "Leviathan's Teeth",
   "tooltipKind" : "starforge-uniquegun",
-  "category" : "throwableItem",
-  "tooltipFieldsOverride" : {"subtitle":"Throwable"},
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Throwable"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","throwable"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "throwable" ],
   "learnBlueprintsOnPickup" : [ "starforge-leviathansteeth" ],
 
   "inventoryIcon" : "starforge-leviathansteeth.png",

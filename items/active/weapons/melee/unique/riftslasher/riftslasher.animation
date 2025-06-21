@@ -26,6 +26,18 @@
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
+          },
+          "fire4" : {
+            "frames" : 3,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "fire5" : {
+            "frames" : 3,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "idle"
           }
         }
       },
@@ -95,17 +107,17 @@
             },
             "extend" : {
               "properties" : {
-                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?flipx"
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?flipx<comboDirectives>"
               }
             },
             "active" : {
               "properties" : {
-                "image" : "<partImage>:active.<frame>?<directives>?<bladeDirectives>?flipx"
+                "image" : "<partImage>:active.<frame>?<directives>?<bladeDirectives>?flipx<comboDirectives>"
               }
             },
             "retract" : {
               "properties" : {
-                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?flipx"
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?flipx<comboDirectives>"
               }
             }
           }
@@ -115,7 +127,7 @@
         "properties" : {
           "zLevel" : 1,
           "centered" : true,
-          "image" : "<partImage><paletteSwaps>?<directives>?flipx",
+          "image" : "<partImage><paletteSwaps>?<directives>?flipx<comboDirectives>",
           "offset" : [0, 0.75],
           "transformationGroups" : ["weapon"],
           "rotationCenter" : [0, 0]
@@ -126,7 +138,7 @@
           "zLevel" : 2,
           "centered" : true,
           "fullbright" : true,
-          "image" : "<partImage><paletteSwaps>?<directives>?flipx",
+          "image" : "<partImage><paletteSwaps>?<directives>?flipx<comboDirectives>",
           "offset" : [0, 0.75],
           "transformationGroups" : ["weapon"],
           "rotationCenter" : [0, 0]
@@ -151,12 +163,29 @@
             "fire" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-<partImage>.png:<frame>?flipy",
-				"offset" : [-1.25, -2],
-				"damageArea" : [[-3.75, 1.5], [-1.875, 2.25], [0.75, 2.25], [3, 1.25], [3.75, -0.15], [3.75, -1.675], [3, -2.375], [0, -1.875]]
+                "offset" : [-1.25, -2],
+                "damageArea" : [[-3.75, -1.5], [-1.875, -2.25], [0.75, -2.25], [3, -1.25], [3.75, 0.15], [3.75, 1.675], [3, 2.375], [0, 1.875]]
               }
             },
             "fire2" : {
               "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-<partImage>.png:<frame>",
+                "offset" : [-1.25, 2],
+                "damageArea" : [[-3.75, 1.5], [-1.875, 2.25], [0.75, 2.25], [3, 1.25], [3.75, -0.15], [3.75, -1.675], [3, -2.375], [0, -1.875]]
+              }
+            },
+			      "fire3" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/stab/stab-<partImage>.png:<frame>",
+                "offset" : [2, -0.0],
+                "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
+              }
+            },
+            "fire4" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/stab/stab-<partImage>.png:<frame>",
+                "offset" : [2, -0.0],
+                "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
               }
             }
           }
@@ -171,7 +200,7 @@
   },
 
   "particleEmitters" : {
-    "physicalswoosh" : {
+    "starforge-surgeswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
       "burstCount" : 4,

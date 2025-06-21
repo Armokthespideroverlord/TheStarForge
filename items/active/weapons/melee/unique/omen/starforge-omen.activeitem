@@ -4,12 +4,15 @@
   "level" : 7,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "A cursed Yukai artefact used a long time ago to slay countless Florans. ",
+  "description" : "A cursed Yukai artefact used a long time ago to slay countless Florans.",
   "shortdescription" : "^orange;The Omen^reset;",
-  "tooltipKind" : "base",
-  "category" : "Cursed Axe",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Cursed Axe"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","axe","artefact"],
+  "itemTags" : [ "starforge", "weapon", "melee", "axe", "yukai" ],
 
   "inventoryIcon" : "omen.png",
 
@@ -27,11 +30,12 @@
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
     "fireTime" : 0.80,
-    "baseDps" : 6.5
-  },
+    "baseDps" : 6.5,
+	
+    "statusEffects" : ["starforge-bleeding"],
   
-  	"comboSteps" : 5,
-	"swooshOffsetRegions" : [
+   	"comboSteps" : 5,
+	  "swooshOffsetRegions" : [
       [0.75, 0.0, 4.25, 5.0],
       [3.0, -0.5, 6.5, 2.0],
       [0.75, 0.0, 4.25, -5.0],
@@ -39,7 +43,7 @@
       [1.5, -1.0, 5.5, 1.0]
     ],
   
-  "stepDamageConfig" : [
+    "stepDamageConfig" : [
       {
         "baseDamageFactor" : 1.0,
         "knockback" : 15
@@ -231,9 +235,8 @@
         "allowRotate" : false,
         "allowFlip" : false
       }
+    }
 	},
-	
- "statusEffects" : ["starforge-bleeding"],
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

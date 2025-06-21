@@ -1,6 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/items/active/weapons/starforge-weapon.lua"
+require "/scripts/starforge-util.lua"
 
 --meleeweapon.lua edited by Nebulox to allow for:
 --Custom reticles
@@ -22,21 +23,42 @@ function init()
   self.weapon:addTransformationGroup("weapon", {0,0}, util.toRadians(config.getParameter("baseWeaponRotation", 0)))
   self.weapon:addTransformationGroup("swoosh", {0,0}, math.pi/2)
 
-  local primaryAbility = getPrimaryAbility()
-  self.weapon:addAbility(primaryAbility)
+  self.primaryAbility = getPrimaryAbility()
+  self.weapon:addAbility(self.primaryAbility)
 
-  local secondaryAttack = getAltAbility()
-  if secondaryAttack then
-    self.weapon:addAbility(secondaryAttack)
+  self.altAbility = getAltAbility()
+  if self.altAbility then
+    self.weapon:addAbility(self.altAbility)
   end
-  
+
   self.finisherGraceTimer = 0
+  
+  self.partForActive = config.getParameter("partForActive", "blade")
+  self.activeTime = config.getParameter("activeTime")
+  if self.activeTime then
+    self.activeTimer = 0
+    animator.setAnimationState("blade", "inactive")
+  end
+
+  self.canEmpower = config.getParameter("canEmpower")
+  if self.canEmpower then
+    self.empowered = false
+
+    self.depoweredBaseDps = config.getParameter("depoweredBaseDps", 10)
+    self.empoweredBaseDps = config.getParameter("empoweredBaseDps", 12)
+    self.depoweredEnergyUsage = config.getParameter("depoweredEnergyUsage", 0)
+    self.empoweredEnergyUsage = config.getParameter("empoweredEnergyUsage", 1)
+
+    self.activeSwooshPrefix = config.getParameter("activeSwooshPrefix")
+
+    self.baseDamageConfig = nebUtil.copyTable(self.primaryAbility.damageConfig, 5)
+    self.empoweredDamageConfig = config.getParameter("empoweredDamageConfig", self.baseDamageConfig)
+
+    animator.setAnimationState(self.partForActive, "inactive")
+    self.primaryAbility.baseDps = self.depoweredBaseDps
+  end
 
   self.weapon:init()
-end
-
-function triggerFinisher(holdTime)
-  self.finisherGraceTimer = holdTime or 0.5
 end
 
 function update(dt, fireMode, shiftHeld)
@@ -47,6 +69,53 @@ function update(dt, fireMode, shiftHeld)
 	end
 
   self.weapon:update(dt, fireMode, shiftHeld)
+  
+  updateActiveState(dt)
+  if self.altAbility then
+    updateEmpoweredState()
+  end
+end
+
+function updateActiveState(dt)
+  if self.activeTime then
+    local nowActive = self.weapon.currentAbility ~= nil
+    if nowActive then
+      if self.activeTimer == 0 then
+        animator.setAnimationState(self.partForActive, "extend")
+      end
+      self.activeTimer = self.activeTime
+    elseif self.activeTimer > 0 then
+      self.activeTimer = math.max(0, self.activeTimer - dt)
+      if self.activeTimer == 0 then
+        animator.setAnimationState(self.partForActive, "retract")
+      end
+    end
+  end
+end
+
+function updateEmpoweredState()
+  if self.empowered ~= self.altAbility.active then
+    self.empowered = self.altAbility.active
+    if self.empowered then
+      animator.setAnimationState(self.partForActive, "extend")
+      self.primaryAbility.baseDps = self.empoweredBaseDps
+      self.primaryAbility.energyUsage = self.empoweredEnergyUsage
+      self.primaryAbility.damageConfig = self.empoweredDamageConfig
+      self.primaryAbility:computeDamageAndCooldowns()
+      self.primaryAbility.animKeyPrefix = self.activeSwooshPrefix or ""
+    else
+      animator.setAnimationState(self.partForActive, "retract")
+      self.primaryAbility.baseDps = self.depoweredBaseDps
+      self.primaryAbility.energyUsage = self.depoweredEnergyUsage
+      self.primaryAbility.damageConfig = self.baseDamageConfig
+      self.primaryAbility:computeDamageAndCooldowns()
+      self.primaryAbility.animKeyPrefix = ""
+    end
+  end
+end
+
+function triggerFinisher(holdTime)
+  self.finisherGraceTimer = holdTime or 0.5
 end
 
 function uninit()

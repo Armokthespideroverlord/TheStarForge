@@ -55,7 +55,7 @@ end
 function StarforgeWarpCombo:windup()
   local stance = self.stances["windup"..self.comboStep]
 
-  animator.setGlobalTag("stanceDirectives", stance.directives or "")
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
   self.weapon:setStance(stance)
 
   if stance.teleport then
@@ -76,7 +76,7 @@ function StarforgeWarpCombo:windup()
   else
     util.wait(stance.duration)
   end
-  animator.setGlobalTag("stanceDirectives", "")
+  animator.setGlobalTag("comboDirectives", "")
 
   if self.energyUsage then
     status.overConsumeResource("energy", self.energyUsage)
@@ -99,7 +99,7 @@ function StarforgeWarpCombo:teleport()
   --Create the teleportation effect and add 0.5 for both animations to take effect
   status.addEphemeralEffect(stance.teleportStatus or "starforge-teleporteffect", stance.duration + 0.5)
 
-  animator.setGlobalTag("stanceDirectives", stance.directives or "")
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
@@ -151,9 +151,13 @@ function StarforgeWarpCombo:teleport()
 	mcontroller.setYVelocity(0, 0)
 	mcontroller.setPosition(targetPosition)
   end)
-  animator.setGlobalTag("stanceDirectives", "")
+  animator.setGlobalTag("comboDirectives", "")
   
   mcontroller.setPosition(oldPosition)
+
+  if stance.continueStep then
+    self.edgeTriggerTimer = self.edgeTriggerGrace
+  end
 
   if self.comboStep < self.comboSteps then
     self.comboStep = self.comboStep + 1
@@ -167,7 +171,7 @@ end
 function StarforgeWarpCombo:wait()
   local stance = self.stances["wait"..(self.comboStep - 1)]
 
-  animator.setGlobalTag("stanceDirectives", stance.directives or "")
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
   self.weapon:setStance(stance)
 
   util.wait(stance.duration, function()
@@ -176,7 +180,7 @@ function StarforgeWarpCombo:wait()
       return
     end
   end)
-  animator.setGlobalTag("stanceDirectives", "")
+  animator.setGlobalTag("comboDirectives", "")
 
   self.cooldownTimer = math.max(0, self.cooldowns[self.comboStep - 1] - stance.duration)
   self.comboStep = 1
@@ -187,12 +191,12 @@ end
 function StarforgeWarpCombo:preslash()
   local stance = self.stances["preslash"..self.comboStep]
 
-  animator.setGlobalTag("stanceDirectives", stance.directives or "")
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
   util.wait(stance.duration)
-  animator.setGlobalTag("stanceDirectives", "")
+  animator.setGlobalTag("comboDirectives", "")
 
   self:setState(self.fire)
 end
@@ -201,7 +205,7 @@ end
 function StarforgeWarpCombo:fire()
   local stance = self.stances["fire"..self.comboStep]
 
-  animator.setGlobalTag("stanceDirectives", stance.directives or "")
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
   self.weapon:setStance(stance)
   self.weapon:updateAim()
 
@@ -213,11 +217,34 @@ function StarforgeWarpCombo:fire()
   animator.setParticleEmitterOffsetRegion(swooshKey, self.swooshOffsetRegions[self.comboStep])
   animator.burstParticleEmitter(swooshKey)
   
+  local overSwing = {}
+  if stance.overSwing ~= false then
+    local overSwingValue = 0.05
+    local windupStance = self.stances["windup"..self.comboStep]
+    overSwing.armRotation = (stance.armRotation - windupStance.armRotation) * overSwingValue
+    overSwing.weaponRotation = (stance.weaponRotation - windupStance.weaponRotation) * overSwingValue
+  end
+
+  local progress = 0
   util.wait(stance.duration, function()
     local damageArea = partDamageArea("swoosh")
     self.weapon:setDamage(self.stepDamageConfig[self.comboStep], damageArea)
+    
+    if stance.overSwing ~= false then
+      for part, rotation in pairs(overSwing) do
+        local from = stance[part]
+        local to = stance[part] + rotation
+      
+        self.weapon["relative" .. part:gsub("^%l", string.upper)] = util.toRadians(util.interpolateHalfSigmoid(progress, from, to))
+      end
+      progress = math.min(1.0, progress + (self.dt / stance.duration))
+    end
   end)
-  animator.setGlobalTag("stanceDirectives", "")
+  animator.setGlobalTag("comboDirectives", "")
+
+  if stance.continueStep then
+    self.edgeTriggerTimer = self.edgeTriggerGrace
+  end
 
   if self.comboStep < self.comboSteps then
     self.comboStep = self.comboStep + 1

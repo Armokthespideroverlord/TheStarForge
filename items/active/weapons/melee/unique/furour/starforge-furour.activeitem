@@ -7,10 +7,12 @@
   "description" : "An unusual katana, able to throw the user into a fit of rage for increased efficiency.",
   "shortdescription" : "^orange;Furour^reset;",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "broadsword",
-  "tooltipFieldsOverride" : {"subtitle":"Katana"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Katana"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword","katana"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "katana" ],
 
   "inventoryIcon" : "starforge-furour.png:idle",
 
@@ -47,10 +49,13 @@
 
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/melee/abilities/starforge-meleecombo.lua"],
+    "class" : "StarforgeMeleeCombo",
+
     "fireTime" : 0.55,
     "baseDps" : 12.5,
 	
-	"stepDamageConfig" : [
+  	"stepDamageConfig" : [
       {
         "baseDamageFactor" : 1.0,
         "knockback" : 12.5
@@ -73,9 +78,9 @@
       }
     ],
 	
-	"comboSteps" : 5,
+	  "comboSteps" : 5,
 	
-	"swooshOffsetRegions" : [
+	  "swooshOffsetRegions" : [
       [0.75, 0.0, 4.25, -5.0],
       [3.0, -0.5, 6.5, 2.0],
       [0.75, 0.0, 4.25, 5.0],
@@ -83,7 +88,7 @@
       [0.75, 0.0, 4.25, 5.0]
     ],
 
-	"stances" : {
+	  "stances" : {
       //IDLE - DEFAULT
       "idle" : {
         "armRotation" : -105,
@@ -92,7 +97,7 @@
 		
         "allowRotate" : false,
         "allowFlip" : true,
-		"aimAngle" : 0
+		    "aimAngle" : 0
       },
 	  //UPSLASH
       "windup1" : {
@@ -102,7 +107,9 @@
         "twoHanded" : true,
 
         "allowRotate" : true,
-        "allowFlip" : true
+        "allowFlip" : true,
+		
+	    	"comboDirectives" : "flipx"
       },
       "preslash1" : {
         "duration" : 0.025,
@@ -111,7 +118,9 @@
         "twoHanded" : true,
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+	    	"comboDirectives" : "flipx"
       },
       "fire1" : {
         "duration" : 0.15,
@@ -120,7 +129,9 @@
         "twoHanded" : true,
 
         "allowRotate" : false,
-        "allowFlip" : false
+        "allowFlip" : false,
+		
+	    	"comboDirectives" : "flipx"
       },
       "wait1" : {
         "duration" : 0.2,
@@ -128,7 +139,9 @@
         "weaponRotation" : -125,
         "allowRotate" : false,
         "allowFlip" : true,
-        "twoHanded" : true
+        "twoHanded" : true,
+		
+	    	"comboDirectives" : "flipx"
       },
 	  //HORIZONTAL SLASH
       "windup2" : {
@@ -197,30 +210,36 @@
 	  //REVERSE HORIZONTAL SLASH
       "windup4" : {
         "duration" : 0.15,
-		"armRotation": -30,
-		"weaponRotation": -60,
+		    "armRotation": -30,
+		    "weaponRotation": -60,
         "weaponOffset" : [0, 0],
         "twoHanded" : true,
         "allowFlip" : true,
-        "allowRotate" : true
+        "allowRotate" : true,
+		
+	    	"comboDirectives" : "flipx"
       },
       "fire4" : {
         "duration" : 0.2,
-		"armRotation": 80,
-		"weaponRotation": -180,
+	    	"armRotation": 80,
+	    	"weaponRotation": -180,
         "weaponOffset" : [0, 0],
         "twoHanded" : true,
         "allowFlip" : true,
-        "allowRotate" : false
+        "allowRotate" : false,
+		
+	    	"comboDirectives" : "flipx"
       },
       "wait4" : {
         "duration" : 0.2,
-		"armRotation": 80,
-		"weaponRotation": -180,
+	    	"armRotation": 80,
+		    "weaponRotation": -180,
         "weaponOffset" : [0, 0],
         "allowRotate" : false,
         "allowFlip" : true,
-        "twoHanded" : true
+        "twoHanded" : true,
+		
+	    	"comboDirectives" : "flipx"
       },
 	  //DOWNSLASH
       "windup5" : {
@@ -250,7 +269,7 @@
         "allowRotate" : false,
         "allowFlip" : false
       }
-	}
+	  }
   },
 
   "altAbility" : {
@@ -258,16 +277,16 @@
     "scripts" : ["/items/active/weapons/melee/abilities/other/applystatuseffect/starforge-applystatuseffect.lua"],
     "class" : "StarForgeApplyStatusEffect",
 
-	"statusEffect" : "starforge-furourrage",
+	  "statusEffect" : "starforge-furourrage",
     "energyUsage" : 500.0,
     "cooldownTime" : 15.0,
 	
-	"lightIndicator" : false,		//Enables light animation to indicate cooldown status
-	"cooldownPersistent" : true,	//Makes the cooldown time persist when swapping away from the weapon
-	"activateInstantly" : false,	//Allows the status effect to activate before any wait duration
-	"forceStopSound" : false,		//Stops the activation sound when the activation is done
+	  "lightIndicator" : false,		//Enables light animation to indicate cooldown status
+	  "cooldownPersistent" : true,	//Makes the cooldown time persist when swapping away from the weapon
+	  "activateInstantly" : false,	//Allows the status effect to activate before any wait duration
+	  "forceStopSound" : false,		//Stops the activation sound when the activation is done
 	
-	"blockingStat" : null,			//If this value is set, the effect won't activate while this player stat is positive. Useful to prevent wasting the ability
+	  "blockingStat" : null,			//If this value is set, the effect won't activate while this player stat is positive. Useful to prevent wasting the ability
 
     "stances" : {
       "idle" : {
@@ -277,17 +296,17 @@
 		
         "allowRotate" : false,
         "allowFlip" : true,
-		"aimAngle" : 0
+		    "aimAngle" : 0
       },
       "statusIdle" : {
-		"emote" : "annoyed",
+	    	"emote" : "annoyed",
         "armRotation" : -125,
         "weaponRotation" : -5,
         "twoHanded" : false,
 		
         "allowRotate" : false,
         "allowFlip" : true,
-		"aimAngle" : 0
+		    "aimAngle" : 0
       },
       "activate" : {
         "duration" : 0.15,

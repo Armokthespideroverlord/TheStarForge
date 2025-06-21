@@ -7,9 +7,12 @@
   "description" : "A titanium & bone scythe. A powerful weapon.",
   "shortdescription" : "Yukai Steel Scythe",
   "tooltipKind" : "sword",
-  "category" : "Bone Scythe",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Scythe"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","scythe"],
+  "itemTags" : [ "starforge", "weapon", "melee", "scythe", "yukai" ],
 
   "inventoryIcon" : "yukaiscythe.png",
 
@@ -27,14 +30,14 @@
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
     "fireTime" : 0.90,
-    "baseDps" : 8.5
-  },
+    "baseDps" : 8.5,
   
-  "damageConfig" : {
+    "damageConfig" : {
       "statusEffects" : [ "starforge-bleeding" ]
-    },
+    }
+  },
 	
-    "altAbilityType" : "risingslash",
+  "altAbilityType" : "risingslash",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

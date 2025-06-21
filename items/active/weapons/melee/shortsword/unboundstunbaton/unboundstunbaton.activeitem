@@ -7,9 +7,12 @@
   "description" : "A stun baton used by Unbound Commandos in prisons or civilian sectors.",
   "shortdescription" : "Unbound Baton",
   "tooltipKind" : "base",
-  "category" : "shortsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Stun Baton"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon", "melee", "shortsword" ],
+  "itemTags" : [ "starforge", "weapon", "melee", "shortsword", "unbound" ],
 
   "inventoryIcon" : "unboundbatonicon.png",
 
@@ -153,5 +156,5 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

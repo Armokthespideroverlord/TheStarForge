@@ -10,8 +10,9 @@
   "fixedLevel" : false,
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
+  "manufacturer" : "elpisElements",
   "tooltipFieldsOverride" : {"subtitle":"Hand Cannon"},
-  "itemTags" : ["weapon", "ranged", "handcannon"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol", "elpiselements" ],
   "twoHanded" : true,
   
   "animation" : "/items/active/weapons/ranged/starforge-gun.animation",

@@ -175,7 +175,7 @@
             "fire" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [0.625, 2.75],
+                "offset" : [0.125, 2.125],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
@@ -189,21 +189,21 @@
             "fire3" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [0.625, -2.275],
+                "offset" : [0.125, -2.125],
                 "damageArea" : [[-5, -2], [-2.5, -3], [1, -3], [4, -1.75], [5, 0.25], [5, 2.25], [4, 3.25], [0, 2.5]]
               }
             },
             "fire4" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [0.625, 2.75],
+                "offset" : [0.125, 2.125],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
             "fire5" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [0.625, 2.75],
+                "offset" : [0.125, 2.125],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             }

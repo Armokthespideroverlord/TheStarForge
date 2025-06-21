@@ -9,6 +9,14 @@ function StarforgeGunFire:init()
   self.overheated = config.getParameter("overheated", false)
   
   self.energyUsage = self.weapon.abilities[1].energyUsage * 0.5
+
+  if self.overheated then
+    animator.playSound("overheatedLoop", -1)
+      
+    if self.overheatAnimations then
+      animator.setAnimationState("gun", "overheat")
+    end 
+  end
   
   oldInit(self)
 end
@@ -20,9 +28,19 @@ function StarforgeGunFire:update(dt, fireMode, shiftHeld)
     local soundPitchFactor = self.overheat / 100
     local soundPitch = 0.75 + (soundPitchFactor * 0.5)
     animator.setSoundPitch("overheatedLoop", soundPitch)
+
+    if self.stances.overheated and self.overheat <= 95 then
+      self.weapon:setStance(self.stances.overheated)
+    end
     
     self.cooldownTimer = self.fireTime
     if self.overheat == 0 then
+      if self.stances.overheated then
+        self.weapon:setStance(self.stances.idle)
+      end
+      if self.overheatAnimations then
+        animator.setAnimationState("gun", "idle")
+      end 
       animator.stopAllSounds("overheatedLoop")
       self.overheated = false
     end
@@ -70,6 +88,10 @@ function StarforgeGunFire:muzzleFlash()
     animator.playSound("overheatedLoop", -1)
     animator.playSound("overheat")
     self.overheated = true
+      
+    if self.overheatAnimations then
+      animator.setAnimationState("gun", "overheat")
+    end 
   end
   
   oldMuzzleFlash(self, pitchIncrease)

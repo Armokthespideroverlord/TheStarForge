@@ -8,21 +8,22 @@
   "description" : "A terrible weapon that tasted the blood of many innocent people.",
   "shortdescription" : "Forsaken Carver",
   "tooltipKind" : "starforge-uniquesword",
-  "category" : "dagger",
+  "category" : "uniqueWeapon",
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","dagger", "legendary"],
-  "tooltipFieldsOverride" : {	
-    "altAbilityTitleLabel" : "Finisher:"
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger" ],
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
   },
+
   "learnBlueprintsOnPickup" : [ "starforge-carver" ],
 
   "inventoryIcon" : "carver.png?flipx",
 
-  "animation" : "/items/active/weapons/melee/dagger/starforge-dagger.animation",
+  "animation" : "/items/active/weapons/melee/dagger/starforge-quickblade.animation",
   "animationParts" : {
     "blade" : "carver.png",
 	
-    "swoosh" : ""
+    "swoosh" : "physical"
   },
   "animationCustom" : {},
 
@@ -32,7 +33,7 @@
 
   "primaryAbilityType" : "starforge-daggercombo",
   "primaryAbility" : {
-    "baseDps" : 9.5,
+    "baseDps" : 7.5,
 	
     "finisherHoldTime" : 0.6,
   

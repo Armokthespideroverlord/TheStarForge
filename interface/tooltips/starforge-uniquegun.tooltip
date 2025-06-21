@@ -2,19 +2,19 @@
   "background" : {
     "type" : "background",
     "fileHeader" : "/interface/tooltips/starforge-uniqueheader.png",
-    "fileBody" : "/interface/tooltips/starforge-uniquebody2.png",
-    "fileFooter" : "/interface/tooltips/starforge-uniquefooter2.png"
+    "fileBody" : "/interface/tooltips/starforge-uniquebody3.png",
+    "fileFooter" : "/interface/tooltips/starforge-uniquefooter3.png"
   },
-  
+
   "levelTitleLabel" : {
     "type" : "label",
-    "position" : [120, 154],
+    "position" : [120, 164],
     "hAnchor" : "right",
     "value" : "^gray;lvl^reset;"
   },
   "levelLabel" : {
     "type" : "label",
-    "position" : [130, 154],
+    "position" : [130, 164],
     "hAnchor" : "right"
   },
 
@@ -31,56 +31,56 @@
   },
   "damagePerShotTitleLabel" : {
     "type" : "label",
-    "position" : [9, 88],
+    "position" : [9, 98],
     "hAnchor" : "left",
     "value" : "Damage Per Shot:"
   },
   "damagePerShotLabel" : {
     "type" : "label",
-    "position" : [130, 88],
+    "position" : [130, 98],
     "hAnchor" : "right",
     "wrapWidth" : 126
   },
   "speedTitleLabel" : {
     "type" : "label",
-    "position" : [9, 79],
+    "position" : [9, 89],
     "hAnchor" : "left",
     "value" : "Rate of Fire:"
   },
   "speedLabel" : {
     "type" : "label",
-    "position" : [130, 79],
+    "position" : [130, 89],
     "hAnchor" : "right",
     "wrapWidth" : 126
   },
   "energyPerShotTitleLabel" : {
     "type" : "label",
-    "position" : [9, 70],
+    "position" : [9, 80],
     "hAnchor" : "left",
     "value" : "Energy Per Shot:"
   },
   "energyPerShotLabel" : {
     "type" : "label",
-    "position" : [130, 70],
+    "position" : [130, 80],
     "hAnchor" : "right",
     "wrapWidth" : 126
   },
   "altAbilityTitleLabel" : {
     "type" : "label",
-    "position" : [9, 61],
+    "position" : [9, 71],
     "hAnchor" : "left",
     "value" : ""
   },
   "altAbilityLabel" : {
     "type" : "label",
-    "position" : [130, 61],
+    "position" : [130, 71],
     "hAnchor" : "right",
     "centered" : true,
     "wrapWidth" : 126
   },
   "descriptionLabel" : {
     "type" : "label",
-    "position" : [9, 59],
+    "position" : [9, 66],
     "hAnchor" : "left",
     "vAnchor" : "top",
     "wrapWidth" : 124,
@@ -89,16 +89,16 @@
   },
   "handednessLabel" : {
     "type" : "label",
-    "position" : [90, 154],
+    "position" : [90, 164],
     "hAnchor" : "right",
     "centered" : true,
     "wrapWidth" : 126
   },
   "damageKindImage" : {
     "type" : "image",
-    "position" : [120, 110],
+    "position" : [115, 110],
     "file" : "",
-    "centered" : true,
+    "centered" : false,
     "maxSize" : [16, 16],
     "minSize" : [16, 16]
   },
@@ -112,19 +112,19 @@
   },
   "objectImage" : {
     "type" : "image",
-    "position" : [70, 125],
+    "position" : [70, 135],
     "file" : "",
     "centered" : true,
-    "maxSize" : [60, 60],
-    "minSize" : [60, 60]
+    "maxSize" : [84, 49],
+    "minSize" : [84, 49]
   },
   
   //Custom field, Manufacturer Icon
   "manufacturerIconImage" : {
     "type" : "image",
-    "position" : [15, 110],
+    "position" : [7, 110],
     "file" : "",
-    "centered" : true,
+    "centered" : false,
     "maxSize" : [16, 16],
     "minSize" : [16, 16]
   }

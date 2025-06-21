@@ -7,9 +7,12 @@
   "description" : "A titanium & bone blade. Decorated with Ember coral.",
   "shortdescription" : "Yukai Ornate Sword",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "yukai" ],
 
   "inventoryIcon" : "yukaisword3.png",
 
@@ -27,14 +30,14 @@
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
     "fireTime" : 0.85,
-    "baseDps" : 8.5
-  },
+    "baseDps" : 8.5,
   
-  "damageConfig" : {
+    "damageConfig" : {
       "statusEffects" : [ "burning" ]
-    },
+    }
+  },
 	
-    "altAbilityType" : "giantsword",
+  "altAbilityType" : "giantsword",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

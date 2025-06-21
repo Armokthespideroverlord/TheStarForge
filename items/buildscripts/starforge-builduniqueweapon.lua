@@ -27,6 +27,13 @@ function build(directory, config, parameters, level, seed)
   if config.altAbility and config.altAbility.elementalConfig then
     util.mergeTable(config.altAbility, config.altAbility.elementalConfig[elementalType])
   end
+
+  -- load and merge combo finisher
+  local comboFinisherSource = configParameter("comboFinisherSource")
+  if comboFinisherSource then
+    local comboFinisherConfig = root.assetJson(comboFinisherSource)
+    util.mergeTable(config, comboFinisherConfig)
+  end
   
   -- calculate damage level multiplier
   config.damageLevelMultiplier = root.evalFunction("weaponDamageLevelMultiplier", configParameter("level", 1))
@@ -67,21 +74,33 @@ function build(directory, config, parameters, level, seed)
     config.tooltipFields.damagePerShotLabel = util.round((config.primaryAbility.baseDps or 0) * (config.primaryAbility.fireTime or 1.0) * config.damageLevelMultiplier, 1)
     config.tooltipFields.energyPerShotLabel = util.round((config.primaryAbility.energyUsage or 0) * (config.primaryAbility.fireTime or 1.0), 1)
     if elementalType ~= "physical" then
-      config.tooltipFields.damageKindImage = "/interface/elements/"..elementalType..".png"
+      config.tooltipFields.damageKindImage = "/interface/elements/" .. elementalType .. ".png"
     end
     if config.primaryAbility then
       config.tooltipFields.primaryAbilityTitleLabel = "Primary:"
-      config.tooltipFields.primaryAbilityLabel = config.primaryAbility.name or "unknown"
+      config.tooltipFields.primaryAbilityLabel = config.primaryAbility.name or "Unspecified"
     end
-    if config.altAbility then
-      config.tooltipFields.altAbilityTitleLabel = "Special:"
-      config.tooltipFields.altAbilityLabel = config.altAbility.name or "unknown"
+    if config.comboFinisher then
+      config.tooltipFields.altAbilityTitleLabel = "Finisher:"
+      config.tooltipFields.altAbilityLabel = config.comboFinisher.name or "Unspecified"
+    elseif config.altAbility then
+      if config.primaryAbility.finisherHoldTime and not config.twoHanded then
+        config.tooltipFields.altAbilityTitleLabel = "Finisher:"
+      else
+        config.tooltipFields.altAbilityTitleLabel = "Special:"
+      end
+      config.tooltipFields.altAbilityLabel = config.altAbility.name or "Unspecified"
     end
 
     --Apply manufacturer icon
     if config.manufacturer and config.manufacturer ~= "" then
       config.tooltipFields.manufacturerIconImage = "/interface/sf-manufacturers/" .. config.manufacturer:lower() .. ".png"
     end
+    
+    if (config.rarity == "Essential" or config.rarity == "essential") and (config.tooltipKind == "starforge-uniquesword" or config.tooltipKind == "starforge-uniquegun") then
+      config.tooltipKind = config.tooltipKind .. "-shiny"
+    end
+
     
     -- Lets you customise tooltip from the weapon... EXTREMELY useful I think!
     config.tooltipFields = sb.jsonMerge(config.tooltipFields, config.tooltipFieldsOverride or {})

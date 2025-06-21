@@ -7,10 +7,12 @@
   "description" : "It may not look like it, but one smack to the head and your enemy is down!",
   "shortdescription" : "Grave Digger's Shovel",
   "tooltipKind" : "sword",
-  "category": "broadsword",
-  "tooltipFields" : {"subtitle":"Shovel"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Shovel"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
 
   "inventoryIcon" : "gravediggershovel.png",
 
@@ -30,7 +32,7 @@
     "fireTime" : 0.80,
     "baseDps" : 5.5
   },
-    "altAbilityType" : "downstab",
+  "altAbilityType" : "downstab",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

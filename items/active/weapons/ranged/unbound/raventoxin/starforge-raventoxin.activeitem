@@ -8,9 +8,9 @@
   "rarity" : "Legendary",
   "description" : "A pestilent Unbound prototype developed using stolen technology.",
   "shortdescription" : "Raventoxin",
-  "tooltipKind" : "base",
+  "tooltipKind": "starforge-uniquegun",
   "category" : "uniqueWeapon",
-  "tooltipFields" : {"subtitle":"Beam Rifle"},
+  "tooltipFieldsOverride" : {"subtitle":"Beam Rifle"},
   "itemTags" : ["weapon","ranged","elpiselements","unbound","beamrifle"],
   "twoHanded" : true,
   
@@ -26,19 +26,21 @@
     "animatedParts" : {
       "parts" : {
         "middleFullbright" : {
-		  "properties" : {
-			//Same as BaseOffset
-		    "offset" : [0.875, 0.5]
-		  }
-		}
+          "properties" : {
+          //Same as BaseOffset
+            "offset" : [0.875, 0.5]
+          }
+        }
       }
     },
     "sounds" : {
-	  //PRIMARY
+	    //PRIMARY
       "fireStart" : [ "/sfx/gun/starforge-beamstart1.ogg" ],
       "fireLoop" : [ "/sfx/gun/mech_beamdrill_loop.ogg" ],
       "fireEnd" : [ "/sfx/gun/mech_beamdrill_winddown.ogg" ],
-      "beamImpact" : []
+      "beamImpact" : [],
+      //ALT
+      "fire": [ "/sfx/projectiles/bonerain_throw1.ogg", "/sfx/projectiles/bonerain_throw2.ogg" ]
     }
   },
   "animationScripts" : ["/items/active/effects/starforge-enhancedchain.lua"],
@@ -125,6 +127,50 @@
 
         "allowRotate" : true,
         "allowFlip" : true
+      }
+    }
+  },
+
+  "altAbility": {
+    "name" : "Flux Reserves",
+    "scripts": [
+      "/items/active/weapons/ranged/starforge-gunfire.lua"
+    ],
+    "class": "StarforgeGunFire",
+
+    "fireTime": 0.8,
+    "baseDps": 10,
+    "energyUsage": 20,
+    "inaccuracy": 0.05,
+    "projectileCount": 2,
+    
+    "fireType": "burst",
+    "burstCount" : 3,
+    "burstTime" : 0.1,
+
+    "projectileType": "starforge-poisonfluxbolt",
+    "projectileParameters": {
+    },
+
+    "useStanceDuration" : true,
+    "stances": {
+      "fire": {
+        "duration": 0,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.1, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true
+      },
+      "cooldown": {
+        "duration": 0.15,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.1, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true
       }
     }
   },

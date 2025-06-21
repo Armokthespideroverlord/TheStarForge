@@ -8,10 +8,10 @@ function init()
   local averageFactor = 0
   local totalRes = 0
   for element, influence in pairs(elementalInfluences) do
-	local elementRes = status.stat(element .. "Resistance")
-	averageFactor = averageFactor + 1
-	totalRes = totalRes + elementRes
-	resistance = resistance + elementRes * influence
+    local elementRes = status.stat(element .. "Resistance")
+    averageFactor = averageFactor + 1
+    totalRes = totalRes + elementRes
+    resistance = resistance + elementRes * influence
   end
   local newInfluence = (totalRes / averageFactor) * totalFactor
   

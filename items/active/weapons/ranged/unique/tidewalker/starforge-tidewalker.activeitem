@@ -4,14 +4,14 @@
   "inventoryIcon" : "starforge-tidewalker.png",
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "A peculiar weapon, found outside the known realm, firing high speed projectiles made from tidalfrost.",
+  "description" : "A peculiar weapon, found outside the known realm, firing shards of tidalfrost.",
   "shortdescription" : "Tidewalker",
   "level" : 6,
   "fixedLevel" : false,
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
-  "tooltipFields" : {"subtitle":"Rail Rifle"},
-  "itemTags" : ["weapon","ranged","nebulox","tide"],
+  "tooltipFieldsOverride" : {"subtitle":"Rail Rifle"},
+  "itemTags" : [ "starforge", "weapon", "ranged", "sniperrifle", "tide" ],
   "twoHanded" : true,
   
   "animation" : "starforge-tidewalker.animation",
@@ -22,31 +22,31 @@
     "charge" : ""
   },
   "animationCustom" : {
-	"animatedParts" : {
+    "animatedParts" : {
       "parts" : {
         "gun" : {
-		  "properties" : {
-			//Same as BaseOffset
-		    "offset" : [1.125, -0.25]
-		  }
-		},
-		"lights" : {
-		  "properties" : {
-			//Same as BaseOffset
-		    "offset" : [1.125, -0.25]
-		  }
-		},
-		"charge" : {
-		  "properties" : {
-			//Same as BaseOffset
-		    "offset" : [1.125, -0.25]
-		  }
-		},
-		"muzzleFlash" : {
-		  "properties" : {
-		    "offset" : [0.375, 0.5]
-		  }
-		}
+          "properties" : {
+          //Same as BaseOffset
+            "offset" : [1.125, -0.25]
+          }
+        },
+        "lights" : {
+          "properties" : {
+          //Same as BaseOffset
+            "offset" : [1.125, -0.25]
+          }
+        },
+        "charge" : {
+          "properties" : {
+          //Same as BaseOffset
+            "offset" : [1.125, -0.25]
+          }
+        },
+        "muzzleFlash" : {
+          "properties" : {
+            "offset" : [0.375, 0.5]
+          }
+        }
       }
     },
     "sounds" : {
@@ -74,13 +74,13 @@
     "baseEnergyUsage" : 8,
     "inaccuracy" : 0.002,
 	
-	"pitchVariance" : 0.05,
+	  "pitchVariance" : 0.05,
 	
-	"cooldownTime" : 0.135,
+  	"cooldownTime" : 0.135,
 
     "projectileType" : "starforge-tidewalkershot",
-	"projectileCount" : 1,
-	"projectileParameters" : {
+	  "projectileCount" : 1,
+	  "projectileParameters" : {
       "knockback" : 6
     },
 
@@ -131,5 +131,5 @@
 	}
   },
 
-  "builder" : "/items/buildscripts/thea-buildchargedgun.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

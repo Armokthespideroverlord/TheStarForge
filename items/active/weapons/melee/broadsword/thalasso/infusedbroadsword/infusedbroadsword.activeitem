@@ -7,9 +7,12 @@
   "description" : "A titanium blade forged near perfection.",
   "shortdescription" : "Infused Titanium Saber",
   "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
 
   "inventoryIcon" : "infusedbroadsword.png",
 
@@ -40,5 +43,5 @@
   
   "altAbilityType" : "traildash",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

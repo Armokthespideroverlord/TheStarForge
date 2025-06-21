@@ -1,0 +1,14 @@
+{
+  "name" : "starforge-surgeresistance",
+  "effectConfig" : {
+    "elementalType" : "starforge-surge",
+  	"elementalInfluences" : {
+      "poison" : 0.25,
+      "fire" : 0.25,
+      "electric" : -0.5
+    },
+	  "totalFactor" : 0.5
+  },
+  "defaultDuration" : 15,
+  "scripts" : ["starforge-elementalresistance.lua"]
+}

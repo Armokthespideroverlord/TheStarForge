@@ -7,10 +7,11 @@
   "description" : "A duty to the trees, a pledge. A proof of loyalty and honor.",
   "shortdescription" : "Leaf Pledge",
   "tooltipKind" : "starforge-uniquegun",
-  "category" : "throwableItem",
-  "tooltipFieldsOverride" : {"subtitle":"Throwable"},
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Throwable"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","throwable"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "throwable" ],
   "learnBlueprintsOnPickup" : [ "starforge-leafpledge"],
 
   "inventoryIcon" : "starforge-leafpledgeicon.png",
@@ -34,7 +35,7 @@
     "baseDps" : 9.5,
     "cooldownTime" : 0.3,
 	
-	"hideItemWhileIdle" : true,
+	  "hideItemWhileIdle" : true,
 	
     "projectileCount" : 1,
     "projectileTimesAndAngles" : [
@@ -52,7 +53,7 @@
     "baseDps" : 5,
     "cooldownTime" : 1,
 	
-	"hideItemWhileIdle" : true,
+	  "hideItemWhileIdle" : true,
 
     "energyUsage" : 21,
 	

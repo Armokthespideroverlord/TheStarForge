@@ -6,9 +6,12 @@
   "description" : "A sidearm said to be used by a great captain named Mariko. It's a bit worn down, but still works perfectly.",
   "shortdescription" : "Thalasso Service Pistol",
   "tooltipKind" : "gun",
-  "category" : "pistol",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Pistol"
+  },
   "twoHanded" : false,
-  "itemTags" : ["weapon","ranged","pistol"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol" ],
   "level" : 6,
 
 "inventoryIcon" : "marikopistol.png",

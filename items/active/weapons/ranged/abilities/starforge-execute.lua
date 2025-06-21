@@ -5,12 +5,12 @@ require "/scripts/interp.lua"
 StarforgeExecute = WeaponAbility:new()
 
 function StarforgeExecute:init()
-  self.weapon:setStance(self.stances.idle)
+  self.weapon:setStance(self.weapon.abilities[1].stances.idle)
 
   self.cooldownTimer = self.fireTime
 
   self.weapon.onLeaveAbility = function()
-    self.weapon:setStance(self.stances.idle)
+    self.weapon:setStance(self.weapon.abilities[1].stances.idle)
   end
 end
 
@@ -56,13 +56,13 @@ function StarforgeExecute:twirl()
   local progress = 0
   util.wait(self.stances.twirl.duration, function()
     local from = self.stances.twirl.weaponOffset or {0,0}
-    local to = self.stances.idle.weaponOffset or {0,0}
+    local to = self.weapon.abilities[1].stances.idle.weaponOffset or {0,0}
     self.weapon.weaponOffset = {util.interpolateHalfSigmoid(progress, from[1], to[1]), util.interpolateHalfSigmoid(progress, from[2], to[2])}
 	
-	self.weapon.relativeWeaponRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.twirl.weaponRotation, self.stances.idle.weaponRotation))
-	self.weapon.relativeArmRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.twirl.armRotation, self.stances.idle.armRotation))
+    self.weapon.relativeWeaponRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.twirl.weaponRotation, self.weapon.abilities[1].stances.idle.weaponRotation))
+    self.weapon.relativeArmRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.twirl.armRotation, self.weapon.abilities[1].stances.idle.armRotation))
 
-	progress = math.min(1.0, progress + (self.dt / self.stances.twirl.duration))
+    progress = math.min(1.0, progress + (self.dt / self.stances.twirl.duration))
   end)
   
   if status.overConsumeResource("energy", self:energyPerShot()) then
@@ -133,11 +133,11 @@ function StarforgeExecute:cooldown()
   local progress = 0
   util.wait(self.stances.cooldown.duration, function()
     local from = self.stances.cooldown.weaponOffset or {0,0}
-    local to = self.stances.idle.weaponOffset or {0,0}
+    local to = self.weapon.abilities[1].stances.idle.weaponOffset or {0,0}
     self.weapon.weaponOffset = {util.interpolateHalfSigmoid(progress, from[1], to[1]), util.interpolateHalfSigmoid(progress, from[2], to[2])}
 
-    self.weapon.relativeWeaponRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.cooldown.weaponRotation, self.stances.idle.weaponRotation))
-    self.weapon.relativeArmRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.cooldown.armRotation, self.stances.idle.armRotation))
+    self.weapon.relativeWeaponRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.cooldown.weaponRotation, self.weapon.abilities[1].stances.idle.weaponRotation))
+    self.weapon.relativeArmRotation = util.toRadians(util.interpolateHalfSigmoid(progress, self.stances.cooldown.armRotation, self.weapon.abilities[1].stances.idle.armRotation))
 
     progress = math.min(1.0, progress + (self.dt / self.stances.cooldown.duration))
   end)

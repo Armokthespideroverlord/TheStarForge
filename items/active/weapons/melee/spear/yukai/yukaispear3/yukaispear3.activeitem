@@ -7,9 +7,12 @@
   "description" : "A titanium & bone spear. Decorated with Ember coral.",
   "shortdescription" : "Yukai Ornate Spear",
   "tooltipKind" : "sword",
-  "category" : "spear",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spear"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spear", "yukai" ],
 
   "inventoryIcon" : "yukaispear3.png",
 
@@ -33,14 +36,14 @@
   "primaryAbilityType" : "spearstab",
   "primaryAbility" : {
     "fireTime" : 0.65,
-    "baseDps" : 11.5
-  },
+    "baseDps" : 11.5,
   
-  "damageConfig" : {
+    "damageConfig" : {
       "statusEffects" : [ "burning" ]
-    },
+    }
+  },
 
   "altAbilityType" : "flurry",
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

@@ -30,7 +30,7 @@
     }
   },
 
-  "scripts" : ["/items/active/shields/shield.lua"],
+  "scripts" : ["/items/active/shields/starforge-shield.lua"],
 
   "minActiveTime" : 0.3,
 
@@ -42,6 +42,10 @@
   "perfectBlockTime" : 0.2,
 
   "knockback" : 10,
+
+  "shieldStats" : {
+    "electricResistance" : 0.25
+  },
 
   "stances" : {
     "idle" : {

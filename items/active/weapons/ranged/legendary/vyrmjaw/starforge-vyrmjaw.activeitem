@@ -1,0 +1,202 @@
+{
+  "itemName" : "starforge-vyrmjaw",
+  "price" : 1500,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "A lingering draconic rage burns, snapping its maw with each thunderous shot.",
+  "shortdescription" : "Vrymjaw",
+  "tooltipKind" : "starforge-uniquegun",
+  "tooltipFieldsOverride" : {"subtitle" : "Charge Cannon"},
+  "category" : "uniqueWeapon",
+  "twoHanded" : true,
+  "itemTags" : ["weapon","ranged"],
+  "level" : 6,
+
+  "inventoryIcon" : "starforge-vyrmjaw.png:empty",
+
+  "animation" : "starforge-vyrmjaw.animation",
+  "animationParts" : {
+    "gun" : "starforge-vyrmjaw.png",
+    "gunfullbright" : "starforge-vyrmjawfullbright.png",
+    "flame" : "starforge-vyrmjawflame.png",
+    "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-firemuzzleflash.png"
+  },
+  "animationCustom" : {},
+  "muzzleOffset" : [2.25, 3.25],
+
+  "scripts" : [ "/items/active/weapons/ranged/starforge-gun.lua" ],
+
+  "elementalType" : "fire",
+  "aimOffset" : -1.5,
+
+  "primaryAbility" : {
+    "scripts": [ "/items/active/weapons/ranged/starforge-gunfire.lua" ],
+    "class": "StarforgeGunFire",
+
+    "fireTime" : 1.5,
+    "baseDps" : 11,
+    "energyUsage" : 15,
+    "inaccuracy" : 0,
+
+    "projectileCount" : 1,
+	  "pitchVariance" : 0.05,
+
+    "holdToCharge" : true,
+    "fireType" : "auto",
+	  "chargeTime" : 1.15,
+    "chargeAnimations" : true,
+
+	  "chargeShake" : true,
+	  "chargeShakeWavePeriod" : 0.25,
+	  "chargeShakeWaveAmplitude" : 0.005,
+	  "chargeShakeFactor" : 1,
+
+    "projectileType" : "dragonfirelarge",
+    "projectileParameters" : {
+      "movementSettings" : {
+        "gravityMultiplier" : 1
+      },
+      "damageType" : "NoDamage",
+      "actionOnReap" : [
+        {
+          "action" : "config",
+          "file" : "/projectiles/explosions/regularexplosion2/fireexplosionknockbackstatus.config"
+        },
+        {
+          "action" : "loop",
+          "count" : 5,
+          "body" : [
+            {
+              "inheritDamageFactor": 0.1,
+              "fuzzAngle": 360,
+              "action": "projectile",
+              "type": "crabcanoball"
+            }
+          ]
+        }
+      ]
+    },
+
+    "stances" : {
+      "idle" : {
+        "armRotation": -55,
+        "weaponRotation": 55,
+        "weaponOffset" : [0.0, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		    "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      },
+      "fire" : {
+        "duration": 0,
+        "armRotation": -45,
+        "weaponRotation": 65,
+        "weaponOffset" : [0.0, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+
+        "animationStates" : {
+          "gun" : "fire"
+		    },
+		
+	  	  "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      },
+      "cooldown" : {
+        "duration": 0.3,
+        "armRotation": -45,
+        "weaponRotation": 65,
+        "weaponOffset" : [-0.25, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+	  	  "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      }
+    }
+  },
+
+  "altAbility" : {
+    "name" : "Dragon's Breath",
+    "scripts": [ "/items/active/weapons/ranged/starforge-gunfire.lua" ],
+    "class": "StarforgeGunFire",
+
+    "fireTime" : 1.5,
+    "baseDps" : 2,
+    "energyUsage" : 15,
+    "inaccuracy" : 0.15,
+
+    "projectileCount" : 1,
+	  "pitchVariance" : 0.05,
+    "fireSound" : "altFire",
+
+    "fireType" : "burst",
+	  "burstTime" : 0.01,
+    "burstCount" : 125,
+    "noBurstRecoil" : true,
+
+    "autoFire" : true,
+    "holdToCharge" : true,
+	  "chargeTime" : 1.5,
+    "chargeAnimations" : true,
+    "walkWhileFiring" : true,
+
+    "projectileType" : "flamethrower",
+    "projectileParameters" : {
+      "speed" : 35
+    },
+
+    "useStanceDuration" : true,
+    "stances" : {
+      "idle" : {
+        "armRotation": -55,
+        "weaponRotation": 55,
+        "weaponOffset" : [0.0, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		    "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      },
+      "fire" : {
+        "duration": 0,
+        "armRotation": -55,
+        "weaponRotation": 55,
+        "weaponOffset" : [0.0, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+
+        "animationStates" : {
+          "gun" : "altFullCharge"
+		    },
+		
+	  	  "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      },
+      "cooldown" : {
+        "duration": 0.3,
+        "armRotation": -55,
+        "weaponRotation": 55,
+        "weaponOffset" : [-0.25, 0.125],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+
+        "animationStates" : {
+          "gun" : "cooldown"
+		    },
+		
+	  	  "frontArmFrame" : "run.3",
+        "backArmFrame" : "swim.4"
+      }
+    }
+  },
+   
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

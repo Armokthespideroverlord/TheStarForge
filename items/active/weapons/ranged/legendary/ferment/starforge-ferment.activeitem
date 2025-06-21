@@ -8,10 +8,12 @@
   "rarity" : "Legendary",
   "description" : "The ferment held it together, let it grow.",
   "shortdescription" : "Ferment",
-  "tooltipKind" : "base",
+  "tooltipKind": "starforge-uniquegun",
   "category" : "uniqueWeapon",
-  "tooltipFields" : {"subtitle":"Beam Rifle"},
-  "itemTags" : ["weapon","ranged","elpiselements","unbound","beamrifle"],
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Beam Rifle"
+  },
+  "itemTags" : [ "starforge", "weapon", "ranged", "beamrifle" ],
   "twoHanded" : true,
   
   "cursor" : "/cursors/starforge-staticbeamcursor.cursor",
@@ -26,15 +28,15 @@
     "animatedParts" : {
       "parts" : {
         "middleFullbright" : {
-		  "properties" : {
-			//Same as BaseOffset
-		    "offset" : [0.875, 0.5]
-		  }
-		}
+          "properties" : {
+          //Same as BaseOffset
+            "offset" : [0.875, 0.5]
+          }
+        }
       }
     },
     "sounds" : {
-	  //PRIMARY
+	    //PRIMARY
       "fireStart" : [ "/sfx/gun/plasma_ar2.ogg" ],
       "fireLoop" : [ "/sfx/gun/aegisaltpistol_loop.ogg" ],
       "fireEnd" : [ "/sfx/gun/mech_shielddrone_recover1.ogg" ],
@@ -54,22 +56,22 @@
     "scripts" : ["/items/active/weapons/ranged/abilities/starforge-beamfire.lua"],
     "class" : "StarforgeBeamFire",
 
-	"activeAnimation" : true, //Allows a special animation to be played while firing
-	"pitchVariance" : 0.4,
+    "activeAnimation" : true, //Allows a special animation to be played while firing
+    "pitchVariance" : 0.4,
 	
     "fireTime" : 0.22,
     "baseDps" : 14.5,
     "energyUsage" : 40.0,
     "inaccuracy" : 0.0,
 	
-	"beamCollisionType" : "box",
-	"beamWidth" : 1,
-	
-	"impactDamageTimeout" : 0.2,
-	"spawnImpactProjectile" : false,
-	"impactProjectile" : "",
-	
-	"laserPiercing" : false,
+    "beamCollisionType" : "box",
+    "beamWidth" : 1,
+    
+    "impactDamageTimeout" : 0.2,
+    "spawnImpactProjectile" : false,
+    "impactProjectile" : "",
+    
+    "laserPiercing" : false,
 
     "damageConfig" : {
       "statusEffects" : [ "starforge-firecombust" ],
@@ -79,10 +81,10 @@
 
     "beamLength" : 80,
 
-	"animatedChain" : true,
-	"offsetFrames" : true,
-	"chainAnimationTime" : 0.4,
-	"chainAnimationFrames" : 4,
+    "animatedChain" : true,
+    "offsetFrames" : true,
+    "chainAnimationTime" : 0.4,
+    "chainAnimationFrames" : 4,
     "chain" : {
       "startOffset" : [0, 0],
       "segmentImage" : "/items/active/weapons/ranged/legendary/ferment/starforge-fermentbeam.png",
@@ -96,7 +98,7 @@
         "movement" : 5.0
       },
       "fullbright" : true,
-	  "renderLayer" : "Player-1"
+	    "renderLayer" : "Player-1"
     },
 
     "stances" : {
@@ -128,6 +130,20 @@
       }
     }
   },
+
+  "altAbilityType" : "burstshot",
+  "altAbility" : {
+    "name" : "Heat Blast",
+    "damageConfig" : {
+      "baseDamage" : 6,
+      "statusEffects" : [ "starforge-firecombust" ],
+      "damageSourceKind" : "fireplasma",
+      "knockback" : 25,
+      "knockbackMode" : "aim",
+      "timeout" : 0.1,
+      "timeoutGroup" : "alt"
+    }
+  }, 
   
   "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

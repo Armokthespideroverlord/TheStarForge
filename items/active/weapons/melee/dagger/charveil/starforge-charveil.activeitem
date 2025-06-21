@@ -1,0 +1,247 @@
+{
+  "itemName" : "starforge-charveil",
+  "price" : 3000,
+  "level" : 6,
+  "fixedLevel" : false,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "A tarred fang kindling after a combo, veiling its edge in flame for a blazing arc.",
+  "shortdescription" : "Charveil",
+  "tooltipKind" : "starforge-uniquesword",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
+  },
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger" ],
+
+  "inventoryIcon" : "starforge-charveil.png:inactive",
+
+  "animation" : "/items/active/weapons/melee/dagger/starforge-empoweredquickblade.animation",
+  "animationParts" : {
+    "handle" : "",
+    "blade" : "starforge-charveil.png",
+    "bladeFullbright" : "starforge-charveilfullbright.png",
+	
+    "swoosh" : "physical"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "stateTypes" : {
+        "swoosh" : {
+          "states" : {
+            "empoweredfire" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            },
+            "empoweredfire2" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            },
+            "empoweredfire3" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            },
+            "empoweredfire4" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            },
+            "empoweredfire5" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            },
+            "altfire" : {
+              "frames" : 3,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "idle"
+            }
+          }
+        }
+      },
+      "parts" : {
+        "swoosh" : {
+          "partStates" : {
+            "swoosh" : {
+              "fire4" : {
+                "properties" : {
+                  "offset" : [-0.75, -1.75]
+                }
+              },
+              "empoweredfire" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/stab/stab-fire.png:<frame>",
+                  "offset" : [2, -0.375],
+                  "fullbright" : true,
+                  "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
+                }
+              },
+              "empoweredfire2" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/stab/stab-fire.png:<frame>",
+                  "offset" : [2, -0.375],
+                  "fullbright" : true,
+                  "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
+                }
+              },
+              "empoweredfire3" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/stab/stab-fire.png:<frame>",
+                  "offset" : [2, -0.375],
+                  "fullbright" : true,
+                  "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
+                }
+              },
+              "empoweredfire4" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-fire.png:<frame>?flipy",
+                  "offset" : [-0.75, -1.75],
+                  "fullbright" : true,
+                  "damageArea" : [[-3.75, -1.5], [-1.875, -2.25], [0.75, -2.25], [3, -1.25], [3.75, 0.15], [3.75, 1.675], [3, 2.375], [0, 1.875]]
+                }
+              },
+              "empoweredfire5" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-fire.png:<frame>",
+                  "offset" : [3.0, 0.25],
+                  "fullbright" : true,
+                  "damageArea" : [[-3, 1], [3, 1], [3, -1], [-3, -1]]
+                }
+              },
+              "altfire" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-fire.png:<frame>",
+                  "offset" : [-0.75, 1.75],
+                  "fullbright" : true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "particleEmitters" : {
+      "fireswoosh" : {
+        "active" : false,
+        "transformationGroups" : ["swoosh"],
+        "emissionRate" : 50,
+        "burstCount" : 4,
+        "particles" : []
+      },
+      "empoweredfireswoosh" : {
+        "active" : false,
+        "transformationGroups" : ["swoosh"],
+        "emissionRate" : 50,
+        "burstCount" : 4,
+        "particles" : [
+          { "particle" : "fireswoosh1"},
+          { "particle" : "fireswoosh2"},
+          { "particle" : "fireswoosh3"}
+        ]
+      },
+      "blade" : {
+        "particles" : [
+          { "particle" : "fireswoosh1"},
+          { "particle" : "fireswoosh2"},
+          { "particle" : "fireswoosh3"}
+        ]
+      }
+    },
+    "sounds" : {
+      "empoweredfire" : [ "/sfx/melee/swing_spear_fire1.ogg", "/sfx/melee/swing_spear_fire2.ogg", "/sfx/melee/swing_spear_fire3.ogg" ],
+      "empoweredfire2" : [ "/sfx/melee/swing_spear_fire1.ogg", "/sfx/melee/swing_spear_fire2.ogg", "/sfx/melee/swing_spear_fire3.ogg" ],
+      "empoweredfire3" : [ "/sfx/melee/swing_spear_fire1.ogg", "/sfx/melee/swing_spear_fire2.ogg", "/sfx/melee/swing_spear_fire3.ogg" ],
+      "empoweredfire4" : [ "/sfx/melee/swing_broadsword_fire1.ogg", "/sfx/melee/swing_broadsword_fire2.ogg", "/sfx/melee/swing_broadsword_fire3.ogg" ],
+      "empoweredfire5" : [ "/sfx/melee/swing_shortsword_fire1.ogg", "/sfx/melee/swing_shortsword_fire2.ogg", "/sfx/melee/swing_shortsword_fire3.ogg" ],
+      "altSlash" : [ "/sfx/melee/swing_broadsword_fire1.ogg", "/sfx/melee/swing_broadsword_fire2.ogg", "/sfx/melee/swing_broadsword_fire3.ogg" ]
+    }
+  },
+
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
+
+  "elementalType" : "fire",
+  
+  "primaryAbilityType" : "starforge-daggercombo",
+  "primaryAbility" : {
+    "baseDps" : 8,
+	
+    "finisherHoldTime" : 0.6,
+  
+    "damageConfig" : {
+      "damageSourceKind" : "dagger",
+      "knockbackMode" : "aim",
+      "timeout" : 0.25,
+	    "statusEffects" : [ ]
+    }
+  },
+
+  //INACTIVE and ACTIVE stats
+  "canEmpower" : true,
+  "inactiveBaseDps" : 7,
+  "activeBaseDps" : 8,
+  "inactiveEnergyUsage" : 0,
+  "activeEnergyUsage" : 15,
+  "empoweredDamageConfig" : {
+    "damageSourceKind" : "firedagger",
+    "knockbackMode" : "aim",
+    "timeout" : 0.25,
+    "statusEffects" : [ "burning" ]
+  },
+  "activeSwooshPrefix" : "empowered",
+
+  "altAbility" : {
+    "name" : "Flame Shroud",
+    "scripts" : ["/items/active/weapons/melee/abilities/other/activateblade/starforge-activateblade.lua"],
+    "class" : "StarForgeActivateBlade",
+
+    "energyPerSecond" : 5,
+
+    "cooldownTime" : 1.0,
+	
+    "durationBefore" : 0.2,
+    "durationAfter" : 0.5,
+
+    "baseDamage" : 10,
+    "projectileType" : "firetravelingswoosh",
+    "projectileParameters" : {},
+
+    "swooshAnim" : "altfire",
+
+    "stances" : {
+      "windup" : {
+        "duration" : 0.15,
+        "armRotation" : 90,
+        "weaponRotation" : -10,
+        "twoHanded" : false,
+
+        "allowRotate" : true,
+        "allowFlip" : true,
+
+        "comboDirectives" : "flipx"
+      },
+      "fire" : {
+        "duration" : 0.225,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : false,
+        
+        "comboDirectives" : "flipx"
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

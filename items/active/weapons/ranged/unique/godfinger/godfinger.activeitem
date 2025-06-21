@@ -7,9 +7,12 @@
   "description" : "\"They say it is out of reach, out of sight. No. I can see it. I can reach it. It is within my grasp.\" - Apolleon",
   "shortdescription" : "Godfinger",
   "tooltipKind" : "gun",
-  "category" : "Rail Rifle",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Rail Rifle"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","nebulox","tide","unbound"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "tide", "unbound" ],
 
   "inventoryIcon" : "godfingericon.png",
 

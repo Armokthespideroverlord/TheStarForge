@@ -154,7 +154,15 @@ if not nebUtil then
   -- Usage: hex2rgb("#a85636") result: 
   function nebUtil.hex2rgb(hex)
     hex = hex:gsub("#","")
-	local rgbValue = tonumber("0x"..hex:sub(1,2)) .. "," .. tonumber("0x"..hex:sub(3,4)) .. "," .. tonumber("0x"..hex:sub(5,6))
+	  local rgbValue = tonumber("0x"..hex:sub(1,2)) .. "," .. tonumber("0x"..hex:sub(3,4)) .. "," .. tonumber("0x"..hex:sub(5,6))
     return rgbValue
+  end
+
+  function nebUtil.playSound(sound)
+    if animator.hasSound(sound) then
+      animator.playSound(sound)
+    else
+      sb.logError("%s sound does not exist on item %s", sound, config.getParamter("itemName"))
+    end
   end
 end

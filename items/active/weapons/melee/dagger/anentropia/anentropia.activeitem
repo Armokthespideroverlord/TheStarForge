@@ -8,17 +8,18 @@
   "description" : "A dagger that utilises rapid icy slashes to lacerate and wear down foes.",
   "shortdescription" : "Anentropia",
   "tooltipKind" : "starforge-uniquesword",
-  "category" : "dagger",
+  "category" : "uniqueWeapon",
   "twoHanded" : false,
-  "itemTags" : ["weapon","melee","dagger", "tide"],
-  "tooltipFieldsOverride" : {	
-    "altAbilityTitleLabel" : "Finisher:"
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger", "tide" ],
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
   },
+
   "learnBlueprintsOnPickup" : [ "starforge-anentropia" ],
 
   "inventoryIcon" : "anentropia.png?flipx",
 
-  "animation" : "/items/active/weapons/melee/dagger/starforge-dagger.animation",
+  "animation" : "/items/active/weapons/melee/dagger/starforge-quickblade.animation",
   "animationParts" : {
     "blade" : "anentropia.png",
 	

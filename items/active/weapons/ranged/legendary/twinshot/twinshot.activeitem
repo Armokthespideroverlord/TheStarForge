@@ -7,11 +7,13 @@
   "description": "\"Quick and quiet -- that's the difference between safe and dead\"",
   "shortdescription": "Twin Shot",
   "tooltipKind": "starforge-uniquegun",
-  "category": "uniqueWeapon",
-  "tooltipFieldsOverride" : {"subtitle":"Double Crossbow"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Crossbow"
+  },
   "twoHanded": false,
   "level": 7,
-  "itemTags": ["weapon","ranged","pistol"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol", "crossbow" ],
   "inventoryIcon": "twinshoticon.png",
   "animation": "twinshot.animation",
   "learnBlueprintsOnPickup" : [ "starforge-twinshot" ],

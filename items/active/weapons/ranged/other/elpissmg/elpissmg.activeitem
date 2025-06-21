@@ -5,13 +5,15 @@
   "rarity" : "Rare",
   "description" : "An SMG used by the Elpis security to protect its settlements.",
   "shortdescription" : "Elpis SMG",
-  "tooltipKind" : "gun",
-  "category" : "SMG",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "SMG"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","smg"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "smg" ],
   "level" : 4,
 
-"inventoryIcon" : "elpissmg.png",
+  "inventoryIcon" : "elpissmg.png",
 
   "animation": "/items/active/weapons/ranged/other/elpissmg/elpissmg.animation",
   "animationParts": {

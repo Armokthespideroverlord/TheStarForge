@@ -6,10 +6,13 @@
   "rarity" : "Common",
   "description" : "A fractured sword, broken in half.",
   "shortdescription" : "Broken Earthblade",
-  "tooltipKind" : "sword",
-  "category" : "broadsword",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broken Broadsword"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","broadsword"],
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
 
   "inventoryIcon" : "starforge-earthbringerbroken.png",
 
@@ -140,5 +143,5 @@
     }
   },
 
-  "builder" : "/items/buildscripts/buildunrandweapon.lua"
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
 }

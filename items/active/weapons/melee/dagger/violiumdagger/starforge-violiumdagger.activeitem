@@ -1,0 +1,99 @@
+{
+  "itemName" : "starforge-violiumdagger",
+  "price" : 960,
+  "level" : 6,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "A violium-forged hilt with a compact energy blade, built for speed and precision.",
+  "shortdescription" : "Violium Quickblade",
+  "tooltipKind" : "starforge-uniquesword",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
+  },
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger" ],
+
+  "inventoryIcon" : "starforge-violiumdagger.png",
+
+  "animation" : "/items/active/weapons/melee/dagger/starforge-energyquickblade.animation",
+  "animationParts" : {
+    "handle" : "handle.png",
+    "handleFullbright" : "",
+    "blade" : "blade.png",
+	
+    "swoosh" : "violium"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "partStates" : {
+            "swoosh" : {
+              "flip" : {
+                "properties" : {
+                  "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-<partImage>.png:2",
+                  "offset" : [-0.25, 1.75], //1.75, -0.5
+                  //"damageArea" : [[-4.0, -2.5], [-4.0, 0], [-2.5, 1.5], [0, 1.5], [1.5, 0], [1.5, -2.5], [0, -4.0], [-2.5, -4.0]]
+                  "damageArea" : [[-2.25, -2.5], [-2.25, 0], [-0.75, 1.5], [1.75, 1.5], [3.25, 0], [3.25, -2.5], [1.75, -4.0], [-0.75, -4.0]]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire2" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire3" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire4" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire5" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ]
+    }
+  },
+
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
+
+  "activeTime" : 2.6,
+
+  "elementalType" : "physical",
+
+  "primaryAbilityType" : "starforge-daggercombo",
+  "primaryAbility" : {
+    "baseDps" : 8,
+	
+    "finisherHoldTime" : 0.6,
+  
+    "damageConfig" : {
+      "damageSourceKind" : "dagger",
+      "knockbackMode" : "aim",
+      "timeout" : 0.25,
+	    "statusEffects" : [ ]
+    }
+  },
+
+  "altAbilityType" : "flipslash",
+  "altAbility" : {
+    "stances" : {
+      "windup" : {
+        "duration" : 0.2,
+        "armRotation" : 30,
+        "weaponRotation" : 0,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "flip" : {
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : false,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  }, 
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

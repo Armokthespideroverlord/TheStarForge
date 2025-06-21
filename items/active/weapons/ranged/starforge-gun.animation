@@ -47,6 +47,15 @@
           "transformationGroups" : ["weapon"]
         }
       },
+      "heatIndicator" : {
+        "properties" : {
+          "centered" : true,
+          "zLevel" : 7,
+          "image" : "<partImage><paletteSwaps><elementalDirectives>",
+          "offset" : [0, 0],
+          "transformationGroups" : ["heatIndicator"]
+        }
+      },
       "barrel" : {
         "properties" : {
           "centered" : true,
@@ -85,7 +94,8 @@
 
   "transformationGroups" : {
     "weapon" : {},
-    "muzzle" : {}
+    "muzzle" : {},
+    "heatIndicator" : {}
   },
 
   "particleEmitters" : {
@@ -106,6 +116,6 @@
 
   "sounds" : {
     "fire" : [ ],
-	"unholsterTwirl" : [ "/sfx/interface/item_equip.ogg" ]
+	  "unholsterTwirl" : [ "/sfx/interface/item_equip.ogg" ]
   }
 }

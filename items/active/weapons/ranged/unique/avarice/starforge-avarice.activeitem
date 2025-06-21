@@ -10,7 +10,7 @@
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
   "tooltipFieldsOverride" : {"subtitle":"Bowgun"},
-  "itemTags" : ["weapon","ranged","bowgun"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "bowgun", "crossbow" ],
   "twoHanded" : true,
 
   "animation" : "starforge-avarice.animation",

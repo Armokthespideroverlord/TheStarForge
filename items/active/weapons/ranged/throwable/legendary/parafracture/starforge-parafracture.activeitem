@@ -7,10 +7,11 @@
   "description" : "Fling powerful axes that shatter on impact, freezing your targets.",
   "shortdescription" : "Parafracture",
   "tooltipKind" : "starforge-uniquegun",
-  "category" : "throwableItem",
-  "tooltipFieldsOverride" : {"subtitle":"Throwable"},
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Throwable"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","ranged","throwable"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "throwable" ],
   "learnBlueprintsOnPickup" : [ "starforge-parafracture" ],
 
   "inventoryIcon" : "starforge-parafracture.png",
@@ -46,7 +47,7 @@
 		  "properties" : {
 			"zLevel" : -3,
 			"centered" : true,
-			"offset" : [-1.75, 1.75],
+			"offset" : [-1.125, 1.75],
 			"transformationGroups" : ["swoosh"]
 		  },
 		  "partStates" : {
@@ -58,7 +59,7 @@
 			  },
 			  "fire" : {
 				"properties" : {
-				  "image" : "/items/active/weapons/melee/dagger/swoosh/tidalfrost_downcut.png:<frame>",
+				  "image" : "/items/active/weapons/melee/swoosh/starforge/smalldowncut/smalldowncut-tidalfrost.png:<frame>",
 				  "damageArea" : [[-3.75, 1.5], [-1.875, 2.25], [0.75, 2.25], [3, 1.25], [3.75, -0.15], [3.75, -1.675], [3, -2.375], [0, -1.875]]
 				}
 			  }
@@ -116,7 +117,7 @@
 
 	"stances" : {
 	  "windup" : {
-		"duration" : 0.2,
+		"duration" : 0.25,
 		"armRotation" : 55,
 		"weaponRotation" : 3,
 		"weaponOffset" : [-0.1, 0],
@@ -127,8 +128,19 @@
 	  },
 	  "fire" : {
 		"duration" : 0.4,
-		"armRotation" : -35,
-		"weaponRotation" : -95,
+		"armRotation" : -50,
+		"weaponRotation" : -55,
+
+		"weaponOffset" : [0.375, 0],
+		"twoHanded" : false,
+
+		"allowRotate" : false,
+		"allowFlip" : false
+	  },
+	  "transitionState" : {
+		"duration" : 0.2,
+		"armRotation" : -50,
+		"weaponRotation" : -55,
 		"weaponOffset" : [0.375, 0],
 		"twoHanded" : false,
 

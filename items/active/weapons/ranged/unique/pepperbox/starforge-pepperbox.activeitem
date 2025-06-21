@@ -44,65 +44,65 @@
 
     "fireType" : "auto",
 	
-	"animatedFire" : true,
-	"cycleAfterShot" : true,
+  	"animatedFire" : true,
+	  "cycleAfterShot" : true,
 
     "projectileType" : "unboundfirebullet",
     "projectileParameters" : {
-	  "statusEffects" : ["burning"]
-	},
+      "statusEffects" : ["burning"]
+    },
 
     "stances" : {
       "idle" : {
         "armRotation" : -8,
         "weaponRotation" : 8,
-		"weaponOffset" : [-0.0, 0.5],
+	    	"weaponOffset" : [-0.0, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+		    "frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       },
       "unholsterTwirl" : {
         "duration" : 0.5,
         "armRotation" : -25,
         "weaponRotation" : -418,
-		"weaponOffset" : [-0.0, 0.5],
+	    	"weaponOffset" : [-0.0, 0.5],
         "weaponRotationCenter" : [0.0, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+	    	"frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       }, 
       "fire" : {
         "duration" : 0.05,
         "armRotation" : -5,
         "weaponRotation" : 10,
-		"weaponOffset" : [-0.085, 0.5],
+	    	"weaponOffset" : [-0.085, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : false,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+		    "frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       },
       "cooldown" : {
         "duration" : 0.2,
         "armRotation" : -5,
         "weaponRotation" : 10,
-		"weaponOffset" : [-0.085, 0.5],
+	    	"weaponOffset" : [-0.085, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+	    	"frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       }
     }
@@ -111,7 +111,7 @@
   "altAbility" : {
     "scripts" : ["/items/active/weapons/ranged/abilities/starforge-execute.lua"],
     "class" : "StarforgeExecute",
-	"name" : "Execution",
+	  "name" : "Execution",
 
     "fireTime" : 3,
     "baseDps" : 9,
@@ -122,64 +122,52 @@
 
     "fireType" : "auto",
 	
-	"animatedFire" : true,
+	  "animatedFire" : true,
 
     "projectileType" : "starforge-executionround",
     "projectileParameters" : {
-	  "statusEffects" : ["burning"]
-	},
+      "statusEffects" : [ "burning", "starforge-firecombust" ]
+    },
 
     "stances" : {
-      "idle" : {
-        "armRotation" : -8,
-        "weaponRotation" : 8,
-		"weaponOffset" : [-0.0, 0.5],
-        "twoHanded" : true,
-
-        "allowRotate" : true,
-        "allowFlip" : true,
-		
-		"frontArmFrame" : "swim.3",
-        "backArmFrame" : "swim.4"
-      },
       "twirl" : {
         "duration" : 1,
         "armRotation" : -35,
         "weaponRotation" : -778,
-		"weaponOffset" : [-0.0, 0.5],
+		    "weaponOffset" : [-0.0, 0.5],
         "weaponRotationCenter" : [0.0, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+		    "frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       }, 
       "fire" : {
         "duration" : 0.05,
         "armRotation" : -5,
         "weaponRotation" : 10,
-		"weaponOffset" : [-0.085, 0.5],
+		    "weaponOffset" : [-0.085, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : false,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+		    "frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       },
       "cooldown" : {
         "duration" : 0.5,
         "armRotation" : -5,
         "weaponRotation" : 10,
-		"weaponOffset" : [-0.085, 0.5],
+		    "weaponOffset" : [-0.085, 0.5],
         "twoHanded" : true,
 
         "allowRotate" : true,
         "allowFlip" : true,
 		
-		"frontArmFrame" : "swim.3",
+		    "frontArmFrame" : "swim.3",
         "backArmFrame" : "swim.4"
       }
     }

@@ -19,5 +19,90 @@
         }
       }
     }
+  },
+  {
+    "op": "add",
+    "path": "/weaponSkins/starforge-tidewalker",
+    "value": {
+      "mythdDebunked": {
+        "skinName" : "Myth Debunked",
+        "unlockDescription" : "Unlocked by default.",
+        "prerequisiteQuests": [],
+	  
+        "skinConfig": {
+          "description": "From some far-flung corner of time and space, strangely fit for Human hands.",
+          "shortdescription": "Myth Debunked",
+          "inventoryIcon": "/items/active/weapons/ranged/unique/tidewalker/skins/mythdebunked.png",
+          "animationParts": {
+            "gun" : "/items/active/weapons/ranged/unique/tidewalker/skins/mythdebunked.png",
+            "lights" : ""
+          },
+          "baseOffset" : [1.25, -0.125],
+          "animationCustom" : {
+            "animatedParts" : {
+              "parts" : {
+                "gun" : {
+                  "properties" : {
+                  //Same as BaseOffset
+                    "offset" : [1.25, -0.125]
+                  }
+                },
+                "lights" : {
+                  "properties" : {
+                  //Same as BaseOffset
+                    "offset" : [1.25, -0.125]
+                  }
+                },
+                "charge" : {
+                  "properties" : {
+                  //Same as BaseOffset
+                    "offset" : [1.25, -0.125]
+                  }
+                },
+                "muzzleFlash" : {
+                  "properties" : {
+                    "offset" : [0.5, 0.625]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/weaponSkins/starforge-hawkmoon",
+    "value": {
+      "moonOfHawks": {
+        "skinName" : "Hawkmoon",
+        "unlockDescription" : "Unlocked by default.",
+        "prerequisiteQuests": [],
+	  
+        "skinConfig": {
+          "description": "With each shot, a deafening shriek.",
+          "shortdescription": "Hawkmoon",
+          "inventoryIcon": "/items/active/weapons/ranged/unique/hawkmoon/skins/hawkmoon.png:ready1",
+          "animationParts": {
+            "gun" : "/items/active/weapons/ranged/unique/hawkmoon/skins/hawkmoon.png"
+          }
+        }
+      },
+      "oldTales": {
+        "skinName" : "Old Tales",
+        "unlockDescription" : "Unlocked by default.",
+        "prerequisiteQuests": [],
+	  
+        "skinConfig": {
+          "description": "A deafening blast to the past.",
+          "shortdescription": "Old Tales",
+          "inventoryIcon": "/items/active/weapons/ranged/unique/hawkmoon/skins/oldtales.png:ready1",
+          "animationParts": {
+            "gun" : "/items/active/weapons/ranged/unique/hawkmoon/skins/oldtales.png"
+          }
+        }
+      }
+    }
   }
 ]

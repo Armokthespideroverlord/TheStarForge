@@ -8,10 +8,12 @@
   "description" : "A spellglaive made by Florans after stealing the crafting technique from the Yukai.",
   "shortdescription" : "Scavenger",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "spear",
-  "tooltipFieldsOverride" : {"subtitle":"Spellglaive"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear" ],
   "learnBlueprintsOnPickup" : [ "starforge-scavenger" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
@@ -21,12 +23,22 @@
   "animation" : "/items/active/weapons/melee/spellglaive/spellglaive.animation",
   "animationParts" : {
     "blade" : "scavenger.png",
-	"bladeFullbright" : "",
+	  "bladeFullbright" : "",
 	
     "swoosh" : "poison",
-	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-poisonmuzzleflash.png"
+	  "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-poisonmuzzleflash.png"
   },
-  "animationCustom" : {},
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "properties" : {
+            "fullbright" : true
+          }
+        }
+      }
+    }
+  },
 
   "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
@@ -34,23 +46,31 @@
 
   "primaryAbilityType" : "starforge-spellglaivecombo",
   "primaryAbility" : {
-    "baseDps" : 9.5
+    "baseDps" : 9.5,
+    
+    "damageConfig" : {
+      "damageSourceKind" : "poisonbroadsword",
+      "statusEffects" : [ "weakpoison" ]
+    }
   },
   
   "altAbilityType" : "starforge-spellglaiveblast",
   "altAbility" : {
-	"projectileType" : "stingergunsting",
-	"projectileParameters" : {
-	  "speed" : 120
-	},
+    "name" : "Spell Burst",
+    "projectileType" : [ "starforge-leafpledgeleafspinning" ],
+    "projectileParameters" : {
+      "speed" : [25, 50]
+    },
 
-	"projectileCount" : 4,
-	"inaccuracy": 0.08,
-	"baseDamage" : 6,
-	"energyUsage" : 20,
-	
-	"fireTime" : 0.6,
-	"fireType" : "auto"
+    "projectileCount" : 2,
+    "inaccuracy": 0.08,
+    "baseDamage" : 2,
+    "energyUsage" : 20,
+    
+    "fireTime" : 0.8,
+    "fireType" : "burst",
+    "burstTime" : 0.125,
+    "burstCount" : 3
   },
 
   "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"

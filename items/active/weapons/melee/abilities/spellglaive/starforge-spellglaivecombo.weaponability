@@ -28,7 +28,7 @@
     "damageConfig" : {
       "damageSourceKind" : "bow",
       "knockbackMode" : "aim",
-      "statusEffects" : [ "starforge-bleeding" ],
+      "statusEffects" : [ ],
       "timeout" : 0.25
     },
 	

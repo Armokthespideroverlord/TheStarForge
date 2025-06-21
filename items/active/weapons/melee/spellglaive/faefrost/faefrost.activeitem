@@ -8,10 +8,12 @@
   "description" : "A Spellglaive made of unique, prism-like materials. ",
   "shortdescription" : "Faefrost",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "spear",
-  "tooltipFieldsOverride" : {"subtitle":"Spellglaive"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear" ],
   "learnBlueprintsOnPickup" : [ "starforge-faefrost" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
@@ -27,16 +29,38 @@
     "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-icemuzzleflash.png"
   },
   "animationCustom" : {	
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "properties" : {
+            "fullbright" : true
+          }
+        }
+      }
+    },
     "transformationGroups": {
+      "beam": {},
       "beamEnd": {}
     },
     "particleEmitters": {
-      "beamCollision": {
+      "beamCollision" : {
         "active" : false,
-        "transformationGroups": ["beamEnd"],
-        "offsetRegion": [0, 0, 0, 0],
-        "emissionRate" : 7,
-        "particles": []
+        "transformationGroups" : ["beamEnd"],
+        "emissionRate" : 55,
+        "particles" : [
+          {"particle" : "iceswoosh1"},
+          {"particle" : "iceswoosh1"},
+          {"particle" : "iceswoosh1"}
+        ]
+      },
+      "beamParticles" : {
+        "active" : false,
+        "transformationGroups" : ["beam"],
+        "offsetRegion" : [1, 1, -1, -1],
+        "emissionRate" : 100,
+        "particles" : [
+          {"particle" : "iceswoosh1"}
+        ]
       }
     },
 		"sounds" : {
@@ -54,7 +78,12 @@
 
   "primaryAbilityType" : "starforge-spellglaivecombo",
   "primaryAbility" : {
-    "baseDps" : 10
+    "baseDps" : 10,
+
+    "damageConfig" : {
+      "damageSourceKind" : "icebroadsword",
+      "statusEffects" : [ "frostslow" ]
+    }
   },
 
   "altAbilityType" : "beamfire",
@@ -74,6 +103,8 @@
     },
 
     "beamLength" : 50,
+    "beamWidth" : 1,
+    "beamCollisionType" : "box",
     "fireOffset" : [1.0, 0.125],
 
     "hueShiftFrequency" : 2,
@@ -109,13 +140,13 @@
       },
       "cooldown" : {
         "duration" : 0.25,
-        "armRotation" : -6,
-        "weaponRotation" : -76,
-        "weaponOffset" : [0, -0.125],
+        "armRotation" : -10,
+        "weaponRotation" : -78,
+        "weaponOffset" : [0.125, 0],
         "allowRotate" : true,
         "twoHanded" : true,
         "allowFlip" : true,
-    
+		
         "frontArmFrame" : "jump.3"
       }
     }

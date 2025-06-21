@@ -8,9 +8,12 @@
   "description" : "An unusual weapon made out of scraps by desperate Apex scientists.",
   "shortdescription" : "Marauder",
   "tooltipKind" : "starforge-uniquesword",
-  "category" : "Spellglaive",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear" ],
   "learnBlueprintsOnPickup" : [ "starforge-scavenger" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
@@ -25,7 +28,17 @@
     "swoosh" : "electric",
 	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-electricmuzzleflash.png"
   },
-  "animationCustom" : {},
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "properties" : {
+            "fullbright" : true
+          }
+        }
+      }
+    }
+  },
 
   "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 

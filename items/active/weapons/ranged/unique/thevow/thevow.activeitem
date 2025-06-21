@@ -3,14 +3,18 @@
   "price" : 3000,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "An experimental Elpis weapon that fires shield-rupturing rounds.",
+  "description" : "A cutting-edge Elpis build, egineered to punch straight through shields.",
   "shortdescription" : "^orange;The Vow^reset;",
   "level" : 7,
   "tooltipKind" : "starforge-uniquegun",
   "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle":"Hand Cannon",
+    "altAbilityTitleLabel" : "Special:",
+    "altAbilityLabel" : "Reload"
+  },
   "manufacturer" : "elpisElements",
-  "tooltipFieldsOverride" : {"subtitle":"Hand Cannon"},
-  "itemTags" : ["weapon","ranged","revolver"],
+  "itemTags" : [ "starforge", "weapon", "ranged", "pistol", "revolver", "elpiselements" ],
   "twoHanded" : true,
   
   "cursor" : "/cursors/starforge-revolvercursor.cursor",

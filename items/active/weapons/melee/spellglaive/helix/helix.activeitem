@@ -8,10 +8,12 @@
   "description" : "A curious Spellglaive with unknown origins, the blade is rather weak.",
   "shortdescription" : "Helix",
   "tooltipKind" : "starforge-uniquesword",
-  "category": "spear",
-  "tooltipFieldsOverride" : {"subtitle":"Spellglaive"},
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Spellglaive"
+  },
   "twoHanded" : true,
-  "itemTags" : ["weapon","melee","spellglaive","spear"],
+  "itemTags" : [ "starforge", "weapon", "melee", "spellglaive", "spear" ],
   "learnBlueprintsOnPickup" : [ "starforge-helix" ],
 
   "cursor" : "/cursors/starforge-spellglaivecursor.cursor",
@@ -21,12 +23,22 @@
   "animation" : "/items/active/weapons/melee/spellglaive/spellglaive.animation",
   "animationParts" : {
     "blade" : "helix.png",
-	"bladeFullbright" : "",
+	  "bladeFullbright" : "",
 	
     "swoosh" : "electric",
-	"muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-electricmuzzleflash.png"
+	  "muzzleFlash" : "/items/active/weapons/ranged/muzzleflash/starforge-electricmuzzleflash.png"
   },
-  "animationCustom" : {},
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "properties" : {
+            "fullbright" : true
+          }
+        }
+      }
+    }
+  },
 
   "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
 
@@ -36,11 +48,11 @@
   "primaryAbility" : {
     "baseDps" : 3.5,
 	
-	"damageConfig" : {
-      "damageSourceKind" : "electric",
+	  "damageConfig" : {
+      "damageSourceKind" : "electricbroadsword",
       "knockbackMode" : "aim",
       "timeout" : 0.25,
-      "statusEffects" : []
+      "statusEffects" : [ "electrified" ]
     }
   },
   
