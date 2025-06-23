@@ -7,7 +7,7 @@
   "alwaysBranch" : false,
   "dropConfig" : {
     "drops" : [
-      [ { "item" : "starforge-withersample", "count" : 1 },
+      [ { "item" : "plantfibre", "count" : 1 },
         { "item" : "logblock", "count" : 1 }	  ]
     ],
     "sounds" : {
