@@ -1,0 +1,13 @@
+[
+    {
+    "op": "add",
+    "path": "/withered",
+    "value": [
+		[0.50, "junkstorm"],
+		[0.20, "groundmist"],
+		[0.10, "rain"], 
+		[0.20, "clear"]
+    ]
+  }
+
+]

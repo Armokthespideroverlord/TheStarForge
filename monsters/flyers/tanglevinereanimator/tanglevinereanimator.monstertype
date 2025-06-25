@@ -1,7 +1,7 @@
 {
   "type" : "starforge-tanglevinereanimator",
-  "shortdescription" : "Tanglevine Seeker",
-  "description" : "Tanglevines reanimate corpses using vines and try to mimic how it acted before its death.",
+  "shortdescription" : "Mimic Hollow",
+  "description" : "An attempt at replicating the behavior of a flying creature using its remnants.",
 
   "categories" : [ "tanglevinereanimator" ],
   "parts" : [ "body" ],

@@ -6,7 +6,7 @@
   "price" : 5000,
   "printable" : false,
   "description" : "The label reads, \"An abomination born of the Progenitor strand from the Great Withering.\"",
-  "shortdescription" : "Pureborn Slither Figurine",
+  "shortdescription" : "Progenitor Slither Figurine",
   "collectablesOnPickup" : { "actionfigures" : "starforge-progenitorslitheraf" },
 
 

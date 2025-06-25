@@ -5,8 +5,8 @@
   "category" : "actionFigure",
   "price" : 5000,
   "printable" : false,
-  "description" : "The label reads, \"This Tanglevine from the Progenitor strand reanimates corpses and uses them to move around.\"",
-  "shortdescription" : "Tanglevine Seeker Figurine",
+  "description" : "The label reads, \"An attempt at replicating the behavior of a flying creature using its remnants..\"",
+  "shortdescription" : "Mimic Hollow Figurine",
   "collectablesOnPickup" : { "actionfigures" : "starforge-tanglevinereanimatoraf" },
 
 

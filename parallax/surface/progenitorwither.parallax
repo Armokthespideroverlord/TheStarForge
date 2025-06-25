@@ -121,19 +121,18 @@
     },
     {
       "kind" : "progenitorwither9",
-      "baseCount" : 2,
       "offset" : [0, 41],
       "parallax" : [8, 4.2],
       "fadePercent" : 0.1
     },
     {
-      "kind" : "grassgreen",
+      "kind" : "progenitorback",
       "baseCount" : 1,
       "offset" : [0, 450],
       "parallax" : [8.1, 4.2]
     },
     {
-      "kind" : "forestback",
+      "kind" : "progenitorfarback",
       "offset" : [0, 440],
       "parallax" : [8.2, 4.3],
       "fadePercent" : 0.2
