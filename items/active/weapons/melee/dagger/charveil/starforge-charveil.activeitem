@@ -67,9 +67,65 @@
               "transition" : "idle"
             }
           }
+        },
+        "blade" : {
+          "default" : "inactive",
+          "states" : {
+            "extend" : {
+              "frames" : 1,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "active",
+              "properties" : {
+                "lightsOn" : ["glow"],
+                "particleEmittersOn" : ["blade"]
+              }
+            },
+            "active" : {
+              "frames" : 4,
+              "cycle" : 0.4,
+              "mode" : "loop",
+              "properties" : {
+                "lightsOn" : ["glow"],
+                "particleEmittersOn" : ["blade"]
+              }
+            },
+            "retract" : {
+              "frames" : 1,
+              "cycle" : 0.1,
+              "mode" : "transition",
+              "transition" : "inactive",
+              "properties" : {
+                "lightsOn" : ["glow"],
+                "particleEmittersOn" : ["blade"]
+              }
+            }
+          }
         }
       },
       "parts" : {
+        "blade" : {
+          "partStates" : {
+            "blade" : {
+              "active" : {
+                "properties" : {
+                  "image" : "<partImage>:active.<frame>?<directives>?<bladeDirectives>?flipx<comboDirectives>"
+                }
+              }
+            }
+          }
+        },
+        "bladeFullbright" : {
+          "partStates" : {
+            "blade" : {
+              "active" : {
+                "properties" : {
+                  "image" : "<partImage>:active.<frame>?<directives>?<bladeDirectives>?flipx<comboDirectives>"
+                }
+              }
+            }
+          }
+        },
         "swoosh" : {
           "partStates" : {
             "swoosh" : {

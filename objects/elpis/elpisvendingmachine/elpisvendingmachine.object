@@ -23,7 +23,7 @@
       "frames" : 20,
       "animationCycle" : 2.0,
 
-	  "spaceScan" : 0.1,
+	    "spaceScan" : 0.1,
       "interactiveSpaces" : [
         [3, 3], [4, 3],
         [3, 2], [4, 2],
@@ -36,12 +36,26 @@
 
   "scripts" : ["/objects/scripts/starforge-vendingmachine.lua"],
   "resetInterval" : 30, //minutes
+  
   "guiConfig" : {
     "baseConfig" : "/interface/scripted/starforge-vendingmachine/starforge-vendingmachine.config",
+    //"weaponTier" : 6,
+    "itemParameters" : {
+      "partParams" : {
+        "all" : {
+          // all parts must either be from elpis or lack a manifacturer
+          "manufacturer" : "elpisElements"
+        }
+      }
+    },
+
     "gui" : {
       "windowtitle" : {
-        "title" : "  Elpis Vending Machine",
-        "subtitle" : "  Quality, simplified."
+        "title" : "Elpis Vending Machine",
+        "subtitle" : "^#b9b5b2;Quality, simplified."
+      },
+      "imgManufacturer" : {
+        "file" : "/interface/sf-manufacturers/elpiselements.png"
       }
     }
   }

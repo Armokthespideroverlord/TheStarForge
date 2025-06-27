@@ -134,6 +134,10 @@ function build(directory, config, parameters, level, seed)
   -- determine the rarity, not cached as part rarity is not saved as a parameter
   config.rarity, config.rarityIndex = determineRarity(parameters.weaponParts, generationConfig.partConfigs, multipartWeaponConfig.indexToRarity)
 
+  if generationConfig.partConfigs.body.pool[parameters.weaponParts.body.id].unique then
+    config.rarity = "Essential"
+  end
+
   -- determine the manufacturer and load the config for it
   parameters.manufacturer = generationConfig.partConfigs.body.pool[parameters.weaponParts.body.id].manufacturer;
   local manufacturerConfig = root.assetJson("/items/active/weapons/ranged/generated/starforge-manufacturer.config:" .. parameters.manufacturer);
@@ -455,7 +459,7 @@ function generateNameFromPartList(partList)
   if nameSuffix ~= "" then
     -- add space when string does not start with - or ' or . or ,
     local start = nameSuffix:sub(1,1);
-    if start ~= "'" and start ~= "-" and start ~= "." and start ~= "," and start ~= " " then
+    if start ~= "'" and start ~= "-" and start ~= "." and start ~= "," and start ~= " " and start ~= "^" then
       name = name .. " ";
     end
     name = name .. nameSuffix;

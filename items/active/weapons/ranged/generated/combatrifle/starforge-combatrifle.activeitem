@@ -71,11 +71,11 @@
   },
   "fireSounds" : [ 
     "/sfx/gun/starforge-unboundrifle.ogg",
-	"/sfx/gun/starforge-assaultriflefire1.ogg",
-	"/sfx/gun/starforge-minigunfire.ogg",
-	"/sfx/gun/starforge-yukaiplasma.ogg",
-	"/sfx/gun/starforge-ar1.ogg",
-	"/sfx/weapon/starforge-energymelee.ogg"
+    "/sfx/gun/starforge-assaultriflefire1.ogg",
+    "/sfx/gun/starforge-minigunfire.ogg",
+    "/sfx/gun/starforge-yukaiplasma.ogg",
+    "/sfx/gun/starforge-ar1.ogg",
+    "/sfx/weapon/starforge-energymelee.ogg"
   ],
 
   "builder" : "/items/buildscripts/starforge-buildcombatrifle.lua",
@@ -97,7 +97,7 @@
     //"uniqueExample" : {
     //  "unique" : true,
     //  "generationConfig" : "/items/active/weapons/ranged/generated/combatrifle/combatrifles.config",
-    //  "iconParts" : [ "stock", "magazine", "attachment", "barrel", "body" ]
+    //  "iconParts" : [ "stock", "magazine", "attachment", "barrel", "uniqueBody" ]
     //}
   }
 }

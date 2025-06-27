@@ -20,6 +20,15 @@ end
 function StarforgeGunFire:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
 
+  --[[self.speentimer = self.speentimer and (self.speentimer + dt) or 0
+  local spinValue = math.sin(self.speentimer / 0.1)
+  local extra = ""
+  if spinValue < 0 then
+    spinValue = spinValue * -1
+    extra = "?flipx"
+  end
+  animator.setGlobalTag("speen", "?scalenearest=" .. spinValue .. ";1" .. extra)]]
+
   self.cooldownTimer = math.max(0, self.cooldownTimer - self.dt)
 
   if animator.animationState("firing") ~= "fire" then

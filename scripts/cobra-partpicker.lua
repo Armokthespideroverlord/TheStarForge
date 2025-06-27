@@ -175,8 +175,15 @@ if not partPicker then
     for _, partId in ipairs(partIds) do
       local partConfig = generationConfig.partConfigs[partType].pool[partId];
       
+      local skipped = false
+      if partConfig.chanceToPick and (math.random() > partConfig.chanceToPick) then
+        skipped = true
+      end
+      if (partConfig.unique and not partConfig.chanceToPick) then
+        skipped = true
+      end
       -- Unique parts will be set manually using the block above.
-      if not partConfig.unique then
+      if not skipped then
         -- All filters must pass
         if partPicker.runFilters(filters, partConfig, currentParts, generationConfig) then
           table.insert(pickPool, partId);

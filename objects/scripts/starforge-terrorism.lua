@@ -39,12 +39,12 @@ function explode(count)
   }
   for i = 1, count do
     local randAngle = math.random() * math.pi * 2
-	local randOffset = {math.random() * 9 - 4.5, math.random() * 7 - 0.5}
+	  local randOffset = {math.random() * 9 - 4.5, math.random() * 7 - 0.5}
     local spawnPosition = vec2.add(entity.position(), randOffset)
     local aimVector = {math.cos(randAngle), math.sin(randAngle)}
 	
-	params.timeToLive = math.random() * 2  + (i * 0.01)
-	world.spawnProjectile("shockwavespawner", spawnPosition, entity.id(), aimVector, false, params)
+	  params.timeToLive = math.random() * 2  + (i * 0.01)
+	  world.spawnProjectile("shockwavespawner", spawnPosition, entity.id(), aimVector, false, params)
   end
 end
 
