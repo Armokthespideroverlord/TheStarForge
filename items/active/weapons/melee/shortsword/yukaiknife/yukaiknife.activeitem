@@ -16,11 +16,11 @@
 
   "inventoryIcon" : "yukaiknife.png",
 
-  "animation" : "/items/active/weapons/melee/dagger/starforge-dagger.animation",
+  "animation" : "/items/active/weapons/melee/dagger/starforge-quickblade.animation",
   "animationParts" : {
     "blade" : "yukaiknife.png",
 	
-    "swoosh" : ""
+    "swoosh" : "physical"
   },
   "animationCustom" : {},
 

@@ -1,0 +1,149 @@
+{
+  "itemName": "starforge-unboundheadway",
+  "price": 2500,
+  "maxStack": 1,
+  "rarity": "Legendary",
+  "description": "An experimental and upgraded version of the Unbound assault rifle.",
+  "shortdescription": "^#686F5D;UNBD^reset; \"Headway\" AR ^yellow;^reset;",
+  "tooltipKind": "starforge-unboundgun",
+  "category": "assaultRifle",
+  "tooltipFieldsOverride" : {"subtitle":"Unbound Rifle"},
+  "twoHanded": true,
+  "level" : 7,
+  "itemTags": [
+    "weapon",
+    "ranged",
+    "assaultrifle"
+  ],
+  "inventoryIcon": "unboundheadwayicon.png",
+  "animation": "unboundheadway.animation",
+
+  "animationParts": {
+    "butt": "",
+    "middle": "unboundheadway.png",
+    "barrel": "",
+	"middleFullbright": "unboundheadwayfullbright.png",
+	"muzzleFlash": "muzzleflash.png"
+  },
+  "animationCustom": {
+      "particleEmitters" : {
+      "muzzleFlash" : {
+        "transformationGroups" : ["muzzle"],
+		"offsetRegion" : [-2.1, 0.1, -2.1, 0.1],
+        "particles" : [
+          { "particle" : "starforge-unboundrifle" }
+        ]
+      }
+    },
+    "sounds": {
+      "fire": [
+        "/sfx/gun/starforge-unboundrifle.ogg"
+      ]
+    }
+  },
+  
+  "baseOffset": [0.625, 0.3],
+  "muzzleOffset": [2.5, 0.150],
+  "scripts": [
+    "/items/active/weapons/ranged/gun.lua"
+  ],
+  "elementalType": "electric",
+  "primaryAbility": {
+    "scripts": [
+      "/items/active/weapons/ranged/starforge-gunfire.lua"
+    ],
+    "class": "StarforgeGunFire",
+    "fireTime": 0.18,
+    "baseDps": 15,
+    "energyUsage": 22,
+    "inaccuracy": 0.003,
+    "projectileCount": 1,
+    "fireType": "auto",
+    "projectileType": "unboundelectricbullet",
+    "projectileParameters": {
+	  "speed" : 200,
+      "knockback": 3.5
+    },
+    "stances": {
+      "idle": {
+        "armRotation": 0,
+        "weaponRotation": 0,
+        "weaponOffset" : [0, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      },
+      "fire": {
+        "duration": 0,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.1, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+
+        "animationStates" : {
+          "firing" : "fire"
+		},
+		
+		"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      },
+      "cooldown": {
+        "duration": 0.05,
+        "armRotation": 2,
+        "weaponRotation": 1,
+        "weaponOffset" : [-0.1, 0],
+        "twoHanded": true,
+        "allowRotate": true,
+        "allowFlip": true,
+		
+		"frontArmFrame" : "run.2",
+        "backArmFrame" : "swim.4"
+      }
+    }
+  },
+  "altAbilityType" : "flamethrower",
+          "altAbility" : {
+            "name" : "Grenade Launcher",
+            "scripts" : ["/items/active/weapons/ranged/abilities/starforge-altfire.lua"],
+            "class" : "StarforgeAltFire",
+
+			"projectileType" : "electriccloudgrenade",
+            "projectileParameters" : {},
+            "projectileCount" : 1,
+            "inaccuracy" : 0.01,
+            "baseDamage" : 15,
+            "energyUsage" : 40,
+            "fireTime" : 2.25,
+            "fireType" : "auto",
+            "useStanceDuration" : true,
+
+            "fireOffset" : [2.5, 0.5],
+
+            "stances" : {
+              "fire" : {
+              "duration" : 0,
+              "armRotation" : 5,
+              "weaponRotation" : 5,
+              "twoHanded" : true,
+
+              "allowRotate" : false,
+              "allowFlip" : false
+              },
+              "cooldown" : {
+              "duration" : 0.225,
+              "armRotation" : 5,
+              "weaponRotation" : 5,
+              "twoHanded" : true,
+
+              "allowRotate" : true,
+              "allowFlip" : true
+              }
+            }
+          },
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}
