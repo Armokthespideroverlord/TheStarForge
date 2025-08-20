@@ -10,12 +10,12 @@
   "category" : "decorative",
   "price" : 550,
 
-  "apexDescription" : "Every bit of technology I've seen this far doesn't even come close to this...",
-  "avianDescription" : "The shiny star in it reminds me of the sky at night !",
-  "floranDescription" : "Floran like ssssshiny lights... ",
-  "glitchDescription" : "Inspired. This forge will allow me to craft wonderful items. ",
-  "humanDescription" : "This forge resonates with a power I can barely understand, this is scary.",
-  "hylotlDescription" : "Such a wonderful craftsmanship, simple and yet so... perfect.",
+  "apexDescription" : "It's the skull of a large predator.",
+  "avianDescription" : "The empty eye sockets are creepy!",
+  "floranDescription" : "Floran wantsss to hunt thisss... ",
+  "glitchDescription" : "Surprised. This is quite a large skull.",
+  "humanDescription" : "Woah! It's like a moose head but ten times better!",
+  "hylotlDescription" : "To think that the Yukai would end up displaying their trophies like Florans...",
  
   
   "lightColor" : [182, 78, 0],

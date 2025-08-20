@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "chestwear",
-  "description" : "Trained for versatility, Unbound commandos are some of the fiercest soldiers you will find on the battlefield.",
+  "description" : "When Unbound commandos are promoted, they get to choose between staying on the field, or becoming protectors.",
   "shortdescription" : "^#686F5D;UNBD^reset; Commando Chestplate",
   "tooltipKind" : "armor",
 

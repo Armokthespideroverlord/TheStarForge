@@ -2,7 +2,7 @@
   "projectileName" : "pyreaperorb",
   "image" : "pyreaperorb.png",
   "animationCycle" : 0.4,
-  "lightColor" : [255, 143, 77],
+  "lightColor" : [125, 33, 17],
   "frameNumber" : 8,
   "fullbright" : true,
   "damageKindImage" : "icon.png",

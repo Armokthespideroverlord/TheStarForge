@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "headwear",
-  "description" : "Unbound commandos come into two types, the RIOT & the HARASSER types, each using different weapons.",
+  "description" : "A HARASSER-class Commando helmet. Worn by some of the best Unbound soldiers, this hardcase helmet is made of pure Durasteel.",
   "shortdescription" : "^#686F5D;UNBD^reset; Commando Helmet",
   "tooltipKind" : "armor",
 

@@ -19,12 +19,12 @@
                 },
                 "apex": {
                     "default": [
-                        "Trooper unit reporting, target on sight!",
-                        "Reporting, target sighted!",
-                        "Orders received, begin operation!",
-                        "Backup requested, target approaching!",
-                        "Orders received, target in sight.",
-                        "Target approaching, opening fire!"
+                        "I'm finally free from the Miniknog!",
+                        "Where's the trigger???",
+                        "AAH! You scared me!",
+                        "I'm a rookie I need help!",
+                        "Enemy over here!! Help!",
+                        "Please let me shoot you!!"
                     ]
                 }
             }
