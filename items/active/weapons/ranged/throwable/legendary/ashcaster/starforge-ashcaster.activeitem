@@ -1,0 +1,49 @@
+{
+  "itemName" : "starforge-ashcaster",
+  "level" : 6,
+  "price" : 1000,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Withered spikes that emit a dangerous fog when their spines are triggered.",
+  "shortdescription" : "Ashcaster",
+  "tooltipKind" : "starforge-uniquegun",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Throwable"
+  },
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "ranged", "throwable" ],
+  //"learnBlueprintsOnPickup" : [ "starforge-ashcaster" ],
+
+  "inventoryIcon" : "starforge-ashcaster.png",
+
+  "animation" : "/items/active/weapons/ranged/throwable/starforge-throwable.animation",
+  "animationParts" : {
+    "middle" : ""
+  },
+  "animationCustom" : {
+	"sounds" : {
+      "throw" : [ "/sfx/projectiles/throw_item.ogg" ]
+    }
+  },
+
+  "scripts" : ["/items/active/weapons/ranged/throwable/starforge-throwable.lua"],
+
+  "elementalType" : "starforge-wither",
+
+  "primaryAbilityType" : "starforge-throwprojectile",
+  "primaryAbility" : {
+    "baseDps" : 4,
+    "cooldownTime" : 1.2,
+	
+    "hideItemWhileIdle" : true,
+    
+    "inaccuracy": 0.02,
+    "projectileCount" : 1,
+    "projectileType" : "starforge-witherspike",
+    "projectileParameters" : {
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

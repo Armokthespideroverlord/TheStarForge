@@ -60,7 +60,32 @@
   "altAbility" : {
 	"projectileType" : "cellblast",
 	"projectileParameters" : {
-	  "speed" : 120
+	  "speed" : 120,
+    "actionOnReap" : [
+      {
+        "action" : "projectile",
+        "inheritDamageFactor" : 1,
+        "type" : "pulsecannonexplosion",
+        "config" : {
+          "damageKind" : "electric"
+        }
+      },
+      {
+        "action" : "sound",
+        "options" : [ "/sfx/gun/pulsecannon_blast1.ogg" ]
+      },
+      {
+        "action" : "light",
+        "color" : "blue"
+      },
+      {
+        "action" : "explosion",
+        "foregroundRadius" : 2,
+        "backgroundRadius" : 0,
+        "explosiveDamageAmount" : 0.5,
+        "delaySteps" : 2
+      }
+    ]
 	},
 
 	"projectileCount" : 1,

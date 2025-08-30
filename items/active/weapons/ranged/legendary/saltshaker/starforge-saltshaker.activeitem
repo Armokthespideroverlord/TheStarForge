@@ -44,8 +44,8 @@
 
     "fireType" : "auto",
 	
-	"animatedFire" : true,
-	"cycleAfterShot" : true,
+    "animatedFire" : true,
+    "cycleAfterShot" : true,
 
     "projectileType" : "starforge-physicalbullet",
     "projectileParameters" : {},
@@ -60,7 +60,7 @@
         "allowFlip" : true
       },
       "unholsterTwirl" : {
-        "duration" : 0.5,
+        "duration" : 0.35,
         "armRotation" : -25,
         "weaponRotation" : -540,
 		    "weaponOffset" : [-0.25, -0.125],
@@ -107,12 +107,14 @@
 
     "fireType" : "auto",
 
-    "projectileType" : "unboundicebullet",
+    "projectileType" : "starforge-icefluxbolt",
     "projectileParameters" : {
       "piercing" : true,
-      "fullbright" : true,
       "damageKind" : "plasma",
       "speed" : 200,
+      "movementSettings" : {
+        "gravityMultiplier" : 0
+      },
       "actionOnReap" : [
         {
           "action" : "config",

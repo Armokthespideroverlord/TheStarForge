@@ -74,7 +74,26 @@ function StarforgeWarpCombo:windup()
       coroutine.yield()
     end
   else
-    util.wait(stance.duration)
+    local windupSwing = {}
+    if stance.windupSwing ~= false or stance.windupSwing ~= 0 then
+      local windupSwingValue = stance.windupSwing or 0.1
+      local fireStance = self.stances["fire"..self.comboStep]
+      windupSwing.armRotation = (stance.armRotation - fireStance.armRotation) * windupSwingValue
+      windupSwing.weaponRotation = (stance.weaponRotation - fireStance.weaponRotation) * windupSwingValue
+    end
+    
+    local progress = 0
+    util.wait(stance.duration, function()
+      if stance.windupSwing ~= false then
+        for part, rotation in pairs(windupSwing) do
+          local from = stance[part]
+          local to = stance[part] + rotation
+        
+          self.weapon["relative" .. part:gsub("^%l", string.upper)] = util.toRadians(util.interpolateHalfSigmoid(1- progress, from, to))
+        end
+        progress = math.min(1.0, progress + (self.dt / stance.duration))
+      end
+    end)
   end
   animator.setGlobalTag("comboDirectives", "")
 
@@ -146,10 +165,10 @@ function StarforgeWarpCombo:teleport()
   end
   
   util.wait(stance.duration, function()
-	--Reset player momentum, prevents fall damage
-	mcontroller.setXVelocity(0, 0)
-	mcontroller.setYVelocity(0, 0)
-	mcontroller.setPosition(targetPosition)
+    --Reset player momentum, prevents fall damage
+    mcontroller.setXVelocity(0, 0)
+    mcontroller.setYVelocity(0, 0)
+    mcontroller.setPosition(targetPosition)
   end)
   animator.setGlobalTag("comboDirectives", "")
   
@@ -218,8 +237,8 @@ function StarforgeWarpCombo:fire()
   animator.burstParticleEmitter(swooshKey)
   
   local overSwing = {}
-  if stance.overSwing ~= false then
-    local overSwingValue = 0.05
+  if stance.overSwing ~= false or stance.overSwing ~= 0 then
+    local overSwingValue = stance.overSwing or 0.1
     local windupStance = self.stances["windup"..self.comboStep]
     overSwing.armRotation = (stance.armRotation - windupStance.armRotation) * overSwingValue
     overSwing.weaponRotation = (stance.weaponRotation - windupStance.weaponRotation) * overSwingValue
@@ -230,7 +249,7 @@ function StarforgeWarpCombo:fire()
     local damageArea = partDamageArea("swoosh")
     self.weapon:setDamage(self.stepDamageConfig[self.comboStep], damageArea)
     
-    if stance.overSwing ~= false then
+    if stance.overSwing ~= false or stance.overSwing ~= 0 then
       for part, rotation in pairs(overSwing) do
         local from = stance[part]
         local to = stance[part] + rotation

@@ -82,7 +82,7 @@
 	  
 	    //COMBO STEP 1
       "windup1" : {
-        "duration" : 0.15,
+        "duration" : 0.25,
         "armRotation" : 135,
         "weaponRotation" : -15,
         "twoHanded" : true,

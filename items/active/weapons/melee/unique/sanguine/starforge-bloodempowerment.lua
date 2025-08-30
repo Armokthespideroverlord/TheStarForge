@@ -11,7 +11,7 @@ function StarForgeBloodEmpowerment:update(dt, fireMode, shiftHeld)
 
   self.cooldownTimer = math.max(0, self.cooldownTimer - self.dt)
 
-  if self.active and (status.resource("health") < self.minimumHealth) and not status.overConsumeResource("health", self.healthPerSecond * self.dt) then
+  if self.active and (status.resource("health") < self.minimumEnergy) and not status.overConsumeResource("health", self.healthPerSecond * self.dt) then
     self.active = false
   end
 

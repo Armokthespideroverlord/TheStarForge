@@ -26,14 +26,34 @@ end
 
 -- State: windup
 function StarforgeMeleeSlash:windup()
-  self.weapon:setStance(self.stances.windup)
+  local stance = self.stances.windup
+  self.weapon:setStance(stance)
 
-  if self.stances.windup.hold then
+  if stance.hold then
     while self.fireMode == (self.activatingFireMode or self.abilitySlot) do
       coroutine.yield()
     end
   else
-    util.wait(self.stances.windup.duration)
+    local windupSwing = {}
+    if stance.windupSwing ~= false or stance.windupSwing ~= 0 then
+      local windupSwingValue = stance.windupSwing or 0.1
+      local fireStance = self.stances.fire
+      windupSwing.armRotation = (stance.armRotation - fireStance.armRotation) * windupSwingValue
+      windupSwing.weaponRotation = (stance.weaponRotation - fireStance.weaponRotation) * windupSwingValue
+    end
+    
+    local progress = 0
+    util.wait(stance.duration, function()
+      if stance.windupSwing ~= false or stance.windupSwing ~= 0 then
+        for part, rotation in pairs(windupSwing) do
+          local from = stance[part]
+          local to = stance[part] + rotation
+        
+          self.weapon["relative" .. part:gsub("^%l", string.upper)] = util.toRadians(util.interpolateHalfSigmoid(1- progress, from, to))
+        end
+        progress = math.min(1.0, progress + (self.dt / stance.duration))
+      end
+    end)
   end
 
   if self.energyUsage then
@@ -72,8 +92,8 @@ function StarforgeMeleeSlash:fire()
   animator.burstParticleEmitter((self.activatingFireMode or self.abilitySlot) .. "Swoosh")
   
   local overSwing = {}
-  if stance.overSwing ~= false then
-    local overSwingValue = 0.05
+  if stance.overSwing ~= false or stance.overSwing ~= 0 then
+    local overSwingValue = stance.overSwing or 0.1
     local windupStance = self.stances.windup
     overSwing.armRotation = (stance.armRotation - windupStance.armRotation) * overSwingValue
     overSwing.weaponRotation = (stance.weaponRotation - windupStance.weaponRotation) * overSwingValue
@@ -84,7 +104,7 @@ function StarforgeMeleeSlash:fire()
     local damageArea = partDamageArea((self.activatingFireMode or self.abilitySlot) .. "Swoosh")
     self.weapon:setDamage(self.damageConfig, damageArea, self.fireTime)
     
-    if stance.overSwing ~= false then
+    if stance.overSwing ~= false or stance.overSwing ~= 0 then
       for part, rotation in pairs(overSwing) do
         local from = stance[part]
         local to = stance[part] + rotation

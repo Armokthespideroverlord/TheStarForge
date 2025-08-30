@@ -43,19 +43,19 @@
     },
     "stepDamageConfig" : [
       {
-        "baseDamageFactor" : 1.0,
+        "baseDamageFactor" : 0.95,
         "knockback" : 15
       },
       {
-        "baseDamageFactor" : 0.5,
+        "baseDamageFactor" : 0.65,
         "knockback" : 10
       },
       {
-        "baseDamageFactor" : 1.0,
+        "baseDamageFactor" : 0.95,
         "knockback" : 15
       },
       {
-        "baseDamageFactor" : 1.0,
+        "baseDamageFactor" : 1.25,
         "knockback" : 25
       }
     ],

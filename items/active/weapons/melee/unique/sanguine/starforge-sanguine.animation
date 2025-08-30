@@ -9,63 +9,69 @@
         "default" : "idle",
         "states" : {
           "idle" : {},
-          "inactivefire" : {
+          "fire" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "inactivefire2" : {
+          "fire2" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "inactivefire3" : {
-            "frames" : 3,
-            "cycle" : 0.1,
-            "mode" : "transition",
-            "transition" : "idle"
-		 },
-          "inactivefire4" : {
+          "fire3" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "inactivefire5" : {
+          "fire4" : {
+            "frames" : 3,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "fire5" : {
             "frames" : 3,
             "cycle" : 0.15,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "activefire" : {
+          "empoweredfire" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "activefire2" : {
+          "empoweredfire2" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "activefire3" : {
+          "empoweredfire3" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-		   "activefire4" : {
+		      "empoweredfire4" : {
             "frames" : 3,
             "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           },
-          "activefire5" : {
+          "empoweredfire5" : {
             "frames" : 3,
             "cycle" : 0.15,
+            "mode" : "transition",
+            "transition" : "idle"
+          },
+          "altfire" : {
+            "frames" : 3,
+            "cycle" : 0.1,
             "mode" : "transition",
             "transition" : "idle"
           }
@@ -114,6 +120,106 @@
     },
 
     "parts" : {
+      "tassel2" : {
+        "properties" : {
+          "zLevel" : -4,
+          "centered" : true,
+          "offset" : [0.0, 2.25],
+          "transformationGroups" : ["weapon", "tassel2"],
+          "rotationCenter" : [0, 0.375]
+        },
+        "partStates" : {
+          "sword" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "extend" : {
+              "properties" : {
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "retract" : {
+              "properties" : {
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            }
+          }
+        }
+      },
+      "tassel3" : {
+        "properties" : {
+          "zLevel" : -5,
+          "centered" : true,
+          "offset" : [0.0, 1.25],
+          "transformationGroups" : ["weapon", "tassel3"],
+          "rotationCenter" : [0, 0.375]
+        },
+        "partStates" : {
+          "sword" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>?<comboDirectives>?flipx"
+              }
+            },
+            "extend" : {
+              "properties" : {
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?<comboDirectives>?flipx"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active?<directives>?<bladeDirectives>?<comboDirectives>?flipx"
+              }
+            },
+            "retract" : {
+              "properties" : {
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?<comboDirectives>?flipx"
+              }
+            }
+          }
+        }
+      },
+      "tassel4" : {
+        "properties" : {
+          "zLevel" : -6,
+          "centered" : true,
+          "offset" : [0.0, 0.5],
+          "transformationGroups" : ["weapon", "tassel4"],
+          "rotationCenter" : [0, 0.375]
+        },
+        "partStates" : {
+          "sword" : {
+            "inactive" : {
+              "properties" : {
+                "image" : "<partImage>:inactive?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "extend" : {
+              "properties" : {
+                "image" : "<partImage>:extend.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+                "image" : "<partImage>:active?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            },
+            "retract" : {
+              "properties" : {
+                "image" : "<partImage>:retract.<frame>?<directives>?<bladeDirectives>?<comboDirectives>"
+              }
+            }
+          }
+        }
+      },
+
       "sword" : {
         "properties" : {
           "zLevel" : 0,
@@ -190,7 +296,6 @@
         "properties" : {
           "zLevel" : -1,
           "centered" : true,
-          "fullbright" : true,
           "transformationGroups" : ["swoosh"],
           "rotationCenter" : [0, 0]
         },
@@ -202,77 +307,82 @@
                 "image" : ""
               }
             },
-            "inactivefire" : {
-             "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [-0.875, -2.25],
-                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
-              }
-            },
-            "inactivefire2" : {
-             "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>",
-                "offset" : [4.0, 0.875],
-                "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
-              }
-            },
-            "inactivefire3" : {
+            "fire" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.875, 2.25],
+                "offset" : [-0.625, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
-			      "inactivefire4" : {
+            "fire2" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
+                "offset" : [-0.625, 2.25],
+                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+              }
+            },
+            "fire3" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>?flipy",
-                "offset" : [4.0, -0.875],
+                "offset" : [3.75, -0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
-			      "inactivefire5" : {
-              "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.875, 2.25],
-                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
-              }
-            },
-			
-            "activefire" : {
+			      "fire4" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [-0.875, -2.25],
+                "offset" : [-0.625, -2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
-            "activefire2" : {
-              "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>",
-                "offset" : [4.0, 0.875],
-                "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
-              }
-            },
-            "activefire3" : {
+			      "fire5" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.875, 2.25],
-                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+                "offset" : [-0.625, 2.25],
+                "damageArea" : [[-5, -2], [-2.5, -3], [1, -3], [4, -1.75], [5, 0.25], [5, 2.25], [4, 3.25], [0, 2.5]]
               }
             },
 			
-		        "activefire4" : {
+            "empoweredfire" : {
               "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>?flipy",
-                "offset" : [4.0, -0.875],
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-blood.png:<frame>",
+                "offset" : [-0.625, 2.75],
+                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+              }
+            },
+            "empoweredfire2" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-blood.png:<frame>",
+                "offset" : [-0.625, 2.75],
+                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+              }
+            },
+            "empoweredfire3" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-blood.png:<frame>?flipy",
+                "offset" : [3.75, -0.875],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
-			
-			      "activefire5" : {
+		        "empoweredfire4" : {
               "properties" : {
-                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.875, 2.25],
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-blood.png:<frame>?flipy",
+                "offset" : [-0.625, -2.75],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+              }
+            },
+			      "empoweredfire5" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-blood.png:<frame>",
+                "offset" : [-0.625, 2.75],
+                "damageArea" : [[-5, -2], [-2.5, -3], [1, -3], [4, -1.75], [5, 0.25], [5, 2.25], [4, 3.25], [0, 2.5]]
+              }
+            },
+
+            "altfire" : {
+              "properties" : {
+                "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-blood.png:<frame>",
+                "offset" : [-0.875, 2.25]
               }
             }
           }
@@ -283,29 +393,33 @@
 
   "transformationGroups" : {
     "weapon" : {},
-    "swoosh" : {}
+    "swoosh" : {},
+
+    "tassel2" : {},
+    "tassel3" : {},
+    "tassel4" : {}
   },
 
   "particleEmitters" : {
-    "inactivephysicalswoosh" : {
+    "physicalswoosh" : {
       "active" : false,
       "particles" : []
     },
-    "activephysicalswoosh" : {
+    "empoweredphysicalswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-      "burstCount" : 15,
+      "burstCount" : 4,
       "particles" : [
-	    { "particle" : "blood"}
-	  ]
+        { "particle" : "starforge-torporcloud"}
+	   ]
     },
     "blade" : {
       "active" : false,
       "transformationGroups" : ["weapon"],
-      "offsetRegion" : [-0.5, 1.5, 0.5, 4.0],
-      "emissionRate" : 5,
+      "offsetRegion" : [-0.125, 0.375, -0.125, 5],
+      "emissionRate" :25,
       "particles" : [
-        { "particle" : "blood"}
+        { "particle" : "starforge-torporcloud"}
       ]
     }
   },
@@ -319,17 +433,17 @@
   },
 
   "sounds" : {
-    "inactivefire" : [ "/sfx/melee/swing_broadsword.ogg" ],
-    "inactivefire2" : [ "/sfx/melee/swing_shortsword.ogg" ],
-    "inactivefire3" : [ "/sfx/melee/swing_spear.ogg" ],
-	"inactivefire4" : [ "/sfx/melee/swing_shortsword.ogg" ],
-	"inactivefire5" : [ "/sfx/melee/swing_broadsword.ogg" ],
-    "activefire" : [ "/sfx/melee/swing_broadsword.ogg" ],
-    "activefire2" : [ "/sfx/melee/swing_shortsword.ogg" ],
-    "activefire3" : [ "/sfx/melee/swing_spear.ogg" ],
-	"activefire4" : [ "/sfx/melee/swing_shortsword.ogg" ],
-	"activefire5" : [ "/sfx/melee/swing_broadsword.ogg" ],
+    "fire" : [ "/sfx/melee/swing_broadsword.ogg" ],
+    "fire2" : [ "/sfx/melee/swing_shortsword.ogg" ],
+    "fire3" : [ "/sfx/melee/swing_spear.ogg" ],
+  	"fire4" : [ "/sfx/melee/swing_shortsword.ogg" ],
+  	"fire5" : [ "/sfx/melee/swing_broadsword.ogg" ],
+    "empoweredfire" : [ "/sfx/melee/swing_broadsword.ogg" ],
+    "empoweredfire2" : [ "/sfx/melee/swing_shortsword.ogg" ],
+    "empoweredfire3" : [ "/sfx/melee/swing_spear.ogg" ],
+  	"empoweredfire4" : [ "/sfx/melee/swing_shortsword.ogg" ],
+  	"empoweredfire5" : [ "/sfx/melee/swing_broadsword.ogg" ],
     "empower" : [],
-    "slash" : [ "/sfx/melee/swing_shortsword.ogg" ]
+    "altSlash" : [ "/sfx/melee/swing_shortsword.ogg" ]
   }
 }

@@ -1,0 +1,11 @@
+{
+  "frameGrid" : {
+    "size" : [4, 7],
+    "dimensions" : [2, 1],
+    "names" : [
+      [ "idle", "enraged" ]
+    ]
+  },
+
+  "aliases" : {  }
+}

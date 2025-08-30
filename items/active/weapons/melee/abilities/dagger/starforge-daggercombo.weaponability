@@ -211,6 +211,8 @@
 		
 	    	"comboDirectives" : "?flipx",
 
+        "overSwing" : -0.1,
+
         "allowRotate" : false,
         "allowFlip" : false
       },

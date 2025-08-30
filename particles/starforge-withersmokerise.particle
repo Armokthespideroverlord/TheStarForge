@@ -9,8 +9,8 @@
     "initialVelocity" : [-0.125, 2],
     "finalVelocity" : [-0.125, 2],
     "approach" : [5, 20],
-    "timeToLive" : 1,
-    "size" : 0.25,
+    "timeToLive" : 0.9,
+    "size" : 0.5,
     "collidesForeground" : true,
     "layer" : "front",
     "variance" : {

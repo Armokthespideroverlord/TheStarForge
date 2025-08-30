@@ -26,6 +26,7 @@ end
 function StarforgeMeleeCombo:update(dt, fireMode, shiftHeld)
   WeaponAbility.update(self, dt, fireMode, shiftHeld)
 
+  world.debugText(self.cooldownTimer, vec2.add(mcontroller.position(), {0, 1}), "red")
   if self.cooldownTimer > 0 then
     self.cooldownTimer = math.max(0, self.cooldownTimer - self.dt)
     if self.cooldownTimer == 0 then
@@ -55,6 +56,15 @@ end
 function StarforgeMeleeCombo:windup()
   local stance = self.stances["windup"..self.comboStep]
   animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
+
+  if stance.teleport then
+    local animStateKey = self.animKeyPrefix .. (self.comboStep > 1 and "fire"..self.comboStep or "fire")
+    animator.setAnimationState("swoosh", animStateKey)
+    animator.playSound(animStateKey)
+
+    local swooshKey = self.animKeyPrefix .. (self.elementalType or self.weapon.elementalType) .. "swoosh"
+    animator.setParticleEmitterOffsetRegion(swooshKey, self.swooshOffsetRegions[self.comboStep])
+  end
   
   -- Optionally flash the weapon
   if stance.flashTime then
@@ -74,17 +84,115 @@ function StarforgeMeleeCombo:windup()
       coroutine.yield()
     end
   else
-    util.wait(stance.duration)
+    local windupSwing = {}
+    if stance.windupSwing ~= false or stance.windupSwing ~= 0 then
+      local windupSwingValue = stance.windupSwing or 0.1
+      local fireStance = self.stances["fire"..self.comboStep]
+      windupSwing.armRotation = (stance.armRotation - fireStance.armRotation) * windupSwingValue
+      windupSwing.weaponRotation = (stance.weaponRotation - fireStance.weaponRotation) * windupSwingValue
+    end
+    
+    local progress = 0
+    util.wait(stance.duration, function()
+      if stance.windupSwing ~= false then
+        for part, rotation in pairs(windupSwing) do
+          local from = stance[part]
+          local to = stance[part] + rotation
+        
+          self.weapon["relative" .. part:gsub("^%l", string.upper)] = util.toRadians(util.interpolateHalfSigmoid(1- progress, from, to))
+        end
+        progress = math.min(1.0, progress + (self.dt / stance.duration))
+      end
+    end)
   end
 
   if self.energyUsage then
     status.overConsumeResource("energy", self.energyUsage)
   end
 
-  if self.stances["preslash"..self.comboStep] then
+  if stance.teleport then
+    self:setState(self.teleport)
+  elseif self.stances["preslash"..self.comboStep] then
     self:setState(self.preslash)
   else
     self:setState(self.fire)
+  end
+end
+
+-- State: wait
+-- waiting for next combo input
+function StarforgeMeleeCombo:teleport()
+  local stance = self.stances["fire"..self.comboStep]
+  
+  --Create the teleportation effect and add 0.5 for both animations to take effect
+  status.addEphemeralEffect(stance.teleportStatus or "starforge-teleporteffect", stance.duration + 0.5)
+
+  animator.setGlobalTag("comboDirectives", stance.comboDirectives or "")
+  self.weapon:setStance(stance)
+  self.weapon:updateAim()
+
+  local oldPosition = mcontroller.position()
+  local targetPosition = vec2.add(oldPosition, vec2.rotate({mcontroller.facingDirection() * stance.teleportTarget[1], stance.teleportTarget[2]}, self.weapon.aimAngle * mcontroller.facingDirection()))
+
+  local groundCollision = world.lineTileCollisionPoint(mcontroller.position(), targetPosition)
+  if groundCollision then
+    local groundPos, normal = groundCollision[1], groundCollision[2]
+    targetPosition = groundPos
+  end
+	
+  local targets = world.entityQuery(mcontroller.position(), stance.forgivenessRange, {
+    withoutEntityId = activeItem.ownerEntityId(),
+    includedTypes = {"creature"},
+    order = "nearest"
+  })
+  if targets[1] and entity.entityInSight(targets[1]) and world.entityCanDamage(activeItem.ownerEntityId(), targets[1]) then
+	targetPosition = world.entityPosition(targets[1])
+  end
+  world.resolvePolyCollision(mcontroller.collisionPoly(), vec2.add(targetPosition, stance.teleportOffset), stance.teleportTolerance)
+
+  --Allow first teleport effect to take place
+  util.wait(0.25)
+  
+  if stance.projectileType and targetPosition then
+	local angleToTarget = vec2.angle({targetPosition[2] - mcontroller.position()[2], targetPosition[1] - mcontroller.position()[1]})
+	local aimVector = vec2.rotate({0, 1}, -angleToTarget)
+	--aimVector[1] = aimVector[1] * mcontroller.facingDirection()
+	
+	local params = stance.projectileParameters or {}
+	params.power = stance.projectileDamage * config.getParameter("damageLevelMultiplier")
+	params.powerMultiplier = activeItem.ownerPowerMultiplier()
+	params.speed = util.randomInRange(params.speed)
+		
+    world.spawnProjectile(
+	  stance.projectileType,
+	  targetPosition,
+	  activeItem.ownerEntityId(),
+	  aimVector,
+	  false,
+	  params
+	)
+  end
+  
+  util.wait(stance.duration, function()
+    --Reset player momentum, prevents fall damage
+    mcontroller.setXVelocity(0, 0)
+    mcontroller.setYVelocity(0, 0)
+    mcontroller.setPosition(targetPosition)
+  end)
+  animator.setGlobalTag("comboDirectives", "")
+  
+  mcontroller.setPosition(oldPosition)
+
+  if stance.continueStep then
+    self.edgeTriggerTimer = self.edgeTriggerGrace
+  end
+
+  if self.comboStep < self.comboSteps then
+    self.comboStep = self.comboStep + 1
+    self:setState(self.wait)
+  else
+    self.cooldownTimer = self.cooldowns[self.comboStep]
+    self.comboStep = 1
   end
 end
 
@@ -170,20 +278,20 @@ function StarforgeMeleeCombo:fire()
     
       -- Optionally force the player to walk while in this stance
       if stance.forceWalking then
-      mcontroller.controlModifiers({runningSuppressed=true})
+        mcontroller.controlModifiers({runningSuppressed=true})
       end
       
       -- Optionally freeze the player in place if so configured
       if stance.freezePlayer then
-      mcontroller.setVelocity({0,0})
+       mcontroller.setVelocity({0,0})
       end
     end)
     animator.setAnimationState("swoosh", "idle")
   -- If this step is a regular attack, simply set the damage area for the duration of the step
   else
     local overSwing = {}
-    if stance.overSwing ~= false then
-      local overSwingValue = 0.05
+    if stance.overSwing ~= false or stance.overSwing ~= 0 then
+      local overSwingValue = stance.overSwing or 0.1
       local windupStance = self.stances["windup"..self.comboStep]
       overSwing.armRotation = (stance.armRotation - windupStance.armRotation) * overSwingValue
       overSwing.weaponRotation = (stance.weaponRotation - windupStance.weaponRotation) * overSwingValue
@@ -199,7 +307,7 @@ function StarforgeMeleeCombo:fire()
         mcontroller.setVelocity({0,0})
       end
     
-      if stance.overSwing ~= false then
+      if stance.overSwing ~= false or stance.overSwing ~= 0 then
         for part, rotation in pairs(overSwing) do
           local from = stance[part]
           local to = stance[part] + rotation
@@ -278,7 +386,7 @@ function StarforgeMeleeCombo:computeDamageAndCooldowns()
 
     local targetTime = totalDamageFactor * self.fireTime
     local speedFactor = 1.0 * (self.comboSpeedFactor ^ i)
-    table.insert(self.cooldowns, (targetTime - totalAttackTime) * speedFactor)
+    table.insert(self.cooldowns, (totalAttackTime - attackTime) * speedFactor)
   end
 end
 

@@ -59,7 +59,8 @@
     "name" : "Spell Burst",
     "projectileType" : [ "starforge-leafpledgeleafspinning" ],
     "projectileParameters" : {
-      "speed" : [25, 50]
+      "speed" : [25, 50],
+      "damageKind" : "poisonbroadsword"
     },
 
     "projectileCount" : 2,

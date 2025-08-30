@@ -139,12 +139,12 @@ function StarforgeLanternChargedShot:fire()
   
   --Optionally apply self-damage
   if self.selfDamage then
-	status.applySelfDamageRequest({
-	  damageType = "IgnoresDef",
-	  damage = math.max(1, self.selfDamage * config.getParameter("damageLevelMultiplier") * activeItem.ownerPowerMultiplier()),
-	  damageSourceKind = self.selfDamageSource,
-	  sourceEntityId = activeItem.ownerEntityId()
-	})
+    status.applySelfDamageRequest({
+      damageType = "IgnoresDef",
+      damage = math.max(1, self.selfDamage * config.getParameter("damageLevelMultiplier") * activeItem.ownerPowerMultiplier()),
+      damageSourceKind = self.selfDamageSource,
+      sourceEntityId = activeItem.ownerEntityId()
+    })
   end
   
   self.cooldownTimer = self.cooldownTime
@@ -197,7 +197,7 @@ function StarforgeLanternChargedShot:muzzleFlash()
   animator.setAnimationState("firing", "fire")
   animator.burstParticleEmitter("muzzleFlash")
   if self.casingEjectParticles then
-	animator.burstParticleEmitter("casingEject")
+  	animator.burstParticleEmitter("casingEject")
   end
   animator.playSound("fire")
 

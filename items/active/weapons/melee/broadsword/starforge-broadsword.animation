@@ -50,9 +50,21 @@
           "damageArea" : [ [-0.7, -1.0], [-0.7, 2.5], [0.5, 2.5], [0.5, -1.0] ]
         }
       },
-      "handle" : {
+      "bladeFullbright" : {
         "properties" : {
           "zLevel" : 1,
+          "centered" : true,
+          "fullbright" : true,
+          "image" : "<partImage><paletteSwaps>?<directives>?<bladeDirectives>",
+          "offset" : [0, 1.875],
+          "transformationGroups" : ["weapon"],
+          "rotationCenter" : [0, 0],
+          "damageArea" : [ [-0.7, -1.0], [-0.7, 2.5], [0.5, 2.5], [0.5, -1.0] ]
+        }
+      },
+      "handle" : {
+        "properties" : {
+          "zLevel" : 2,
           "centered" : true,
           "image" : "<partImage><paletteSwaps>?<directives>",
           "offset" : [0, 1.875],
@@ -118,43 +130,50 @@
     "physicalswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     },
     "fireswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     },
     "iceswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     },
     "poisonswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     },
     "electricswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     },
     "starforge-tidalfrostswoosh" : {
       "active" : false,
       "transformationGroups" : ["swoosh"],
-	  "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
-	  "burstCount" : 1,
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
+      "particles" : []
+    },
+    "starforge-witherswoosh" : {
+      "active" : false,
+      "transformationGroups" : ["swoosh"],
+      "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+      "burstCount" : 1,
       "particles" : []
     }
   },

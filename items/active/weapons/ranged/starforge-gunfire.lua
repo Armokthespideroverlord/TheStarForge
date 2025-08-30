@@ -68,6 +68,10 @@ end
 function StarforgeGunFire:auto()
   self.weapon:setStance(self.stances.fire)
 
+  if self.stances.fire.preDuration then
+    util.wait(self.stances.fire.preDuration)
+  end
+
   self.projectileId = self:fireProjectile()
   self:muzzleFlash()
   if self.knockbackForce then
@@ -234,9 +238,9 @@ function StarforgeGunFire:muzzleFlash(pitchIncrease)
   if self.muzzleFlashSuffix == "" then return end
   
   animator.setPartTag("muzzleFlash" .. (self.muzzleFlashSuffix or ""), "variant", math.random(1, self.muzzleFlashVariants or 3))
-  animator.setAnimationState("firing", "fire" .. (self.muzzleFlashSuffix or ""))
+  animator.setAnimationState("firing", (self.muzzleFlashState or "fire") .. (self.muzzleFlashSuffix or ""))
   
-  local flashString = (self.useElementalMuzzleEmitter and self.weapon.elementalType ~= "physical") and (self.weapon.elementalType .. "MuzzleFlash") or "muzzleFlash"
+  local flashString = self.muzzleFlashEmitter or ((self.useElementalMuzzleEmitter and self.weapon.elementalType ~= "physical") and (self.weapon.elementalType .. "MuzzleFlash") or "muzzleFlash")
   animator.burstParticleEmitter(flashString .. (self.muzzleFlashSuffix or ""))
 
   --Optional firing animations
@@ -274,6 +278,10 @@ function StarforgeGunFire:fireProjectile(burstNumber)
   local shotNumber = 0
 
   local baseSpeed = params.speed
+  if self.projectileCount > 1 and not baseSpeed and (self.projectileSpeedVariance or config.getParameter("itemName") == "starforge-combatrifle") then -- im lazy lol
+    local config = root.projectileConfig(self.projectileType)
+    baseSpeed = {math.max(5, config.speed - 20), config.speed + 20}
+  end
   local baseTTL = params.timeToLive
   local projectileId = 0
   for i = 1, (projectileCount or self.projectileCount) do

@@ -45,13 +45,68 @@
       "status" : {
         "default" : "inactive",
         "states" : {
-          "inactive" : {},
-          "active" : {}
+          "inactive" : {
+            "properties" : {
+              "particleEmittersOff" : ["idleParticles"]
+            }
+          },
+          "active" : {
+            "properties" : {
+              "particleEmittersOn" : ["idleParticles"]
+            }
+          }
         }
       }
     },
 
     "parts" : {
+      "tassel" : {
+        "properties" : {
+          "zLevel" : -2,
+          "centered" : true,
+          "offset" : [0.0, 0.0],
+          "transformationGroups" : ["weapon", "tassel"],
+          "rotationCenter" : [0, 0.375]
+        },
+        "partStates" : {
+          "status" : {
+            "inactive" : {
+              "properties" : {
+				        "image" : "<partImage>:idle<paletteSwaps>?<directives>?<bladeDirectives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+				        "image" : "<partImage>:enraged<paletteSwaps>?<directives>?<bladeDirectives>"
+              }
+            }
+          }
+        }
+      },
+      "tasselFullbright" : {
+        "properties" : {
+          "zLevel" : -1,
+          "centered" : true,
+          "fullbright" : true,
+          "offset" : [0.0, 0.0],
+          "transformationGroups" : ["weapon", "tassel"],
+          "rotationCenter" : [0, 0.375]
+        },
+        "partStates" : {
+          "status" : {
+            "inactive" : {
+              "properties" : {
+				        "image" : "<partImage>:idle<paletteSwaps>?<directives>?<bladeDirectives>"
+              }
+            },
+            "active" : {
+              "properties" : {
+				        "image" : "<partImage>:enraged<paletteSwaps>?<directives>?<bladeDirectives>"
+              }
+            }
+          }
+        }
+      },
       "blade" : {
         "properties" : {
           "zLevel" : 0,
@@ -117,21 +172,21 @@
             "fire" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>?flipy",
-                "offset" : [-0.125, -2.25],
-                "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
+                "offset" : [-0.375, -2.25],
+                "damageArea" : [[-5, -2], [-2.5, -3], [1, -3], [4, -1.75], [5, 0.25], [5, 2.25], [4, 3.25], [0, 2.5]]
               }
             },
             "fire2" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/slash/slash-<partImage>.png:<frame>",
-                "offset" : [4.0, 0.875],
+                "offset" : [4.0, 1],
                 "damageArea" : [[-4, 1], [2.5, 1], [2.5, -2], [-4, -2]]
               }
             },
             "fire3" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.125, 2.25],
+                "offset" : [-0.375, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             },
@@ -145,7 +200,7 @@
             "fire5" : {
               "properties" : {
                 "image" : "/items/active/weapons/melee/swoosh/starforge/downcut/downcut-<partImage>.png:<frame>",
-                "offset" : [-0.125, 2.25],
+                "offset" : [-0.375, 2.25],
                 "damageArea" : [[-5, 2], [-2.5, 3], [1, 3], [4, 1.75], [5, -0.25], [5, -2.25], [4, -3.25], [0, -2.5]]
               }
             }
@@ -157,7 +212,8 @@
 
   "transformationGroups" : {
     "weapon" : {},
-    "swoosh" : {}
+    "swoosh" : {},
+    "tassel" : {}
   },
 
   "particleEmitters" : {
@@ -168,29 +224,37 @@
       "burstCount" : 1,
       "particles" : []
     },
-	"statusReady" : {
+    "idleParticles" : {
+      "active" : false,
+      "transformationGroups" : ["weapon", "tassel"],
+      "emissionRate" : 5,
+      "particles" : [
+        { "particle" : "starforge-torporcloud"}
+      ]
+    },
+  	"statusReady" : {
       "burstCount" : 1,
       "particles" : [
         {
           "particle" : {
-			"type" : "text",
-			"text" : "^shadow;Enrage Ready",
-			"color" : [225, 25, 12, 180],
-			"light" : [70, 0, 0],
-			"fullbright" : true,
-			"initialVelocity" : [0.0, 1.0],
-			"finalVelocity" : [0.0, 2.5],
-			"size" : 0.5,
-			"approach" : [0, 40],
-			"angularVelocity" : 20,
-			"timeToLive" : 0.7,
-			"layer" : "front",
-			"destructionAction" : "fade",
-			"destructionTime" : 0.5,
-			"variance" : {
-			  "initialVelocity" : [0.0, 1.5]
-			},
-			"flippable" : false
+          "type" : "text",
+          "text" : "^shadow;Enrage Ready",
+          "color" : [225, 25, 12, 180],
+          "light" : [70, 0, 0],
+          "fullbright" : true,
+          "initialVelocity" : [0.0, 1.0],
+          "finalVelocity" : [0.0, 2.5],
+          "size" : 0.5,
+          "approach" : [0, 40],
+          "angularVelocity" : 20,
+          "timeToLive" : 0.7,
+          "layer" : "front",
+          "destructionAction" : "fade",
+          "destructionTime" : 0.5,
+          "variance" : {
+            "initialVelocity" : [0.0, 1.5]
+          },
+          "flippable" : false
           }
         }
       ]

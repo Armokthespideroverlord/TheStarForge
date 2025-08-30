@@ -11,14 +11,14 @@ function StarForgeActivateBlade:update(dt, fireMode, shiftHeld)
 
   self.cooldownTimer = math.max(0, self.cooldownTimer - self.dt)
 
-  if self.active and not status.overConsumeResource("energy", self.energyPerSecond * self.dt) then
+  if self.active and not status.overConsumeResource(self.energyResource or "energy", self.energyPerSecond * self.dt) and  (status.resource(self.energyResource or "energy") < (self.minimumEnergy or 0)) then
     self.active = false
   end
 
   if fireMode == "alt"
       and not self.weapon.currentAbility
       and self.cooldownTimer == 0
-      and not status.resourceLocked("energy") then
+      and not status.resourceLocked(self.energyResource or "energy") then
 
       self:setState(self.empower)
   end
@@ -31,6 +31,8 @@ function StarForgeActivateBlade:empower()
   self.active = (not self.active)
   if not self.active and self.projectileType then
     self:setState(self.windup)
+  elseif self.active and self.stances.activate then
+    self.weapon:setStance(self.stances.activate)
   end
 
   util.wait(self.durationAfter)
@@ -52,7 +54,7 @@ function StarForgeActivateBlade:fire()
   animator.setGlobalTag("comboDirectives", self.stances.fire.comboDirectives or "")
   self.weapon:updateAim()
 
-  self:fireProjectile(burstNumber)
+  self:fireProjectile()
 
   animator.playSound("altSlash")
   if self.swooshAnim then
@@ -64,7 +66,7 @@ function StarForgeActivateBlade:fire()
   self.cooldownTimer = self.cooldownTime
 end
 
-function StarForgeActivateBlade:fireProjectile(burstNumber)
+function StarForgeActivateBlade:fireProjectile()
   local params = sb.jsonMerge(self.projectileParameters, projectileParams or {})
   params.power = self:damagePerShot()
   params.powerMultiplier = activeItem.ownerPowerMultiplier()

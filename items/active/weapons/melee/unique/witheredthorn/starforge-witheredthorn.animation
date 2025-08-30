@@ -210,7 +210,7 @@
       "active" : true,
       "transformationGroups" : ["weapon"],
       "offsetRegion" : [0.25, 2.5, 0.25, 4],
-      "emissionRate" : 12,
+      "emissionRate" : 6,
       "particles" : [
         { "particle" : "starforge-withersmoke"}
       ]
@@ -219,7 +219,7 @@
       "active" : true,
       "transformationGroups" : ["weapon"],
       "offsetRegion" : [0.25, -2.5, 0.25, 2],
-      "emissionRate" : 16,
+      "emissionRate" : 8,
       "particles" : [
         { "particle" : "starforge-withersmoke"}
       ]
@@ -228,7 +228,7 @@
       "active" : true,
       "transformationGroups" : ["weapon"],
       "offsetRegion" : [0.25, -3.5, 0.25, -3.75],
-      "emissionRate" : 8,
+      "emissionRate" : 3,
       "particles" : [
         { "particle" : "starforge-withersmoke" }
       ]

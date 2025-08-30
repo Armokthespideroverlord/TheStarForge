@@ -43,7 +43,7 @@
     "itemParameters" : {
       "partParams" : {
         "all" : {
-          // all parts must either be from elpis or lack a manifacturer
+          // all parts must either be from elpis or lack a manufacturer
           "manufacturer" : "elpisElements"
         }
       }

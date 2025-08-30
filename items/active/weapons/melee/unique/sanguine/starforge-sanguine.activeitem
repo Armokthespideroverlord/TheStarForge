@@ -4,12 +4,12 @@
   "level" : 7,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "A cursed Yukai artefact powered by the life force of its previous owners.",
+  "description" : "Cursed, forever hungry, leaving only a lifeless husk left of those who wield it.",
   "shortdescription" : "^orange;Sanguine^reset;",
   "tooltipKind" : "starforge-uniquesword",
   "category" : "uniqueWeapon",
   "tooltipFieldsOverride" : {
-    "subtitle" : "Cursed Katana"
+    "subtitle" : "Katana"
   },
   "twoHanded" : true,
   "itemTags" : [ "starforge", "weapon", "melee", "broadsword", "katana", "yukai" ],
@@ -20,12 +20,38 @@
   "animationParts" : {
     "sword" : "starforge-sanguine.png",
     "swordfullbright" : "starforge-sanguinefullbright.png",
+    
+    "tassel" : "starforge-sanguinetassel.png",
+    "tassel2" : "starforge-sanguinetassel.png",
+    "tassel3" : "starforge-sanguinetassel.png",
+    "tassel4" : "starforge-sanguinetassel.png",
 	
     "swoosh" : "physical"
   },
   "animationCustom" : { },
 
-  "scripts" : ["/items/active/weapons/melee/unique/sanguine/starforge-sanguine.lua"],
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua", "/items/active/weapons/starforge-hangingparts.lua"],
+  "hangingParts" : {
+    "tassel2" : "tassel2",
+    "tassel3" : "tassel3",
+    "tassel4" : "tassel4"
+  },
+  "shakeVelocity" : 3,
+
+  //INACTIVE and ACTIVE stats
+  "canEmpower" : true,
+  "partForActive" : "sword",
+  "inactiveBaseDps" : 9.5,
+  "activeBaseDps" : 14,
+  "inactiveEnergyUsage" : 0,
+  "activeEnergyUsage" : 15,
+  "empoweredDamageConfig" : {
+    "damageSourceKind" : "broadsword",
+    "knockbackMode" : "aim",
+    "timeout" : 0.25,
+    "statusEffects" : ["starforge-lightbleeding"]
+  },
+  "activeSwooshPrefix" : "empowered",
 
   "elementalType" : "physical",
 
@@ -39,19 +65,19 @@
 	
 	  "stepDamageConfig" : [
       {
-        "baseDamageFactor" : 1.0,
+        "baseDamageFactor" : 0.80,
         "knockback" : 12.5
       },
       {
-        "baseDamageFactor" : 0.5,
+        "baseDamageFactor" : 0.85,
+        "knockback" : 12.5
+      },
+      {
+        "baseDamageFactor" : 0.75,
         "knockback" : 10
       },
       {
-        "baseDamageFactor" : 1,
-        "knockback" : 12.5
-      },
-      {
-        "baseDamageFactor" : 0.5,
+        "baseDamageFactor" : 0.85,
         "knockback" : 12.5
       },
       {
@@ -81,9 +107,117 @@
         "allowFlip" : true,
 		    "aimAngle" : 0
       },
-	  //UPSLASH
       "windup1" : {
         "duration" : 0.1,
+        "armRotation" : 90,
+        "weaponRotation" : -10,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "preslash1" : {
+        "duration" : 0.025,
+        "armRotation" : 55,
+        "weaponRotation" : -45,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "fire1" : {
+        "duration" : 0.1,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "twoHanded" : true,
+
+        "continueStep" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "wait1" : {
+        "duration" : 0.2,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "allowRotate" : false,
+        "allowFlip" : true,
+        "twoHanded" : true
+      },
+
+      "windup2" : {
+        "duration" : 0.05,
+        "armRotation" : 90,
+        "weaponRotation" : -10,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "preslash2" : {
+        "duration" : 0.025,
+        "armRotation" : 55,
+        "weaponRotation" : -45,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "fire2" : {
+        "duration" : 0.35,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "wait2" : {
+        "duration" : 0.2,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "allowRotate" : false,
+        "allowFlip" : true,
+        "twoHanded" : true
+      },
+      //SWEEP
+      "windup3" : {
+        "duration" : 0.2,
+        "armRotation" : -110,
+        "weaponRotation" : 220,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true,
+		
+		    "comboDirectives" : "flipx"
+      },
+      "fire3" : {
+        "duration" : 0.25,
+        "armRotation" : -5,
+        "weaponRotation" : -80,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true,
+        
+        "overSwing" : -0.05,
+		    "comboDirectives" : "flipx"
+      },
+      "wait3" : {
+        "duration" : 0.1,
+        "armRotation" : -5,
+        "weaponRotation" : -80,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true,
+		
+		    "comboDirectives" : "flipx"
+      },
+	  //UPSLASH
+      "windup4" : {
+        "duration" : 0.2,
         "armRotation" : -90,
         "weaponRotation" : -170,
         "twoHanded" : true,
@@ -91,9 +225,9 @@
         "allowRotate" : true,
         "allowFlip" : true,
 		
-	    	"comboDirectives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
-      "preslash1" : {
+      "preslash4" : {
         "duration" : 0.025,
         "armRotation" : -45,
         "weaponRotation" : -140,
@@ -104,8 +238,8 @@
 		
 	    	"comboDirectives" : "flipx"
       },
-      "fire1" : {
-        "duration" : 0.15,
+      "fire4" : {
+        "duration" : 0.255,
         "armRotation" : 45,
         "weaponRotation" : -125,
         "twoHanded" : true,
@@ -113,9 +247,9 @@
         "allowRotate" : false,
         "allowFlip" : false,
 		
-	    	"comboDirectives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
-      "wait1" : {
+      "wait4" : {
         "duration" : 0.2,
         "armRotation" : 45,
         "weaponRotation" : -125,
@@ -123,109 +257,11 @@
         "allowFlip" : true,
         "twoHanded" : true,
 		
-	    	"comboDirectives" : "flipx"
+		    "comboDirectives" : "flipx"
       },
-	  //HORIZONTAL SLASH
-      "windup2" : {
-        "duration" : 0.15,
-        "armRotation" : -15,
-        "weaponRotation" : -60,
-        "weaponOffset" : [0, 0],
-        "twoHanded" : true,
-        "allowFlip" : true,
-        "allowRotate" : true
-      },
-      "fire2" : {
-        "duration" : 0.2,
-        "armRotation" : -150,
-        "weaponRotation" : 55,
-        "weaponOffset" : [0, 0],
-        "twoHanded" : true,
-        "allowFlip" : true,
-        "allowRotate" : false
-      },
-      "wait2" : {
-        "duration" : 0.2,
-        "armRotation" : -150,
-        "weaponRotation" : 55,
-        "weaponOffset" : [0, 0],
-        "allowRotate" : false,
-        "allowFlip" : true,
-        "twoHanded" : true
-      },
-	  //DOWNSLASH
-      "windup3" : {
-        "duration" : 0.1,
-        "armRotation" : 90,
-        "weaponRotation" : -10,
-        "twoHanded" : true,
-
-        "allowRotate" : true,
-        "allowFlip" : true
-      },
-      "preslash3" : {
-        "duration" : 0.025,
-        "armRotation" : 55,
-        "weaponRotation" : -45,
-        "twoHanded" : true,
-
-        "allowRotate" : false,
-        "allowFlip" : false
-      },
-      "fire3" : {
-        "duration" : 0.15,
-        "armRotation" : -45,
-        "weaponRotation" : -55,
-        "twoHanded" : true,
-
-        "allowRotate" : false,
-        "allowFlip" : false
-      },
-      "wait3" : {
-        "duration" : 0.2,
-        "armRotation" : -45,
-        "weaponRotation" : -55,
-        "allowRotate" : false,
-        "allowFlip" : true,
-        "twoHanded" : true
-      },
-	  //REVERSE HORIZONTAL SLASH
-      "windup4" : {
-        "duration" : 0.15,
-		    "armRotation": -30,
-	    	"weaponRotation": -60,
-        "weaponOffset" : [0, 0],
-        "twoHanded" : true,
-        "allowFlip" : true,
-        "allowRotate" : true,
-		
-	    	"comboDirectives" : "flipx"
-      },
-      "fire4" : {
-        "duration" : 0.2,
-        "armRotation": 80,
-        "weaponRotation": -180,
-        "weaponOffset" : [0, 0],
-        "twoHanded" : true,
-        "allowFlip" : true,
-        "allowRotate" : false,
-		
-	    	"comboDirectives" : "flipx"
-      },
-      "wait4" : {
-        "duration" : 0.2,
-		    "armRotation": 80,
-	  	  "weaponRotation": -180,
-        "weaponOffset" : [0, 0],
-        "allowRotate" : false,
-        "allowFlip" : true,
-        "twoHanded" : true,
-		
-	    	"comboDirectives" : "flipx"
-      },
-	  //DOWNSLASH
+      //DOWNCUT
       "windup5" : {
-        "duration" : 0.1,
+        "duration" : 0.25,
         "armRotation" : 90,
         "weaponRotation" : -10,
         "twoHanded" : true,
@@ -243,7 +279,7 @@
         "allowFlip" : false
       },
       "fire5" : {
-        "duration" : 0.25,
+        "duration" : 0.35,
         "armRotation" : -45,
         "weaponRotation" : -55,
         "twoHanded" : true,
@@ -254,30 +290,28 @@
 	  }
   },
 
-  "inactiveBaseDps" : 10,
-  "activeBaseDps" : 16,
-
   "altAbility" : {
-    "name" : "Blood Infusion",
-    "scripts" : ["/items/active/weapons/melee/unique/sanguine/starforge-bloodempowerment.lua"],
-    "class" : "StarForgeBloodEmpowerment",
+    "name" : "Blood Ritual",
+    "scripts" : ["/items/active/weapons/melee/abilities/other/activateblade/starforge-activateblade.lua"],
+    "class" : "StarForgeActivateBlade",
 
-    "healthPerSecond" : 25,
+    "energyResource" : "health",
+    "energyPerSecond" : 25,
+	  "minimumEnergy" : 30,		//Stop when at this health
 	
-	  "minimumHealth" : 30,		//Stop when at this health
+    "durationBefore" : 0.2,
+    "durationAfter" : 0.5,
 
-    "projectileOffset" : [1, 0],
-  	"projectileCount" : 5,
+    "baseDamage" : 10,
     "projectileType" : "starforge-sanguinebolt",
     "projectileParameters" : {},
-    "baseDamage" : 5.5,
+
+    "swooshAnim" : "altfire",
 
     "cooldownTime" : 1.0,
 
     "stances" : {
-      "empower" : {
-        "durationBefore" : 0.2,
-        "durationAfter" : 0.5,
+      "activate" : {
         "armRotation" : 90,
         "weaponRotation" : -90,
         "twoHanded" : true,

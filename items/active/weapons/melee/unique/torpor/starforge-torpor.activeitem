@@ -20,6 +20,7 @@
   "animationParts" : {
     "blade" : "starforge-torpor.png",
     "bladeFullbright" : "starforge-torporlights.png",
+    "tassel" : "starforge-torportassel.png",
 	
     "swoosh" : "blood"
   },
@@ -33,15 +34,19 @@
     }
   },
 
-  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua", "/items/active/weapons/starforge-hangingparts.lua"],
+  "hangingParts" : {
+    "tassel" : "tassel"
+  },
+  "shakeVelocity" : 4,
 
   "elementalType" : "physical",
 
   "primaryAbilityType" : "broadswordcombo",
   "primaryAbility" : {
-    "scripts" : ["/items/active/weapons/melee/abilities/starforge-warpcombo.lua"],
-	  "class" : "StarforgeWarpCombo",
-    "fireTime" : 0.55,
+    "scripts" : ["/items/active/weapons/melee/abilities/starforge-meleecombo.lua"],
+	  "class" : "StarforgeMeleeCombo",
+    "fireTime" : 1,
     "baseDps" : 10.5,
 	
 	  "stepDamageConfig" : [
@@ -74,12 +79,12 @@
 	
     "damageConfig" : {
       "damageSourceKind" : "broadsword",
-      "statusEffects" : ["starforge-heavybleeding"],
+      "statusEffects" : ["starforge-lightbleeding"],
       "knockbackMode" : "facing"
     },
 	
 	  "comboSteps" : 5,
-    "comboSpeedFactor" : 0.8,
+    "comboSpeedFactor" : 0.9,
 	
   	"swooshOffsetRegions" : [
       [0.75, 0.0, 4.25, -5.0],
@@ -124,7 +129,7 @@
 	    	"comboDirectives" : "flipx"
       },
       "fire1" : {
-        "duration" : 0.175,
+        "duration" : 0.125,
         "armRotation" : 45,
         "weaponRotation" : -125,
         "twoHanded" : true,
@@ -155,7 +160,7 @@
         "allowRotate" : true
       },
       "fire2" : {
-        "duration" : 0.225,
+        "duration" : 0.175,
         "armRotation" : -150,
         "weaponRotation" : 55,
         "weaponOffset" : [0, 0],
@@ -185,14 +190,15 @@
 		    "comboDirectives" : "flipx"
       },
       "fire3" : {
-        "duration" : 0.225,
+        "duration" : 0.15,
         "armRotation" : -5,
         "weaponRotation" : -80,
         "twoHanded" : true,
 
         "allowRotate" : false,
         "allowFlip" : true,
-		
+        
+        "overSwing" : -0.05,
 		    "comboDirectives" : "flipx"
       },
       "wait3" : {
@@ -226,7 +232,7 @@
         "allowFlip" : false
       },
       "fire4" : {
-        "duration" : 0.175,
+        "duration" : 0.125,
         "armRotation" : -45,
         "weaponRotation" : -55,
         "twoHanded" : true,

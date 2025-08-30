@@ -1,0 +1,267 @@
+{
+  "itemName" : "starforge-miniknogplasmacutter",
+  "price" : 960,
+  "level" : 6,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "A Miniknog plasma cutter used for cutting banana shapes into sheets of metal.",
+  "shortdescription" : "Miniknog Plasma Cutter",
+  "tooltipKind" : "starforge-uniquesword",
+  "category": "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Quickblade"
+  },
+  "twoHanded" : false,
+  "itemTags" : [ "starforge", "weapon", "melee", "quickblade", "dagger" ],
+
+  "inventoryIcon" : "starforge-miniknogplasmacutter.png",
+
+  "animation" : "/items/active/weapons/melee/dagger/starforge-energyquickblade.animation",
+  "animationParts" : {
+    "handle" : "handle.png",
+    "handleFullbright" : "handlefullbright.png",
+    "blade" : "blade.png",
+	
+    "swoosh" : "protectorate"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "stateTypes" : {
+        "firing" : {
+          "default" : "off",
+          "states" : {
+            "off" : {},
+            "fire" : {
+              "frames" : 2,
+              "cycle" : 0.07,
+              "mode" : "transition",
+              "transition" : "off"
+            }
+          }
+        }
+      }
+    },
+    "transformationGroups" : {
+      "muzzle" : {}
+    },
+    "lights" : {
+      "muzzleFlash" : {
+        "active" : false,
+        "position" : [0, 0],
+        "color" : [90, 90, 0]
+      }
+    },
+    "particleEmitters" : {
+      "electricswoosh" : {
+        "active" : false,
+        "transformationGroups" : ["swoosh"],
+        "offsetRegion" : [2.5, -1.0, 3.5, 1.0],
+        "burstCount" : 4,
+        "particles" : [
+          { "particle" : "protectorblade"},
+          { "particle" : "protectorblade2"}
+        ]
+      },
+      "blade" : {
+        "active" : false,
+        "transformationGroups" : ["weapon"],
+        "offsetRegion" : [-0.5, 1.5, 0.5, 2.0],
+        "emissionRate" : 5,
+        "particles" : [
+          { "particle" : "protectorblade"},
+          { "particle" : "protectorblade2"}
+        ]
+      },
+      "muzzleFlash" : {
+        "active" : false,
+        "transformationGroups" : ["swoosh"],
+        "offsetRegion" : [3.5, -1.0, 7.5, 1.0],
+        "burstCount" : 1,
+        "particles" : []
+      }
+    },
+    "sounds" : {
+      "fire" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire2" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire3" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire4" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+      "fire5" : [ "/sfx/melee/laser_weapon_swing1.ogg", "/sfx/melee/laser_weapon_swing2.ogg", "/sfx/melee/laser_weapon_swing3.ogg" ],
+    
+      "fireBolt" : [ "/sfx/gun/grenadeblast_electric1.ogg", "/sfx/gun/grenadeblast_electric2.ogg", "/sfx/gun/grenadeblast_electric3.ogg" ]
+    }
+  },
+
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
+
+  "activeTime" : 2.6,
+
+  "elementalType" : "electric",
+
+  "primaryAbilityType" : "starforge-daggercombo",
+  "primaryAbility" : {
+    "baseDps" : 8,
+	
+    "finisherHoldTime" : 0.6,
+  
+    "damageConfig" : {
+      "damageSourceKind" : "electricdagger",
+      "knockbackMode" : "aim",
+      "timeout" : 0.25,
+	    "statusEffects" : [ "electrified" ]
+    }
+  },  
+  
+  "altAbilityType" : "starforge-spellglaiveblast",
+  "altAbility" : {
+    "name" : "Discharge",
+    "projectileType" : "cellblast",
+    "projectileParameters" : {
+      "speed" : 0,
+      "timeToLive" : 0,
+      "actionOnReap" : [
+        {
+          "action" : "projectile",
+          "inheritDamageFactor" : 1,
+          "type" : "electricexplosionknockback",
+          "config" : {
+            "statusEffects" : [ "electrified" ]
+          }
+        },
+        {
+          "action" : "loop",
+          "count" : 5,
+          "body" : [
+            {
+              "action" : "projectile",
+              "inheritDamageFactor" : 0.05,
+              "type" : "electro",
+              "fuzzAngle" : 30,
+              "config" : {
+                "statusEffects" : [ "electrified" ]
+              }
+            }
+          ]
+        },
+        {
+          "action" : "loop",
+          "count" : 7,
+          "body" : [
+            {
+              "action" : "option",
+              "options" : [
+                {
+                  "action" : "particle",
+                  "specification" : {
+                    "type" : "animated",
+                    "animation" : "/animations/teslabolt/teslabolt.animation",
+                    "approach" : [0.5, 0.5],
+                    "timeToLive" : 0.6,
+                    "variance" : {
+                      "timeToLive" : 0.15,
+                      "position" : [2, 2],
+                      "initialVelocity" : [1, 1],
+                      "rotation" : 180
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "action" : "spark"
+            }
+          ]
+        },
+        {
+          "action" : "loop",
+          "count" : 7,
+          "body" : [
+            {
+              "action" : "option",
+              "options" : [
+                {
+                  "action" : "particle",
+                  "specification" : {
+                    "type" : "animated",
+                    "animation" : "/animations/teslabolt/teslabolt.animation",
+                    "approach" : [0.5, 0.5],
+                    "timeToLive" : 0.2,
+                    "variance" : {
+                      "position" : [2, 2],
+                      "initialVelocity" : [1, 1],
+                      "rotation" : 180
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action" : "loop",
+          "count" : 1,
+          "body" : [
+            {
+              "action" : "option",
+              "options" : [
+                {
+                  "action" : "particle",
+                  "specification" : {
+                    "type" : "animated",
+                    "animation" : "/animations/electroshock/electroshock.animation",
+                    "approach" : [0.5, 0.5],
+                    "timeToLive" : 0.2,
+                    "variance" : {
+                      "position" : [2, 2],
+                      "initialVelocity" : [1, 1],
+                      "rotation" : 180
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "projectileCount" : 1,
+    "inaccuracy": 0.01,
+    "baseDamage" : 8,
+    "energyUsage" : 25,
+    
+    "fireTime" : 1,
+    "fireType" : "auto",
+    "fireOffset" : [1.0, 0.125],
+    "knockbackForce" : 40,
+
+    "stances" : {
+      "fire" : {
+        "preDuration" : 0.1,
+        "duration" : 0.25,
+        "armRotation" : -20,
+        "weaponRotation" : -70,
+        "twoHanded" : false,
+        "weaponOffset" : [0, -0.125],
+
+        "allowRotate" : true,
+        "allowFlip" : true,
+    
+        "frontArmFrame" : "rotation"
+      },
+      "cooldown" : {
+        "duration" : 0.45,
+        "armRotation" : -110,
+        "weaponRotation" : 20,
+        "twoHanded" : false,
+        "weaponOffset" : [-0.625, -0.25],
+
+        "allowRotate" : true,
+        "allowFlip" : true,
+    
+        "frontArmFrame" : "rotation"
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

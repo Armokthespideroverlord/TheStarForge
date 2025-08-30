@@ -1,0 +1,44 @@
+{
+  "projectileName" : "starforge-witherspike",
+  "image" : "starforge-witherspike.png",
+  "physics" : "arrow",
+  "animationCycle" : 0.25,
+  "frameNumber" : 1,
+  "pointLight" : false,
+  "flippable" : true,
+  "supportsProcessing" : true,
+  "piercing" : true,
+  "actionOnCollide" : [
+    {
+      "action" : "sound",
+      "options" : [
+        "/sfx/gun/impact_arrow.ogg"
+      ]
+    }
+  ],
+  "periodicActions" : [
+  	{ 
+      "time" : 0.05,
+      "repeat" : true,
+      "action" : "projectile",
+      "rotate" : true,
+      "type" : "starforge-withersmoke",
+      "config" : {
+      },
+      "inheritDamageFactor" : 0.0125,
+      "angleAdjust" : 180,
+      "fuzzAngle" : 25
+    }
+  ],
+  "power" : 5.0,
+  "speed" : 65,
+  "damageKind" : "starforge-wither",
+  "emitters" : [ ],
+  "timeToLive" : 4,
+  
+  "renderLayer" : "Monster+1",
+  
+  "scripts" : [ "/projectiles/scripts/starforge-stickingprojectile.lua" ],
+  "retainStickingDamage" : true,
+  "searchRadius" : 0.1
+}

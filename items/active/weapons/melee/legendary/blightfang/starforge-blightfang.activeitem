@@ -1,0 +1,121 @@
+{
+  "itemName" : "starforge-blightfang",
+  "price" : 1000,
+  "level" : 6,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "A blade wrought with blight, it may have known another name, though it lost now.",
+  "shortdescription" : "Blightfang",
+  "tooltipKind" : "starforge-uniquesword",
+  "category" : "uniqueWeapon",
+  "tooltipFieldsOverride" : {
+    "subtitle" : "Broadsword"
+  },
+  "twoHanded" : true,
+  "itemTags" : [ "starforge", "weapon", "melee", "broadsword" ],
+  //"learnBlueprintsOnPickup" : [ "starforge-blightfang" ],
+
+  "inventoryIcon" : "starforge-blightfang.png",
+
+  "animation" : "/items/active/weapons/melee/broadsword/starforge-broadsword.animation",
+  "animationParts" : {
+    "handle" : "",
+    "blade" : "starforge-blightfang.png",
+	
+    "swoosh" : "wither"
+  },
+  "animationCustom" : {
+    "animatedParts" : {
+      "parts" : {
+        "swoosh" : {
+          "partStates" : {
+            "swoosh" : {
+              "fire" : {
+                "properties" : {
+                  "offset" : [-0.25, 2.625]
+                }
+              },
+              "fire2" : {
+                "properties" : {
+                  "offset" : [3, 1]
+                }
+              },
+              "fire3" : {
+                "properties" : {
+                  "offset" : [-0.25, 2.625]
+                }
+              },
+              "fire4" : {
+                "properties" : {
+                  "offset" : [3.5, 0]
+                }
+              }
+		        }
+          }
+        }
+      }
+    },
+    "particleEmitters" : {
+      "starforge-witherCharge" : {
+        "active" : false,
+        "particles" : []
+      }
+    },
+
+    "sounds" : {
+      "starforge-withercharge" : [],
+      "starforge-witherfull" : [],
+      "starforge-witherimpact" : [ "/sfx/gun/starforge_tidalfrostblast.ogg" ]
+    }
+  },
+
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua"],
+
+  "elementalType" : "starforge-wither",
+
+  "primaryAbilityType" : "starforge-broadswordcombo",
+  "primaryAbility" : {
+    "fireTime" : 0.83,
+    "baseDps" : 10,
+    "damageConfig" : {
+      "damageSourceKind" : "starforge-wither"
+    }
+  },
+
+  "altAbilityType" : "physicalshockwave",
+  "altAbility" : {
+    "name" : "Earthrot",
+    "chargeTime" : 1.5,
+    "minChargeTime" : 0.75,
+    "maxDistance" : 15,
+    "bothDirections" : true,
+    "projectileType" : "starforge-starmitelick",
+
+    "impactWeaponOffset" : 0.0,
+
+    "stances" : {
+      "windup" : {
+        "armRotation" : -90,
+        "weaponRotation" : -10,
+        "endArmRotation" : 110,
+        "endWeaponRotation" : -235,
+        "weaponOffset" : [0, 0],
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0.35,
+        "armRotation" : -10,
+        "weaponRotation" : -170,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      }
+    }
+  },
+
+  "builder" : "/items/buildscripts/starforge-builduniqueweapon.lua"
+}

@@ -4,7 +4,7 @@
   "level" : 7,
   "maxStack" : 1,
   "rarity" : "Essential",
-  "description" : "An unusual katana, able to throw the user into a fit of rage for increased efficiency.",
+  "description" : "An impervium blade, stolen and cursed with many generations of rage.",
   "shortdescription" : "^orange;Furour^reset;",
   "tooltipKind" : "starforge-uniquesword",
   "category" : "uniqueWeapon",
@@ -20,6 +20,9 @@
   "animationParts" : {
     "blade" : "starforge-furour.png",
     "bladeFullbright" : "starforge-furourlights.png",
+
+    "tassel" : "starforge-furourtassel.png",
+    "tasselFullbright" : "starforge-furourtasselfullbright.png",
 	
     "swoosh" : "physical"
   },
@@ -33,17 +36,23 @@
       "activateStatusEffect" : [ "/sfx/melee/swing_shortsword.ogg" ],
       "abilityReady" : [ "/sfx/interface/sniper_mark_start1.ogg" ]
     },
-	"particleEmitters" : {
-	  "activateStatusEffect" : {
-		"active" : false,
-		"transformationGroups" : ["weapon"],
-		"burstCount" : 1,
-		"particles" : []
-	  }
-	}
+    "particleEmitters" : {
+      "activateStatusEffect" : {
+        "active" : false,
+        "transformationGroups" : ["weapon", "tassel"],
+        "burstCount" : 5,
+        "particles" : [
+          { "particle" : "starforge-torporcloud"}
+        ]
+      }
+    }
   },
 
-  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scripts" : ["/items/active/weapons/melee/starforge-meleeweapon.lua", "/items/active/weapons/starforge-hangingparts.lua"],
+  "hangingParts" : {
+    "tassel" : "tassel"
+  },
+  "shakeVelocity" : 4,
 
   "elementalType" : "physical",
 
@@ -279,6 +288,7 @@
 
 	  "statusEffect" : "starforge-furourrage",
     "energyUsage" : 500.0,
+    "selfDamage" : 15,
     "cooldownTime" : 15.0,
 	
 	  "lightIndicator" : false,		//Enables light animation to indicate cooldown status
@@ -300,9 +310,12 @@
       },
       "statusIdle" : {
 	    	"emote" : "annoyed",
+        "comboDirectives" : "?flipx",
+        
         "armRotation" : -125,
-        "weaponRotation" : -5,
+        "weaponRotation" : -125,
         "twoHanded" : false,
+        //"weaponOffset" : [0.25, 0],
 		
         "allowRotate" : false,
         "allowFlip" : true,

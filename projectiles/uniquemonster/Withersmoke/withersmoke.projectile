@@ -11,5 +11,9 @@
   "bounces" : 4,
   "piercing" : true,
   "damagePoly" : [ [-4.5, 0], [-3, -3], [0, -4.5], [3, -3], [4.5, 0], [3, 3], [0, 4.5], [-3, 3] ],
-  "damageKind" : "starforge-wither"
+  "damageKind" : "starforge-wither",
+  
+  "scripts" : [ "/projectiles/scripts/starforge-randomspeedslowdown.lua" ],
+  "targetRandSpeed" : [15, 30],
+  "zeroApproachFactor" : 2
 }

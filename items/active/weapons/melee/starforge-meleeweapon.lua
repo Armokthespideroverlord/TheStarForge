@@ -37,7 +37,7 @@ function init()
   self.activeTime = config.getParameter("activeTime")
   if self.activeTime then
     self.activeTimer = 0
-    animator.setAnimationState("blade", "inactive")
+    animator.setAnimationState(self.partForActive, "inactive")
   end
 
   self.canEmpower = config.getParameter("canEmpower")
@@ -71,7 +71,7 @@ function update(dt, fireMode, shiftHeld)
   self.weapon:update(dt, fireMode, shiftHeld)
   
   updateActiveState(dt)
-  if self.altAbility then
+  if self.canEmpower and self.altAbility then
     updateEmpoweredState()
   end
 end

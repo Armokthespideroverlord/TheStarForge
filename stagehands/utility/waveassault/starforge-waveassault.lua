@@ -158,20 +158,20 @@ function spawnEnemies()
     --Optionally correct the position by finding the ground below the projected position
     local correctedPositionAndNormal = {position, nil}
     if self.spawnOnGround then
-	  correctedPositionAndNormal = world.lineTileCollisionPoint(position, vec2.add(position, {0, -50})) or {position, 0}
+	    correctedPositionAndNormal = world.lineTileCollisionPoint(position, vec2.add(position, {0, -50})) or {position, 0}
     end
   
     --Resolve the NPC poly collision to ensure that we can place an NPC at the designated position
     local resolvedPosition = world.resolvePolyCollision(self.testPoly, correctedPositionAndNormal[1], self.spawnTolerance)
   
     if resolvedPosition then
-	  --Spawn the enemy and optionally force the enemy spawn effect on them
-	  local entityId = spawnEntity(util.randomChoice(self.validTypes), resolvedPosition)
-	  for _, effect in pairs(self.spawnEffects) do
-	    world.sendEntityMessage(entityId, "applyStatusEffect", effect)
-	  end
-	  --Insert to memory of all enemies
-	  table.insert(self.currentEnemies, entityId)
+      --Spawn the enemy and optionally force the enemy spawn effect on them
+      local entityId = spawnEntity(util.randomChoice(self.validTypes), resolvedPosition)
+      for _, effect in pairs(self.spawnEffects) do
+        world.sendEntityMessage(entityId, "applyStatusEffect", effect)
+      end
+      --Insert to memory of all enemies
+      table.insert(self.currentEnemies, entityId)
     end
   end
 end
