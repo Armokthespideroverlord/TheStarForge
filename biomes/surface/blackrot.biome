@@ -214,7 +214,7 @@
         "mode" : "floor",
         "priority" : 1.0,
         "variants" : 1,
-        "distribution" : "/biomes/tidetreedistribution.config:starforge-tidetreedistrib1",
+        "distribution" : "/biomes/distributions.config:scatteredLarge",
 
         "type" : "object",
         "objectSets" : [
@@ -273,20 +273,65 @@
         "distribution" : "/biomes/distributions.config:denseSmall",
 
         "type" : "grass",
-        "grasses" : [ "grass", "testflower", "testflower2", "testflower3", "testflower4", "testflower5", "testflower6", "testflower7" ]
+        "grasses" : [ "smallblackrotgrass" ]
       },
       {
         "mode" : "floor",
         "priority" : 2.0,
         "variants" : 1,
-        "distribution" : "/biomes/distributions.config:denseMedium",
+        "distribution" : "/biomes/distributions.config:scatteredLarge",
 
         "type" : "bush",
         "bushes" : [
           {
-            "name" : "testbush",
-            "baseHueShiftMax" : 180,
-            "modHueShiftMax" : 180
+            "name" : "starforge-blackrottrunks",
+            "baseHueShiftMax" : 0,
+            "modHueShiftMax" : 0
+          }
+        ]
+      },
+	  {
+        "mode" : "floor",
+        "priority" : 2.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredLarge",
+
+        "type" : "bush",
+        "bushes" : [
+          {
+            "name" : "starforge-blackrotcarapace",
+            "baseHueShiftMax" : 0,
+            "modHueShiftMax" : 0
+          }
+        ]
+      },
+	  {
+        "mode" : "floor",
+        "priority" : 2.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredLarge",
+
+        "type" : "bush",
+        "bushes" : [
+          {
+            "name" : "starforge-blackrothive",
+            "baseHueShiftMax" : 0,
+            "modHueShiftMax" : 0
+          }
+        ]
+      },
+	  {
+        "mode" : "floor",
+        "priority" : 2.0,
+        "variants" : 1,
+        "distribution" : "/biomes/distributions.config:scatteredLarge",
+
+        "type" : "bush",
+        "bushes" : [
+          {
+            "name" : "starforge-blackrotminitrees",
+            "baseHueShiftMax" : 0,
+            "modHueShiftMax" : 0
           }
         ]
       },

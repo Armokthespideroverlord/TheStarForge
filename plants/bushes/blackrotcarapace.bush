@@ -1,0 +1,21 @@
+{
+  "name" : "starforge-blackrotcarapace",
+  "description" : "Looks like a growing bug. ",
+  "shortdescription" : "Black Rot Carapace",
+  "floranDescription" : "Ssstrange chitin.",
+  "glitchDescription" : "Statement. A strange carapace is coming out of the ground.",
+  "shapes" : [
+    {
+      "base" : "blackrotcarapace1.png"
+    },
+	{
+      "base" : "blackrotcarapace2.png"
+    },
+	{
+      "base" : "blackrotcarapace3.png"
+    },
+	{
+      "base" : "blackrotcarapace4.png"
+    }
+  ]
+}

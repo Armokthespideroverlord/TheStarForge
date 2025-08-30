@@ -1,0 +1,8 @@
+{
+  "name" : "starforge-smallblackrotgrass",
+  "description" : "Rotten tree trunks and branches.",
+  "shortdescription" : "Black Rot Branches",
+  "floranDescription" : "Tree isss dead...",
+  "glitchDescription" : "Statement. Small branches.",
+  "images" : [ "smallblackrotgrass1.png", "smallblackrotgrass2.png", "smallblackrotgrass3.png" ]
+}

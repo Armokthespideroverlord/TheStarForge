@@ -1,0 +1,21 @@
+{
+  "name" : "starforge-blackrottrunks",
+  "description" : "Rotten trunks, corrupted by the Black Rot.",
+  "shortdescription" : "Black Rot Trunks",
+  "floranDescription" : "Dead treesss.",
+  "glitchDescription" : "Statement. A rotten trunk.",
+  "shapes" : [
+    {
+      "base" : "blackrottrunks1.png"
+    },
+	{
+      "base" : "blackrottrunks2.png"
+    },
+	{
+      "base" : "blackrottrunks3.png"
+    },
+	{
+      "base" : "blackrottrunks4.png"
+    }
+  ]
+}

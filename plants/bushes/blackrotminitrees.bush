@@ -1,0 +1,18 @@
+{
+  "name" : "starforge-blackrotminitrees",
+  "description" : "Small Sickamore trees.",
+  "shortdescription" : "Sickamore trees",
+  "floranDescription" : "Too sssmall to climb.",
+  "glitchDescription" : "Statement. An unremarkable tree.",
+  "shapes" : [
+    {
+      "base" : "blackrotminitrees1.png"
+    },
+	{
+      "base" : "blackrotminitrees2.png"
+    },
+	{
+      "base" : "blackrotminitrees3.png"
+    }
+  ]
+}
